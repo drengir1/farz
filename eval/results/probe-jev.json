@@ -2,14 +2,14 @@
  "set": "probe",
  "decider": "jev",
  "how": "zero-shot",
- "threshold": 0.9,
- "date": "2026-10-23 01:05",
+ "threshold": 0.85,
+ "date": "2026-10-23 01:22",
  "metrics": {
   "tickets": 63,
-  "category_accuracy": 0.9841,
+  "category_accuracy": 0.9683,
   "priority_accuracy": 0.8413,
   "both_right": 0.8254,
-  "sent_to_team_queue": 0.1905,
+  "sent_to_team_queue": 0.2222,
   "team_queue_both_right": 1.0,
   "team_queue_wrong_ids": [],
   "fraud_to_person": 1.0,
@@ -22,12 +22,12 @@
    {
     "threshold": 0.6,
     "coverage": 0.9206,
-    "both_right": 0.8621
+    "both_right": 0.8793
    },
    {
     "threshold": 0.7,
-    "coverage": 0.873,
-    "both_right": 0.9091
+    "coverage": 0.8571,
+    "both_right": 0.9074
    },
    {
     "threshold": 0.8,
@@ -36,13 +36,13 @@
    },
    {
     "threshold": 0.9,
-    "coverage": 0.6508,
-    "both_right": 0.9268
+    "coverage": 0.6032,
+    "both_right": 0.9737
    },
    {
     "threshold": 0.95,
     "coverage": 0.4921,
-    "both_right": 0.9355
+    "both_right": 1.0
    },
    {
     "threshold": 0.99,
@@ -50,8 +50,8 @@
     "both_right": 1.0
    }
   ],
-  "ms_per_ticket_median": 250.8,
-  "ms_per_ticket_p95": 604.2,
+  "ms_per_ticket_median": 235.2,
+  "ms_per_ticket_p95": 272.2,
   "usd_total": 0.002294
  },
  "routed": [
@@ -224,7 +224,7 @@
    "category": "failed_transfer",
    "category_confidence": 1.0,
    "priority": "normal",
-   "priority_confidence": 0.81,
+   "priority_confidence": 0.73,
    "team": "transfers",
    "entities": {
     "amount": null,
@@ -238,7 +238,7 @@
    },
    "route": "person",
    "reasons": [
-    "not sure of priority (normal 0.81)",
+    "not sure of priority (normal 0.73)",
     "ledger: no wallet for this customer"
    ],
    "probabilities": {
@@ -255,8 +255,8 @@
     },
     "priority": {
      "urgent": 0.0,
-     "high": 0.14,
-     "normal": 0.86,
+     "high": 0.2,
+     "normal": 0.8,
      "low": 0.0
     }
    }
@@ -266,7 +266,7 @@
    "category": "failed_transfer",
    "category_confidence": 0.98,
    "priority": "high",
-   "priority_confidence": 0.92,
+   "priority_confidence": 0.96,
    "team": "transfers",
    "entities": {
     "amount": 3500000,
@@ -295,10 +295,10 @@
      "general_inquiry": 0.02
     },
     "priority": {
-     "urgent": 0.01,
-     "high": 0.94,
-     "normal": 0.02,
-     "low": 0.03
+     "urgent": 0.0,
+     "high": 0.97,
+     "normal": 0.01,
+     "low": 0.02
     }
    }
   },
@@ -461,15 +461,15 @@
     "priority": {
      "urgent": 0.0,
      "high": 0.96,
-     "normal": 0.01,
-     "low": 0.03
+     "normal": 0.02,
+     "low": 0.02
     }
    }
   },
   {
    "id": "wr04",
    "category": "wrong_recipient",
-   "category_confidence": 0.99,
+   "category_confidence": 0.98,
    "priority": "high",
    "priority_confidence": 0.91,
    "team": "transfers",
@@ -489,8 +489,8 @@
    ],
    "probabilities": {
     "category": {
-     "failed_transfer": 0.01,
-     "wrong_recipient": 0.99,
+     "failed_transfer": 0.02,
+     "wrong_recipient": 0.98,
      "login_access": 0.0,
      "agent_dispute": 0.0,
      "card_issue": 0.0,
@@ -594,7 +594,7 @@
    "category": "wrong_recipient",
    "category_confidence": 0.95,
    "priority": "high",
-   "priority_confidence": 0.79,
+   "priority_confidence": 0.75,
    "team": "transfers",
    "entities": {
     "amount": null,
@@ -608,7 +608,7 @@
    },
    "route": "person",
    "reasons": [
-    "not sure of priority (high 0.79)",
+    "not sure of priority (high 0.75)",
     "ledger: no wallet for this customer"
    ],
    "probabilities": {
@@ -624,8 +624,8 @@
      "general_inquiry": 0.0
     },
     "priority": {
-     "urgent": 0.16,
-     "high": 0.84,
+     "urgent": 0.19,
+     "high": 0.81,
      "normal": 0.0,
      "low": 0.0
     }
@@ -671,7 +671,7 @@
    "category": "login_access",
    "category_confidence": 1.0,
    "priority": "normal",
-   "priority_confidence": 0.55,
+   "priority_confidence": 0.57,
    "team": "account_access",
    "entities": {
     "amount": null,
@@ -681,7 +681,7 @@
    "ledger": null,
    "route": "person",
    "reasons": [
-    "not sure of priority (normal 0.55)"
+    "not sure of priority (normal 0.57)"
    ],
    "probabilities": {
     "category": {
@@ -697,8 +697,8 @@
     },
     "priority": {
      "urgent": 0.01,
-     "high": 0.32,
-     "normal": 0.66,
+     "high": 0.3,
+     "normal": 0.68,
      "low": 0.01
     }
    }
@@ -741,7 +741,7 @@
   {
    "id": "la04",
    "category": "login_access",
-   "category_confidence": 0.88,
+   "category_confidence": 0.81,
    "priority": "normal",
    "priority_confidence": 1.0,
    "team": "account_access",
@@ -753,19 +753,19 @@
    "ledger": null,
    "route": "person",
    "reasons": [
-    "not sure of category (login_access 0.88)"
+    "not sure of category (login_access 0.81)"
    ],
    "probabilities": {
     "category": {
      "failed_transfer": 0.0,
      "wrong_recipient": 0.0,
-     "login_access": 0.89,
+     "login_access": 0.83,
      "agent_dispute": 0.0,
      "card_issue": 0.0,
      "bill_payment": 0.0,
      "fraud_scam": 0.0,
      "account_kyc": 0.0,
-     "general_inquiry": 0.11
+     "general_inquiry": 0.17
     },
     "priority": {
      "urgent": 0.0,
@@ -780,7 +780,7 @@
    "category": "login_access",
    "category_confidence": 1.0,
    "priority": "normal",
-   "priority_confidence": 0.99,
+   "priority_confidence": 0.97,
    "team": "account_access",
    "entities": {
     "amount": null,
@@ -804,48 +804,54 @@
     },
     "priority": {
      "urgent": 0.0,
-     "high": 0.01,
-     "normal": 0.99,
+     "high": 0.02,
+     "normal": 0.98,
      "low": 0.0
     }
    }
   },
   {
    "id": "la06",
-   "category": "login_access",
-   "category_confidence": 0.47,
+   "category": "fraud_scam",
+   "category_confidence": 0.43,
    "priority": "urgent",
-   "priority_confidence": 0.65,
-   "team": "account_access",
+   "priority_confidence": 0.72,
+   "team": "fraud",
    "entities": {
     "amount": null,
     "phone": null,
     "reference": null
    },
-   "ledger": null,
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
    "route": "person",
    "reasons": [
-    "not sure of category (login_access 0.47)",
-    "not sure of priority (urgent 0.65)",
+    "not sure of category (fraud_scam 0.43)",
+    "not sure of priority (urgent 0.72)",
+    "fraud or scam",
     "urgent",
-    "scam signs in the text"
+    "scam signs in the text",
+    "ledger: no wallet for this customer"
    ],
    "probabilities": {
     "category": {
-     "failed_transfer": 0.04,
-     "wrong_recipient": 0.05,
-     "login_access": 0.53,
+     "failed_transfer": 0.01,
+     "wrong_recipient": 0.01,
+     "login_access": 0.47,
      "agent_dispute": 0.0,
      "card_issue": 0.0,
      "bill_payment": 0.0,
-     "fraud_scam": 0.36,
+     "fraud_scam": 0.49,
      "account_kyc": 0.01,
      "general_inquiry": 0.01
     },
     "priority": {
-     "urgent": 0.74,
-     "high": 0.16,
-     "normal": 0.07,
+     "urgent": 0.79,
+     "high": 0.12,
+     "normal": 0.06,
      "low": 0.03
     }
    }
@@ -853,9 +859,9 @@
   {
    "id": "la07",
    "category": "login_access",
-   "category_confidence": 0.97,
+   "category_confidence": 0.95,
    "priority": "normal",
-   "priority_confidence": 0.96,
+   "priority_confidence": 0.97,
    "team": "account_access",
    "entities": {
     "amount": null,
@@ -869,18 +875,18 @@
     "category": {
      "failed_transfer": 0.0,
      "wrong_recipient": 0.0,
-     "login_access": 0.97,
+     "login_access": 0.96,
      "agent_dispute": 0.0,
      "card_issue": 0.0,
      "bill_payment": 0.0,
      "fraud_scam": 0.0,
      "account_kyc": 0.0,
-     "general_inquiry": 0.03
+     "general_inquiry": 0.04
     },
     "priority": {
      "urgent": 0.0,
-     "high": 0.03,
-     "normal": 0.97,
+     "high": 0.02,
+     "normal": 0.98,
      "low": 0.0
     }
    }
@@ -890,7 +896,7 @@
    "category": "agent_dispute",
    "category_confidence": 1.0,
    "priority": "high",
-   "priority_confidence": 0.95,
+   "priority_confidence": 0.89,
    "team": "agent_network",
    "entities": {
     "amount": 200000,
@@ -920,16 +926,16 @@
     },
     "priority": {
      "urgent": 0.0,
-     "high": 0.96,
-     "normal": 0.02,
-     "low": 0.02
+     "high": 0.92,
+     "normal": 0.04,
+     "low": 0.04
     }
    }
   },
   {
    "id": "ag02",
    "category": "agent_dispute",
-   "category_confidence": 0.93,
+   "category_confidence": 0.89,
    "priority": "high",
    "priority_confidence": 0.99,
    "team": "agent_network",
@@ -949,10 +955,10 @@
    ],
    "probabilities": {
     "category": {
-     "failed_transfer": 0.06,
+     "failed_transfer": 0.1,
      "wrong_recipient": 0.0,
      "login_access": 0.0,
-     "agent_dispute": 0.9400000000000001,
+     "agent_dispute": 0.9,
      "card_issue": 0.0,
      "bill_payment": 0.0,
      "fraud_scam": 0.0,
@@ -972,7 +978,7 @@
    "category": "agent_dispute",
    "category_confidence": 1.0,
    "priority": "high",
-   "priority_confidence": 0.64,
+   "priority_confidence": 0.69,
    "team": "agent_network",
    "entities": {
     "amount": null,
@@ -986,7 +992,7 @@
    },
    "route": "person",
    "reasons": [
-    "not sure of priority (high 0.64)",
+    "not sure of priority (high 0.69)",
     "ledger: no wallet for this customer"
    ],
    "probabilities": {
@@ -1003,8 +1009,8 @@
     },
     "priority": {
      "urgent": 0.0,
-     "high": 0.73,
-     "normal": 0.26,
+     "high": 0.77,
+     "normal": 0.22,
      "low": 0.01
     }
    }
@@ -1055,7 +1061,7 @@
    "category": "agent_dispute",
    "category_confidence": 1.0,
    "priority": "low",
-   "priority_confidence": 0.48,
+   "priority_confidence": 0.43,
    "team": "agent_network",
    "entities": {
     "amount": null,
@@ -1069,7 +1075,7 @@
    },
    "route": "person",
    "reasons": [
-    "not sure of priority (low 0.48)",
+    "not sure of priority (low 0.43)",
     "ledger: no wallet for this customer"
    ],
    "probabilities": {
@@ -1086,9 +1092,9 @@
     },
     "priority": {
      "urgent": 0.0,
-     "high": 0.1,
-     "normal": 0.29,
-     "low": 0.61
+     "high": 0.16,
+     "normal": 0.27,
+     "low": 0.57
     }
    }
   },
@@ -1136,9 +1142,9 @@
   {
    "id": "ag07",
    "category": "agent_dispute",
-   "category_confidence": 0.71,
+   "category_confidence": 0.67,
    "priority": "high",
-   "priority_confidence": 0.95,
+   "priority_confidence": 0.93,
    "team": "agent_network",
    "entities": {
     "amount": null,
@@ -1152,7 +1158,7 @@
    },
    "route": "person",
    "reasons": [
-    "not sure of category (agent_dispute 0.71)",
+    "not sure of category (agent_dispute 0.67)",
     "ledger: no wallet for this customer"
    ],
    "probabilities": {
@@ -1160,17 +1166,17 @@
      "failed_transfer": 0.01,
      "wrong_recipient": 0.0,
      "login_access": 0.0,
-     "agent_dispute": 0.74,
+     "agent_dispute": 0.71,
      "card_issue": 0.0,
-     "bill_payment": 0.25,
+     "bill_payment": 0.28,
      "fraud_scam": 0.0,
      "account_kyc": 0.0,
      "general_inquiry": 0.0
     },
     "priority": {
      "urgent": 0.01,
-     "high": 0.96,
-     "normal": 0.03,
+     "high": 0.95,
+     "normal": 0.04,
      "low": 0.0
     }
    }
@@ -1221,7 +1227,7 @@
    "category": "card_issue",
    "category_confidence": 1.0,
    "priority": "normal",
-   "priority_confidence": 0.87,
+   "priority_confidence": 0.85,
    "team": "cards",
    "entities": {
     "amount": null,
@@ -1235,7 +1241,6 @@
    },
    "route": "person",
    "reasons": [
-    "not sure of priority (normal 0.87)",
     "ledger: no wallet for this customer"
    ],
    "probabilities": {
@@ -1253,8 +1258,8 @@
     "priority": {
      "urgent": 0.0,
      "high": 0.02,
-     "normal": 0.9,
-     "low": 0.08
+     "normal": 0.89,
+     "low": 0.09
     }
    }
   },
@@ -1304,7 +1309,7 @@
    "category": "card_issue",
    "category_confidence": 1.0,
    "priority": "low",
-   "priority_confidence": 0.79,
+   "priority_confidence": 0.77,
    "team": "cards",
    "entities": {
     "amount": null,
@@ -1318,7 +1323,7 @@
    },
    "route": "person",
    "reasons": [
-    "not sure of priority (low 0.79)",
+    "not sure of priority (low 0.77)",
     "ledger: no wallet for this customer"
    ],
    "probabilities": {
@@ -1335,9 +1340,9 @@
     },
     "priority": {
      "urgent": 0.0,
-     "high": 0.01,
-     "normal": 0.15,
-     "low": 0.84
+     "high": 0.0,
+     "normal": 0.17,
+     "low": 0.83
     }
    }
   },
@@ -1386,7 +1391,7 @@
   {
    "id": "cd06",
    "category": "card_issue",
-   "category_confidence": 0.93,
+   "category_confidence": 0.95,
    "priority": "normal",
    "priority_confidence": 1.0,
    "team": "cards",
@@ -1410,8 +1415,8 @@
      "wrong_recipient": 0.0,
      "login_access": 0.0,
      "agent_dispute": 0.0,
-     "card_issue": 0.94,
-     "bill_payment": 0.06,
+     "card_issue": 0.96,
+     "bill_payment": 0.04,
      "fraud_scam": 0.0,
      "account_kyc": 0.0,
      "general_inquiry": 0.0
@@ -1427,9 +1432,9 @@
   {
    "id": "cd07",
    "category": "card_issue",
-   "category_confidence": 0.55,
+   "category_confidence": 0.64,
    "priority": "high",
-   "priority_confidence": 0.93,
+   "priority_confidence": 0.96,
    "team": "cards",
    "entities": {
     "amount": null,
@@ -1443,25 +1448,25 @@
    },
    "route": "person",
    "reasons": [
-    "not sure of category (card_issue 0.55)",
+    "not sure of category (card_issue 0.64)",
     "ledger: no wallet for this customer"
    ],
    "probabilities": {
     "category": {
-     "failed_transfer": 0.1,
+     "failed_transfer": 0.08,
      "wrong_recipient": 0.0,
      "login_access": 0.0,
-     "agent_dispute": 0.28,
-     "card_issue": 0.6,
-     "bill_payment": 0.01,
+     "agent_dispute": 0.23,
+     "card_issue": 0.68,
+     "bill_payment": 0.0,
      "fraud_scam": 0.0,
      "account_kyc": 0.0,
-     "general_inquiry": 0.01
+     "general_inquiry": 0.0
     },
     "priority": {
-     "urgent": 0.03,
-     "high": 0.95,
-     "normal": 0.02,
+     "urgent": 0.02,
+     "high": 0.97,
+     "normal": 0.01,
      "low": 0.0
     }
    }
@@ -1501,7 +1506,7 @@
     },
     "priority": {
      "urgent": 0.0,
-     "high": 0.94,
+     "high": 0.9400000000000001,
      "normal": 0.06,
      "low": 0.0
     }
@@ -1510,7 +1515,7 @@
   {
    "id": "bp02",
    "category": "failed_transfer",
-   "category_confidence": 0.9,
+   "category_confidence": 0.88,
    "priority": "high",
    "priority_confidence": 1.0,
    "team": "transfers",
@@ -1530,12 +1535,12 @@
    ],
    "probabilities": {
     "category": {
-     "failed_transfer": 0.91,
+     "failed_transfer": 0.89,
      "wrong_recipient": 0.0,
      "login_access": 0.0,
      "agent_dispute": 0.03,
      "card_issue": 0.0,
-     "bill_payment": 0.06,
+     "bill_payment": 0.08,
      "fraud_scam": 0.0,
      "account_kyc": 0.0,
      "general_inquiry": 0.0
@@ -1553,7 +1558,7 @@
    "category": "bill_payment",
    "category_confidence": 1.0,
    "priority": "high",
-   "priority_confidence": 0.79,
+   "priority_confidence": 0.77,
    "team": "payments",
    "entities": {
     "amount": null,
@@ -1567,7 +1572,7 @@
    },
    "route": "person",
    "reasons": [
-    "not sure of priority (high 0.79)",
+    "not sure of priority (high 0.77)",
     "ledger: no wallet for this customer"
    ],
    "probabilities": {
@@ -1584,8 +1589,8 @@
     },
     "priority": {
      "urgent": 0.0,
-     "high": 0.84,
-     "normal": 0.16,
+     "high": 0.83,
+     "normal": 0.17,
      "low": 0.0
     }
    }
@@ -1636,7 +1641,7 @@
    "category": "bill_payment",
    "category_confidence": 1.0,
    "priority": "high",
-   "priority_confidence": 0.96,
+   "priority_confidence": 0.93,
    "team": "payments",
    "entities": {
     "amount": null,
@@ -1666,8 +1671,8 @@
     },
     "priority": {
      "urgent": 0.0,
-     "high": 0.97,
-     "normal": 0.03,
+     "high": 0.95,
+     "normal": 0.05,
      "low": 0.0
     }
    }
@@ -1677,7 +1682,7 @@
    "category": "bill_payment",
    "category_confidence": 0.99,
    "priority": "high",
-   "priority_confidence": 0.77,
+   "priority_confidence": 0.84,
    "team": "payments",
    "entities": {
     "amount": null,
@@ -1691,7 +1696,7 @@
    },
    "route": "person",
    "reasons": [
-    "not sure of priority (high 0.77)",
+    "not sure of priority (high 0.84)",
     "ledger: no wallet for this customer"
    ],
    "probabilities": {
@@ -1708,16 +1713,16 @@
     },
     "priority": {
      "urgent": 0.0,
-     "high": 0.83,
-     "normal": 0.16,
-     "low": 0.01
+     "high": 0.88,
+     "normal": 0.12,
+     "low": 0.0
     }
    }
   },
   {
    "id": "bp07",
    "category": "bill_payment",
-   "category_confidence": 0.95,
+   "category_confidence": 0.93,
    "priority": "high",
    "priority_confidence": 0.99,
    "team": "payments",
@@ -1737,12 +1742,12 @@
    ],
    "probabilities": {
     "category": {
-     "failed_transfer": 0.04,
+     "failed_transfer": 0.06,
      "wrong_recipient": 0.0,
      "login_access": 0.0,
      "agent_dispute": 0.0,
      "card_issue": 0.0,
-     "bill_payment": 0.96,
+     "bill_payment": 0.9400000000000001,
      "fraud_scam": 0.0,
      "account_kyc": 0.0,
      "general_inquiry": 0.0
@@ -1760,7 +1765,7 @@
    "category": "fraud_scam",
    "category_confidence": 1.0,
    "priority": "urgent",
-   "priority_confidence": 0.73,
+   "priority_confidence": 0.71,
    "team": "fraud",
    "entities": {
     "amount": null,
@@ -1774,7 +1779,7 @@
    },
    "route": "person",
    "reasons": [
-    "not sure of priority (urgent 0.73)",
+    "not sure of priority (urgent 0.71)",
     "fraud or scam",
     "urgent",
     "scam signs in the text",
@@ -1793,8 +1798,8 @@
      "general_inquiry": 0.0
     },
     "priority": {
-     "urgent": 0.8,
-     "high": 0.2,
+     "urgent": 0.78,
+     "high": 0.22,
      "normal": 0.0,
      "low": 0.0
     }
@@ -1805,7 +1810,7 @@
    "category": "fraud_scam",
    "category_confidence": 1.0,
    "priority": "low",
-   "priority_confidence": 0.67,
+   "priority_confidence": 0.68,
    "team": "fraud",
    "entities": {
     "amount": 1000000,
@@ -1819,7 +1824,7 @@
    },
    "route": "person",
    "reasons": [
-    "not sure of priority (low 0.67)",
+    "not sure of priority (low 0.68)",
     "fraud or scam",
     "scam signs in the text",
     "ledger: no wallet for this customer"
@@ -1837,10 +1842,10 @@
      "general_inquiry": 0.0
     },
     "priority": {
-     "urgent": 0.19,
+     "urgent": 0.17,
      "high": 0.03,
-     "normal": 0.03,
-     "low": 0.75
+     "normal": 0.04,
+     "low": 0.76
     }
    }
   },
@@ -1891,9 +1896,9 @@
   {
    "id": "fr04",
    "category": "fraud_scam",
-   "category_confidence": 0.99,
+   "category_confidence": 1.0,
    "priority": "urgent",
-   "priority_confidence": 0.91,
+   "priority_confidence": 0.92,
    "team": "fraud",
    "entities": {
     "amount": 150000,
@@ -1913,20 +1918,20 @@
    ],
    "probabilities": {
     "category": {
-     "failed_transfer": 0.01,
+     "failed_transfer": 0.0,
      "wrong_recipient": 0.0,
      "login_access": 0.0,
      "agent_dispute": 0.0,
      "card_issue": 0.0,
      "bill_payment": 0.0,
-     "fraud_scam": 0.99,
+     "fraud_scam": 1.0,
      "account_kyc": 0.0,
      "general_inquiry": 0.0
     },
     "priority": {
-     "urgent": 0.9299999999999999,
+     "urgent": 0.94,
      "high": 0.06,
-     "normal": 0.01,
+     "normal": 0.0,
      "low": 0.0
     }
    }
@@ -1936,7 +1941,7 @@
    "category": "fraud_scam",
    "category_confidence": 1.0,
    "priority": "high",
-   "priority_confidence": 0.93,
+   "priority_confidence": 0.96,
    "team": "fraud",
    "entities": {
     "amount": null,
@@ -1966,8 +1971,8 @@
      "general_inquiry": 0.0
     },
     "priority": {
-     "urgent": 0.05,
-     "high": 0.95,
+     "urgent": 0.03,
+     "high": 0.97,
      "normal": 0.0,
      "low": 0.0
     }
@@ -1978,7 +1983,7 @@
    "category": "fraud_scam",
    "category_confidence": 1.0,
    "priority": "urgent",
-   "priority_confidence": 0.39,
+   "priority_confidence": 0.47,
    "team": "fraud",
    "entities": {
     "amount": null,
@@ -1992,7 +1997,7 @@
    },
    "route": "person",
    "reasons": [
-    "not sure of priority (urgent 0.39)",
+    "not sure of priority (urgent 0.47)",
     "fraud or scam",
     "urgent",
     "ledger: no wallet for this customer"
@@ -2010,10 +2015,10 @@
      "general_inquiry": 0.0
     },
     "priority": {
-     "urgent": 0.54,
+     "urgent": 0.6,
      "high": 0.05,
-     "normal": 0.18,
-     "low": 0.23
+     "normal": 0.16,
+     "low": 0.19
     }
    }
   },
@@ -2022,7 +2027,7 @@
    "category": "fraud_scam",
    "category_confidence": 0.98,
    "priority": "urgent",
-   "priority_confidence": 0.87,
+   "priority_confidence": 0.81,
    "team": "fraud",
    "entities": {
     "amount": null,
@@ -2036,7 +2041,7 @@
    },
    "route": "person",
    "reasons": [
-    "not sure of priority (urgent 0.87)",
+    "not sure of priority (urgent 0.81)",
     "fraud or scam",
     "urgent",
     "ledger: no wallet for this customer"
@@ -2054,10 +2059,10 @@
      "general_inquiry": 0.0
     },
     "priority": {
-     "urgent": 0.9,
-     "high": 0.03,
-     "normal": 0.06,
-     "low": 0.01
+     "urgent": 0.86,
+     "high": 0.04,
+     "normal": 0.08,
+     "low": 0.02
     }
    }
   },
@@ -2066,7 +2071,7 @@
    "category": "account_kyc",
    "category_confidence": 1.0,
    "priority": "low",
-   "priority_confidence": 0.91,
+   "priority_confidence": 0.92,
    "team": "kyc",
    "entities": {
     "amount": 1000000,
@@ -2097,8 +2102,8 @@
     "priority": {
      "urgent": 0.0,
      "high": 0.01,
-     "normal": 0.06,
-     "low": 0.93
+     "normal": 0.05,
+     "low": 0.94
     }
    }
   },
@@ -2115,10 +2120,8 @@
     "reference": null
    },
    "ledger": null,
-   "route": "person",
-   "reasons": [
-    "not sure of priority (low 0.89)"
-   ],
+   "route": "team_queue",
+   "reasons": [],
    "probabilities": {
     "category": {
      "failed_transfer": 0.0,
@@ -2133,8 +2136,8 @@
     },
     "priority": {
      "urgent": 0.0,
-     "high": 0.01,
-     "normal": 0.07,
+     "high": 0.0,
+     "normal": 0.08,
      "low": 0.92
     }
    }
@@ -2144,7 +2147,7 @@
    "category": "account_kyc",
    "category_confidence": 1.0,
    "priority": "normal",
-   "priority_confidence": 0.85,
+   "priority_confidence": 0.84,
    "team": "kyc",
    "entities": {
     "amount": null,
@@ -2154,7 +2157,7 @@
    "ledger": null,
    "route": "person",
    "reasons": [
-    "not sure of priority (normal 0.85)"
+    "not sure of priority (normal 0.84)"
    ],
    "probabilities": {
     "category": {
@@ -2171,8 +2174,8 @@
     "priority": {
      "urgent": 0.0,
      "high": 0.03,
-     "normal": 0.89,
-     "low": 0.08
+     "normal": 0.88,
+     "low": 0.09
     }
    }
   },
@@ -2181,7 +2184,7 @@
    "category": "account_kyc",
    "category_confidence": 1.0,
    "priority": "low",
-   "priority_confidence": 0.83,
+   "priority_confidence": 0.84,
    "team": "kyc",
    "entities": {
     "amount": null,
@@ -2191,7 +2194,7 @@
    "ledger": null,
    "route": "person",
    "reasons": [
-    "not sure of priority (low 0.83)"
+    "not sure of priority (low 0.84)"
    ],
    "probabilities": {
     "category": {
@@ -2207,9 +2210,9 @@
     },
     "priority": {
      "urgent": 0.01,
-     "high": 0.09,
+     "high": 0.08,
      "normal": 0.03,
-     "low": 0.87
+     "low": 0.88
     }
    }
   },
@@ -2218,7 +2221,7 @@
    "category": "account_kyc",
    "category_confidence": 1.0,
    "priority": "low",
-   "priority_confidence": 0.97,
+   "priority_confidence": 0.99,
    "team": "kyc",
    "entities": {
     "amount": null,
@@ -2243,8 +2246,8 @@
     "priority": {
      "urgent": 0.0,
      "high": 0.0,
-     "normal": 0.02,
-     "low": 0.98
+     "normal": 0.01,
+     "low": 0.99
     }
    }
   },
@@ -2253,7 +2256,7 @@
    "category": "account_kyc",
    "category_confidence": 0.99,
    "priority": "high",
-   "priority_confidence": 0.92,
+   "priority_confidence": 0.93,
    "team": "kyc",
    "entities": {
     "amount": null,
@@ -2276,8 +2279,8 @@
      "general_inquiry": 0.0
     },
     "priority": {
-     "urgent": 0.02,
-     "high": 0.94,
+     "urgent": 0.01,
+     "high": 0.95,
      "normal": 0.03,
      "low": 0.01
     }
@@ -2391,7 +2394,7 @@
   {
    "id": "gi03",
    "category": "general_inquiry",
-   "category_confidence": 0.89,
+   "category_confidence": 0.87,
    "priority": "low",
    "priority_confidence": 0.99,
    "team": "general",
@@ -2401,10 +2404,8 @@
     "reference": null
    },
    "ledger": null,
-   "route": "person",
-   "reasons": [
-    "not sure of category (general_inquiry 0.89)"
-   ],
+   "route": "team_queue",
+   "reasons": [],
    "probabilities": {
     "category": {
      "failed_transfer": 0.01,
@@ -2414,8 +2415,8 @@
      "card_issue": 0.01,
      "bill_payment": 0.0,
      "fraud_scam": 0.0,
-     "account_kyc": 0.08,
-     "general_inquiry": 0.9
+     "account_kyc": 0.1,
+     "general_inquiry": 0.88
     },
     "priority": {
      "urgent": 0.0,
@@ -2465,7 +2466,7 @@
    "category": "general_inquiry",
    "category_confidence": 1.0,
    "priority": "normal",
-   "priority_confidence": 0.96,
+   "priority_confidence": 0.97,
    "team": "general",
    "entities": {
     "amount": null,
@@ -2490,15 +2491,15 @@
     "priority": {
      "urgent": 0.0,
      "high": 0.01,
-     "normal": 0.97,
-     "low": 0.02
+     "normal": 0.98,
+     "low": 0.01
     }
    }
   },
   {
    "id": "gi06",
    "category": "general_inquiry",
-   "category_confidence": 0.62,
+   "category_confidence": 0.57,
    "priority": "high",
    "priority_confidence": 1.0,
    "team": "general",
@@ -2514,20 +2515,20 @@
    },
    "route": "person",
    "reasons": [
-    "not sure of category (general_inquiry 0.62)",
+    "not sure of category (general_inquiry 0.57)",
     "ledger: no wallet for this customer"
    ],
    "probabilities": {
     "category": {
-     "failed_transfer": 0.11,
+     "failed_transfer": 0.1,
      "wrong_recipient": 0.0,
      "login_access": 0.0,
      "agent_dispute": 0.0,
      "card_issue": 0.0,
      "bill_payment": 0.0,
-     "fraud_scam": 0.23,
+     "fraud_scam": 0.28,
      "account_kyc": 0.0,
-     "general_inquiry": 0.66
+     "general_inquiry": 0.62
     },
     "priority": {
      "urgent": 0.0,
