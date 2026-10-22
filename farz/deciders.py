@@ -58,52 +58,83 @@ class JevDecider:
 
 
 class LocalDecider:
-    """Character n-gram TF-IDF and logistic regression, one model per question.
+    """Our own model: two open multilingual sentence encoders plus character and word patterns.
 
-    Character n-grams cope with the three scripts we see (Arabic, Latin Arabizi, English),
-    with typos, and with Iraqi spellings, without a tokenizer or any download.
+    For each question, the average of two probability guesses:
+      - logistic regression on the sentences as vectors, from intfloat/multilingual-e5-base and
+        sentence-transformers/paraphrase-multilingual-mpnet-base-v2 side by side (both open, MIT and
+        Apache 2.0). They place tickets that mean the same thing near each other, whatever the wording.
+      - a calibrated linear SVM on character 2-5 grams and word 1-2 grams, which copes with Arabic,
+        Arabizi and English, typos and Iraqi spellings.
+    The encoders are downloaded once (about 2 GB) and then run on the laptop's CPU with no network.
+    Chosen by 5-fold cross-validation on dev only; eval/README.md lists what else was tried.
     """
 
     name = "local"
+    ENCODERS = (("intfloat/multilingual-e5-base", "query: "),
+                ("sentence-transformers/paraphrase-multilingual-mpnet-base-v2", ""))
+    _encoders: dict = {}
+    _vectors: dict = {}
 
     def __init__(self, models: dict | None = None):
         self.models = models or {}
 
+    @classmethod
+    def encode(cls, texts: list[str]):
+        """Sentence vectors, kept in memory so cross-validation encodes each ticket once."""
+        import numpy as np
+        todo = [t for t in dict.fromkeys(texts) if t not in cls._vectors]
+        if todo:
+            parts = []
+            for name, prefix in cls.ENCODERS:
+                if name not in cls._encoders:
+                    from sentence_transformers import SentenceTransformer
+                    cls._encoders[name] = SentenceTransformer(name, device="cpu")
+                parts.append(cls._encoders[name].encode([prefix + t for t in todo], normalize_embeddings=True,
+                                                        batch_size=16))
+            for t, v in zip(todo, np.hstack(parts)):
+                cls._vectors[t] = v
+        return np.vstack([cls._vectors[t] for t in texts])
+
     @staticmethod
-    def _pipeline():
+    def _patterns():
+        from sklearn.calibration import CalibratedClassifierCV
         from sklearn.feature_extraction.text import TfidfVectorizer
-        from sklearn.linear_model import LogisticRegression
-        from sklearn.pipeline import make_pipeline
+        from sklearn.pipeline import make_pipeline, make_union
+        from sklearn.svm import LinearSVC
         return make_pipeline(
-            TfidfVectorizer(analyzer="char_wb", ngram_range=(2, 5), min_df=1, sublinear_tf=True, max_features=60000),
-            LogisticRegression(C=8.0, max_iter=3000, class_weight="balanced"),
+            make_union(TfidfVectorizer(analyzer="char_wb", ngram_range=(2, 5), sublinear_tf=True),
+                       TfidfVectorizer(analyzer="word", ngram_range=(1, 2), sublinear_tf=True)),
+            CalibratedClassifierCV(LinearSVC(C=0.5, class_weight="balanced"), cv=3),
         )
 
+    @staticmethod
+    def _meaning():
+        from sklearn.linear_model import LogisticRegression
+        return LogisticRegression(C=16.0, max_iter=5000, class_weight="balanced")
+
     def fit(self, texts: list[str], labels: dict[str, list[str]]) -> "LocalDecider":
-        from .normalize import normalize
-        clean = [normalize(t) for t in texts]
+        from .normalize import digits
+        clean = [digits(t) for t in texts]
+        vectors = self.encode(clean)
         for q, y in labels.items():
-            self.models[q] = self._pipeline().fit(clean, y)
+            self.models[q] = {"patterns": self._patterns().fit(clean, y), "meaning": self._meaning().fit(vectors, y)}
         return self
 
     def decide(self, texts: list[str]) -> list[dict]:
-        from .normalize import normalize
-        clean = [normalize(t) for t in texts]
-        per_q = {}
-        for q, model in self.models.items():
-            classes = list(model.classes_)
-            per_q[q] = [dict(zip(classes, map(float, row))) for row in model.predict_proba(clean)]
+        from .normalize import digits
+        clean = [digits(t) for t in texts]
+        vectors = self.encode(clean)
         options = {"category": CATEGORIES, "priority": PRIORITIES}
-        out = []
-        for i in range(len(texts)):
-            row = {}
-            for q, probs_list in per_q.items():
-                probs = {o: probs_list[i].get(o, 0.0) for o in options[q]}
-                row[q] = decision(probs)
-            out.append(row)
-        return out
+        per_q = {}
+        for q, m in self.models.items():
+            a = [dict(zip(m["patterns"].classes_, map(float, r))) for r in m["patterns"].predict_proba(clean)]
+            b = [dict(zip(m["meaning"].classes_, map(float, r))) for r in m["meaning"].predict_proba(vectors)]
+            per_q[q] = [{o: (x.get(o, 0.0) + y.get(o, 0.0)) / 2 for o in options[q]} for x, y in zip(a, b)]
+        return [{q: decision(per_q[q][i]) for q in per_q} for i in range(len(texts))]
 
     def save(self, path: Path):
+        path.parent.mkdir(parents=True, exist_ok=True)
         path.write_bytes(pickle.dumps(self.models))
 
     @classmethod

@@ -70,5 +70,11 @@ class Ledger:
         exact = [t for t in txns if t["amount"] == amount]
         if exact:
             return {"outcome": "match", "txns": [t["ref"] for t in exact], "why": f"{amount:,} IQD on this wallet"}
-        return {"outcome": "not_found", "txns": [], "why": f"no transaction of {amount:,} IQD on this wallet"
-                if amount is not None else "nothing on this wallet fits"}
+        if amount is None:
+            return {"outcome": "not_found", "txns": [], "why": "nothing on this wallet fits"}
+        why = f"no transaction of {amount:,} IQD on this wallet"
+        # A hint for the agent, not an answer: the customer may remember the amount wrong.
+        near = min(txns, key=lambda t: abs(t["amount"] - amount), default=None)
+        if near and abs(near["amount"] - amount) <= 0.25 * amount:
+            why += f"; closest is {near['ref']} {near['type']} {near['amount']:,} IQD"
+        return {"outcome": "not_found", "txns": [], "why": why}
