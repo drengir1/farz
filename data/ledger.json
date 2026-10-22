@@ -1,0 +1,3645 @@
+{
+ "wallets": [
+  {
+   "wallet_id": "W01",
+   "name": "مريم الدليمي",
+   "phone": "07838539506",
+   "balance": 650000,
+   "transactions": [
+    {
+     "ref": "ZC-57221608",
+     "type": "p2p_send",
+     "amount": 225000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07837202064",
+     "time": "2026-10-15T07:06"
+    },
+    {
+     "ref": "ZC-51938648",
+     "type": "agent_cash_out",
+     "amount": 455000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07868093109",
+     "time": "2026-10-15T22:49"
+    },
+    {
+     "ref": "ZC-59989759",
+     "type": "p2p_receive",
+     "amount": 360000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07861276071",
+     "time": "2026-10-19T06:22"
+    },
+    {
+     "ref": "ZC-43268254",
+     "type": "topup",
+     "amount": 30000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07820659374",
+     "time": "2026-10-21T04:37"
+    },
+    {
+     "ref": "ZC-42560147",
+     "type": "bill_payment",
+     "amount": 200000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07830568073",
+     "time": "2026-10-22T01:39"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W02",
+   "name": "زهراء الزبيدي",
+   "phone": "07845494950",
+   "balance": 4667000,
+   "transactions": [
+    {
+     "ref": "ZC-93300670",
+     "type": "agent_cash_out",
+     "amount": 950000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07850073479",
+     "time": "2026-10-14T16:42"
+    },
+    {
+     "ref": "ZC-85972655",
+     "type": "p2p_send",
+     "amount": 870000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07837623738",
+     "time": "2026-10-15T11:24"
+    },
+    {
+     "ref": "ZC-69613091",
+     "type": "agent_cash_in",
+     "amount": 275000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07818923768",
+     "time": "2026-10-15T11:41"
+    },
+    {
+     "ref": "ZC-65419655",
+     "type": "bill_payment",
+     "amount": 235000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07804461719",
+     "time": "2026-10-15T16:30"
+    },
+    {
+     "ref": "ZC-56203892",
+     "type": "topup",
+     "amount": 10000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07834454316",
+     "time": "2026-10-16T12:58"
+    },
+    {
+     "ref": "ZC-56819285",
+     "type": "card_payment",
+     "amount": 75000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07806657682",
+     "time": "2026-10-17T05:11"
+    },
+    {
+     "ref": "ZC-81362704",
+     "type": "card_payment",
+     "amount": 75000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07806657682",
+     "time": "2026-10-17T05:14"
+    },
+    {
+     "ref": "ZC-44204553",
+     "type": "topup",
+     "amount": 5000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07800062430",
+     "time": "2026-10-18T02:22"
+    },
+    {
+     "ref": "ZC-61891442",
+     "type": "agent_cash_out",
+     "amount": 625000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07835279321",
+     "time": "2026-10-18T08:06"
+    },
+    {
+     "ref": "ZC-33693202",
+     "type": "p2p_receive",
+     "amount": 990000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07820783474",
+     "time": "2026-10-18T12:25"
+    },
+    {
+     "ref": "ZC-76575517",
+     "type": "p2p_send",
+     "amount": 1485000,
+     "status": "failed",
+     "debited": true,
+     "counterparty": "07806176243",
+     "time": "2026-10-19T20:07"
+    },
+    {
+     "ref": "ZC-11675068",
+     "type": "agent_cash_in",
+     "amount": 375000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07862815201",
+     "time": "2026-10-20T09:06"
+    },
+    {
+     "ref": "ZC-46821277",
+     "type": "p2p_receive",
+     "amount": 850000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07883553330",
+     "time": "2026-10-21T17:25"
+    },
+    {
+     "ref": "ZC-17973386",
+     "type": "intl_transfer",
+     "amount": 985000,
+     "status": "pending",
+     "debited": true,
+     "counterparty": "07844431455",
+     "time": "2026-10-21T18:31"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W03",
+   "name": "زهراء الجبوري",
+   "phone": "07827962404",
+   "balance": 1864000,
+   "transactions": [
+    {
+     "ref": "ZC-93577859",
+     "type": "merchant_payment",
+     "amount": 80000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07800984402",
+     "time": "2026-10-14T20:25"
+    },
+    {
+     "ref": "ZC-38026527",
+     "type": "topup",
+     "amount": 30000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07837642672",
+     "time": "2026-10-15T15:53"
+    },
+    {
+     "ref": "ZC-62710897",
+     "type": "topup",
+     "amount": 35000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07802409480",
+     "time": "2026-10-16T07:37"
+    },
+    {
+     "ref": "ZC-97389938",
+     "type": "p2p_send",
+     "amount": 450000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07835547414",
+     "time": "2026-10-16T19:31"
+    },
+    {
+     "ref": "ZC-12908473",
+     "type": "p2p_receive",
+     "amount": 365000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07826909174",
+     "time": "2026-10-18T11:40"
+    },
+    {
+     "ref": "ZC-86398061",
+     "type": "bill_payment",
+     "amount": 180000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07819406274",
+     "time": "2026-10-19T03:31"
+    },
+    {
+     "ref": "ZC-61894444",
+     "type": "agent_cash_in",
+     "amount": 185000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07818480135",
+     "time": "2026-10-19T06:53"
+    },
+    {
+     "ref": "ZC-12864499",
+     "type": "p2p_receive",
+     "amount": 925000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07844280164",
+     "time": "2026-10-21T22:49"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W04",
+   "name": "سارة البياتي",
+   "phone": "07845509044",
+   "balance": 1273000,
+   "transactions": [
+    {
+     "ref": "ZC-06473546",
+     "type": "topup",
+     "amount": 20000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07846704284",
+     "time": "2026-10-16T11:31"
+    },
+    {
+     "ref": "ZC-83019566",
+     "type": "p2p_receive",
+     "amount": 95000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07838546591",
+     "time": "2026-10-17T04:01"
+    },
+    {
+     "ref": "ZC-87900225",
+     "type": "card_withdrawal",
+     "amount": 400000,
+     "status": "failed",
+     "debited": true,
+     "counterparty": "07869984022",
+     "time": "2026-10-17T17:29"
+    },
+    {
+     "ref": "ZC-41845245",
+     "type": "p2p_send",
+     "amount": 1030000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07806493316",
+     "time": "2026-10-17T21:55"
+    },
+    {
+     "ref": "ZC-52144104",
+     "type": "agent_cash_in",
+     "amount": 600000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07817372976",
+     "time": "2026-10-18T03:26"
+    },
+    {
+     "ref": "ZC-26158523",
+     "type": "agent_cash_in",
+     "amount": 460000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07873700135",
+     "time": "2026-10-21T01:01"
+    },
+    {
+     "ref": "ZC-16249457",
+     "type": "bill_payment",
+     "amount": 225000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07839681054",
+     "time": "2026-10-21T15:09"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W05",
+   "name": "ليث الموسوي",
+   "phone": "07858445042",
+   "balance": 2229000,
+   "transactions": [
+    {
+     "ref": "ZC-36622656",
+     "type": "bill_payment",
+     "amount": 30000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07816065894",
+     "time": "2026-10-15T12:59"
+    },
+    {
+     "ref": "ZC-29772327",
+     "type": "bill_payment",
+     "amount": 35000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07815154562",
+     "time": "2026-10-15T19:34"
+    },
+    {
+     "ref": "ZC-01938517",
+     "type": "bill_payment",
+     "amount": 45000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07876738829",
+     "time": "2026-10-15T20:39"
+    },
+    {
+     "ref": "ZC-21341480",
+     "type": "p2p_send",
+     "amount": 460000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07830149640",
+     "time": "2026-10-16T02:18"
+    },
+    {
+     "ref": "ZC-14990162",
+     "type": "merchant_payment",
+     "amount": 60000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07848791784",
+     "time": "2026-10-16T04:01"
+    },
+    {
+     "ref": "ZC-90978795",
+     "type": "agent_cash_in",
+     "amount": 50000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07842353446",
+     "time": "2026-10-16T04:05"
+    },
+    {
+     "ref": "ZC-05880825",
+     "type": "p2p_receive",
+     "amount": 570000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07862463972",
+     "time": "2026-10-19T07:07"
+    },
+    {
+     "ref": "ZC-87250067",
+     "type": "p2p_send",
+     "amount": 1410000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07891898115",
+     "time": "2026-10-20T05:49"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W06",
+   "name": "حيدر الزبيدي",
+   "phone": "07810599290",
+   "balance": 4527000,
+   "transactions": [
+    {
+     "ref": "ZC-64812468",
+     "type": "bill_payment",
+     "amount": 115000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07822523562",
+     "time": "2026-10-15T10:28"
+    },
+    {
+     "ref": "ZC-39019492",
+     "type": "bill_payment",
+     "amount": 115000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07822523562",
+     "time": "2026-10-15T10:28"
+    },
+    {
+     "ref": "ZC-74892865",
+     "type": "p2p_send",
+     "amount": 80000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07833167444",
+     "time": "2026-10-15T14:54"
+    },
+    {
+     "ref": "ZC-71459288",
+     "type": "p2p_send",
+     "amount": 210000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07839070660",
+     "time": "2026-10-15T21:45"
+    },
+    {
+     "ref": "ZC-12073564",
+     "type": "bill_payment",
+     "amount": 125000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07818673403",
+     "time": "2026-10-15T23:43"
+    },
+    {
+     "ref": "ZC-99194568",
+     "type": "card_payment",
+     "amount": 105000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07837732708",
+     "time": "2026-10-17T06:03"
+    },
+    {
+     "ref": "ZC-40194056",
+     "type": "card_payment",
+     "amount": 105000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07837732708",
+     "time": "2026-10-17T06:05"
+    },
+    {
+     "ref": "ZC-32762191",
+     "type": "p2p_receive",
+     "amount": 565000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07881812341",
+     "time": "2026-10-18T00:18"
+    },
+    {
+     "ref": "ZC-41896449",
+     "type": "p2p_send",
+     "amount": 1460000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07818908285",
+     "time": "2026-10-18T12:47"
+    },
+    {
+     "ref": "ZC-98830823",
+     "type": "p2p_send",
+     "amount": 1385000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07837146213",
+     "time": "2026-10-18T19:21"
+    },
+    {
+     "ref": "ZC-52427850",
+     "type": "bill_payment",
+     "amount": 60000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07819980243",
+     "time": "2026-10-21T10:24"
+    },
+    {
+     "ref": "ZC-52399796",
+     "type": "bill_payment",
+     "amount": 35000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07823780591",
+     "time": "2026-10-21T12:37"
+    },
+    {
+     "ref": "ZC-09719744",
+     "type": "bill_payment",
+     "amount": 170000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07867411182",
+     "time": "2026-10-22T00:23"
+    },
+    {
+     "ref": "ZC-57431681",
+     "type": "p2p_send",
+     "amount": 1020000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07869678573",
+     "time": "2026-10-22T04:26"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W07",
+   "name": "مصطفى الجبوري",
+   "phone": "07831254407",
+   "balance": 3338000,
+   "transactions": [
+    {
+     "ref": "ZC-25191819",
+     "type": "topup",
+     "amount": 40000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07866609899",
+     "time": "2026-10-16T17:04"
+    },
+    {
+     "ref": "ZC-77709035",
+     "type": "p2p_send",
+     "amount": 555000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07877846480",
+     "time": "2026-10-17T01:13"
+    },
+    {
+     "ref": "ZC-78202715",
+     "type": "bill_payment",
+     "amount": 225000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07899254400",
+     "time": "2026-10-17T06:16"
+    },
+    {
+     "ref": "ZC-10912507",
+     "type": "agent_cash_in",
+     "amount": 710000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07823720373",
+     "time": "2026-10-17T07:10"
+    },
+    {
+     "ref": "ZC-44089912",
+     "type": "p2p_send",
+     "amount": 395000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07833776595",
+     "time": "2026-10-19T11:31"
+    },
+    {
+     "ref": "ZC-96390125",
+     "type": "p2p_send",
+     "amount": 875000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07826930590",
+     "time": "2026-10-19T12:15"
+    },
+    {
+     "ref": "ZC-25095569",
+     "type": "p2p_send",
+     "amount": 705000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07815199405",
+     "time": "2026-10-19T16:57"
+    },
+    {
+     "ref": "ZC-82650642",
+     "type": "p2p_send",
+     "amount": 940000,
+     "status": "failed",
+     "debited": true,
+     "counterparty": "07885709705",
+     "time": "2026-10-19T20:01"
+    },
+    {
+     "ref": "ZC-34765941",
+     "type": "bill_payment",
+     "amount": 90000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07827031185",
+     "time": "2026-10-20T03:25"
+    },
+    {
+     "ref": "ZC-40971923",
+     "type": "card_payment",
+     "amount": 390000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07839112317",
+     "time": "2026-10-21T15:15"
+    },
+    {
+     "ref": "ZC-01701389",
+     "type": "card_payment",
+     "amount": 390000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07839112317",
+     "time": "2026-10-21T15:18"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W08",
+   "name": "مرتضى العزاوي",
+   "phone": "07886192523",
+   "balance": 3855000,
+   "transactions": [
+    {
+     "ref": "ZC-13520973",
+     "type": "p2p_send",
+     "amount": 450000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07804080003",
+     "time": "2026-10-15T15:33"
+    },
+    {
+     "ref": "ZC-22307620",
+     "type": "p2p_send",
+     "amount": 1360000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07875017537",
+     "time": "2026-10-18T17:34"
+    },
+    {
+     "ref": "ZC-21646489",
+     "type": "p2p_receive",
+     "amount": 620000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07857996249",
+     "time": "2026-10-19T09:33"
+    },
+    {
+     "ref": "ZC-54034427",
+     "type": "agent_cash_in",
+     "amount": 280000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07829927332",
+     "time": "2026-10-20T10:37"
+    },
+    {
+     "ref": "ZC-81373843",
+     "type": "p2p_receive",
+     "amount": 585000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07828793762",
+     "time": "2026-10-22T03:57"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W09",
+   "name": "مريم البياتي",
+   "phone": "07888703187",
+   "balance": 4823000,
+   "transactions": [
+    {
+     "ref": "ZC-59367654",
+     "type": "p2p_send",
+     "amount": 1465000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07871235214",
+     "time": "2026-10-14T11:49"
+    },
+    {
+     "ref": "ZC-82618205",
+     "type": "p2p_send",
+     "amount": 205000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07821077789",
+     "time": "2026-10-14T17:56"
+    },
+    {
+     "ref": "ZC-87229451",
+     "type": "p2p_send",
+     "amount": 1235000,
+     "status": "failed",
+     "debited": true,
+     "counterparty": "07861025074",
+     "time": "2026-10-15T08:29"
+    },
+    {
+     "ref": "ZC-58687295",
+     "type": "agent_cash_out",
+     "amount": 450000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07867708626",
+     "time": "2026-10-15T18:59"
+    },
+    {
+     "ref": "ZC-90440053",
+     "type": "topup",
+     "amount": 25000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07880258762",
+     "time": "2026-10-15T19:06"
+    },
+    {
+     "ref": "ZC-54471345",
+     "type": "p2p_send",
+     "amount": 1130000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07812855162",
+     "time": "2026-10-16T22:07"
+    },
+    {
+     "ref": "ZC-43983622",
+     "type": "topup",
+     "amount": 5000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07850277412",
+     "time": "2026-10-17T00:45"
+    },
+    {
+     "ref": "ZC-88350044",
+     "type": "agent_cash_out",
+     "amount": 840000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07890228119",
+     "time": "2026-10-17T15:10"
+    },
+    {
+     "ref": "ZC-84480216",
+     "type": "p2p_send",
+     "amount": 1480000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07893970768",
+     "time": "2026-10-17T19:03"
+    },
+    {
+     "ref": "ZC-42241922",
+     "type": "topup",
+     "amount": 15000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07879714049",
+     "time": "2026-10-19T08:11"
+    },
+    {
+     "ref": "ZC-71448146",
+     "type": "agent_cash_out",
+     "amount": 735000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07873934437",
+     "time": "2026-10-19T12:54"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W10",
+   "name": "حيدر الشمري",
+   "phone": "07803925725",
+   "balance": 3804000,
+   "transactions": [
+    {
+     "ref": "ZC-66776670",
+     "type": "p2p_send",
+     "amount": 715000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07846083928",
+     "time": "2026-10-15T13:33"
+    },
+    {
+     "ref": "ZC-91632025",
+     "type": "p2p_receive",
+     "amount": 650000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07802378065",
+     "time": "2026-10-15T20:49"
+    },
+    {
+     "ref": "ZC-11890718",
+     "type": "bill_payment",
+     "amount": 110000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07834367537",
+     "time": "2026-10-17T08:40"
+    },
+    {
+     "ref": "ZC-82340238",
+     "type": "topup",
+     "amount": 15000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07839125156",
+     "time": "2026-10-17T20:51"
+    },
+    {
+     "ref": "ZC-49787239",
+     "type": "p2p_receive",
+     "amount": 50000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07810408739",
+     "time": "2026-10-18T01:10"
+    },
+    {
+     "ref": "ZC-22583431",
+     "type": "agent_cash_in",
+     "amount": 510000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07826059859",
+     "time": "2026-10-18T03:36"
+    },
+    {
+     "ref": "ZC-82511416",
+     "type": "p2p_receive",
+     "amount": 765000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07844445684",
+     "time": "2026-10-18T09:53"
+    },
+    {
+     "ref": "ZC-99191028",
+     "type": "bill_payment",
+     "amount": 140000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07892327131",
+     "time": "2026-10-21T14:59"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W11",
+   "name": "محمد الموسوي",
+   "phone": "07852570906",
+   "balance": 3987000,
+   "transactions": [
+    {
+     "ref": "ZC-69092563",
+     "type": "p2p_send",
+     "amount": 490000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07868442885",
+     "time": "2026-10-14T16:23"
+    },
+    {
+     "ref": "ZC-70719981",
+     "type": "bill_payment",
+     "amount": 105000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07831338654",
+     "time": "2026-10-14T22:35"
+    },
+    {
+     "ref": "ZC-37993154",
+     "type": "agent_cash_out",
+     "amount": 30000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07850804694",
+     "time": "2026-10-15T09:21"
+    },
+    {
+     "ref": "ZC-69115308",
+     "type": "bill_payment",
+     "amount": 170000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07852013437",
+     "time": "2026-10-15T14:51"
+    },
+    {
+     "ref": "ZC-67523731",
+     "type": "p2p_receive",
+     "amount": 665000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07817224314",
+     "time": "2026-10-16T18:41"
+    },
+    {
+     "ref": "ZC-97633260",
+     "type": "topup",
+     "amount": 50000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07841957841",
+     "time": "2026-10-16T20:09"
+    },
+    {
+     "ref": "ZC-10663895",
+     "type": "topup",
+     "amount": 10000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07881776498",
+     "time": "2026-10-17T19:04"
+    },
+    {
+     "ref": "ZC-66277530",
+     "type": "p2p_receive",
+     "amount": 340000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07882432634",
+     "time": "2026-10-18T07:20"
+    },
+    {
+     "ref": "ZC-75493097",
+     "type": "p2p_send",
+     "amount": 1470000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07821589047",
+     "time": "2026-10-19T05:27"
+    },
+    {
+     "ref": "ZC-26689777",
+     "type": "merchant_payment",
+     "amount": 45000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07829067481",
+     "time": "2026-10-21T18:39"
+    },
+    {
+     "ref": "ZC-96673462",
+     "type": "p2p_send",
+     "amount": 725000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07857065161",
+     "time": "2026-10-21T20:23"
+    },
+    {
+     "ref": "ZC-46033958",
+     "type": "agent_cash_in",
+     "amount": 520000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07805329800",
+     "time": "2026-10-21T22:25"
+    },
+    {
+     "ref": "ZC-00468487",
+     "type": "p2p_send",
+     "amount": 225000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07834013095",
+     "time": "2026-10-22T05:20"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W12",
+   "name": "حسين الربيعي",
+   "phone": "07880465904",
+   "balance": 4649000,
+   "transactions": [
+    {
+     "ref": "ZC-04675576",
+     "type": "p2p_receive",
+     "amount": 785000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07885829641",
+     "time": "2026-10-15T03:05"
+    },
+    {
+     "ref": "ZC-54075499",
+     "type": "topup",
+     "amount": 5000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07887297113",
+     "time": "2026-10-15T04:29"
+    },
+    {
+     "ref": "ZC-89313582",
+     "type": "bill_payment",
+     "amount": 85000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07874781613",
+     "time": "2026-10-15T11:12"
+    },
+    {
+     "ref": "ZC-04696915",
+     "type": "topup",
+     "amount": 45000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07821375817",
+     "time": "2026-10-18T20:03"
+    },
+    {
+     "ref": "ZC-39297253",
+     "type": "p2p_send",
+     "amount": 1195000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07818392139",
+     "time": "2026-10-19T06:06"
+    },
+    {
+     "ref": "ZC-83902965",
+     "type": "p2p_send",
+     "amount": 1195000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07818392139",
+     "time": "2026-10-19T06:08"
+    },
+    {
+     "ref": "ZC-55401437",
+     "type": "p2p_send",
+     "amount": 840000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07822216113",
+     "time": "2026-10-20T21:37"
+    },
+    {
+     "ref": "ZC-78688375",
+     "type": "p2p_send",
+     "amount": 840000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07822216113",
+     "time": "2026-10-20T21:38"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W13",
+   "name": "حيدر الربيعي",
+   "phone": "07874145115",
+   "balance": 1330000,
+   "transactions": [
+    {
+     "ref": "ZC-11736120",
+     "type": "card_payment",
+     "amount": 75000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07873760211",
+     "time": "2026-10-15T22:39"
+    },
+    {
+     "ref": "ZC-19477328",
+     "type": "card_payment",
+     "amount": 75000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07873760211",
+     "time": "2026-10-15T22:40"
+    },
+    {
+     "ref": "ZC-33900298",
+     "type": "p2p_receive",
+     "amount": 335000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07884018666",
+     "time": "2026-10-16T12:02"
+    },
+    {
+     "ref": "ZC-15555674",
+     "type": "p2p_send",
+     "amount": 615000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07857673286",
+     "time": "2026-10-17T11:57"
+    },
+    {
+     "ref": "ZC-51792601",
+     "type": "bill_payment",
+     "amount": 185000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07806064209",
+     "time": "2026-10-17T19:13"
+    },
+    {
+     "ref": "ZC-93708470",
+     "type": "p2p_send",
+     "amount": 430000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07850430006",
+     "time": "2026-10-18T02:52"
+    },
+    {
+     "ref": "ZC-57240616",
+     "type": "p2p_send",
+     "amount": 430000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07850430006",
+     "time": "2026-10-18T02:53"
+    },
+    {
+     "ref": "ZC-44838689",
+     "type": "agent_cash_in",
+     "amount": 35000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07883838679",
+     "time": "2026-10-19T01:43"
+    },
+    {
+     "ref": "ZC-78734103",
+     "type": "p2p_send",
+     "amount": 610000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07855698850",
+     "time": "2026-10-19T22:31"
+    },
+    {
+     "ref": "ZC-12145296",
+     "type": "p2p_send",
+     "amount": 1350000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07899654334",
+     "time": "2026-10-20T07:39"
+    },
+    {
+     "ref": "ZC-27543578",
+     "type": "bill_payment",
+     "amount": 155000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07879250048",
+     "time": "2026-10-21T10:00"
+    },
+    {
+     "ref": "ZC-04540546",
+     "type": "bill_payment",
+     "amount": 155000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07879250048",
+     "time": "2026-10-21T10:02"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W14",
+   "name": "مصطفى الدليمي",
+   "phone": "07895391213",
+   "balance": 2175000,
+   "transactions": [
+    {
+     "ref": "ZC-79665182",
+     "type": "p2p_send",
+     "amount": 590000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07853142973",
+     "time": "2026-10-14T14:30"
+    },
+    {
+     "ref": "ZC-31992266",
+     "type": "bill_payment",
+     "amount": 205000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07829677275",
+     "time": "2026-10-14T22:33"
+    },
+    {
+     "ref": "ZC-32723313",
+     "type": "p2p_receive",
+     "amount": 385000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07814726602",
+     "time": "2026-10-15T04:44"
+    },
+    {
+     "ref": "ZC-64255251",
+     "type": "p2p_send",
+     "amount": 415000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07873552692",
+     "time": "2026-10-15T15:02"
+    },
+    {
+     "ref": "ZC-31052407",
+     "type": "agent_cash_out",
+     "amount": 990000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07849158561",
+     "time": "2026-10-16T05:57"
+    },
+    {
+     "ref": "ZC-16579347",
+     "type": "topup",
+     "amount": 10000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07810575727",
+     "time": "2026-10-16T22:11"
+    },
+    {
+     "ref": "ZC-17763743",
+     "type": "p2p_send",
+     "amount": 525000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07809852023",
+     "time": "2026-10-18T13:18"
+    },
+    {
+     "ref": "ZC-31882979",
+     "type": "card_withdrawal",
+     "amount": 280000,
+     "status": "failed",
+     "debited": true,
+     "counterparty": "07818379557",
+     "time": "2026-10-20T01:32"
+    },
+    {
+     "ref": "ZC-33975417",
+     "type": "p2p_send",
+     "amount": 580000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07852610409",
+     "time": "2026-10-20T12:34"
+    },
+    {
+     "ref": "ZC-43566537",
+     "type": "agent_cash_in",
+     "amount": 110000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07820922322",
+     "time": "2026-10-21T03:25"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W15",
+   "name": "زينب التميمي",
+   "phone": "07816500928",
+   "balance": 1650000,
+   "transactions": [
+    {
+     "ref": "ZC-16510418",
+     "type": "p2p_send",
+     "amount": 525000,
+     "status": "pending",
+     "debited": true,
+     "counterparty": "07870420371",
+     "time": "2026-10-16T07:54"
+    },
+    {
+     "ref": "ZC-07667272",
+     "type": "merchant_payment",
+     "amount": 25000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07807719141",
+     "time": "2026-10-16T18:38"
+    },
+    {
+     "ref": "ZC-48750392",
+     "type": "p2p_send",
+     "amount": 255000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07859695943",
+     "time": "2026-10-19T19:36"
+    },
+    {
+     "ref": "ZC-20054381",
+     "type": "bill_payment",
+     "amount": 40000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07822586774",
+     "time": "2026-10-20T14:38"
+    },
+    {
+     "ref": "ZC-01384140",
+     "type": "bill_payment",
+     "amount": 250000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07839843824",
+     "time": "2026-10-21T08:42"
+    },
+    {
+     "ref": "ZC-63179977",
+     "type": "agent_cash_in",
+     "amount": 340000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07865430599",
+     "time": "2026-10-22T05:15"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W16",
+   "name": "ليث الزبيدي",
+   "phone": "07888058304",
+   "balance": 3578000,
+   "transactions": [
+    {
+     "ref": "ZC-48630608",
+     "type": "p2p_send",
+     "amount": 1000000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07824952585",
+     "time": "2026-10-14T08:30"
+    },
+    {
+     "ref": "ZC-68284526",
+     "type": "bill_payment",
+     "amount": 235000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07887651984",
+     "time": "2026-10-14T21:00"
+    },
+    {
+     "ref": "ZC-95056895",
+     "type": "bill_payment",
+     "amount": 90000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07814825827",
+     "time": "2026-10-15T14:14"
+    },
+    {
+     "ref": "ZC-44526148",
+     "type": "agent_cash_in",
+     "amount": 140000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07889576417",
+     "time": "2026-10-15T18:55"
+    },
+    {
+     "ref": "ZC-77363699",
+     "type": "bill_payment",
+     "amount": 245000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07825526493",
+     "time": "2026-10-16T08:59"
+    },
+    {
+     "ref": "ZC-25919291",
+     "type": "topup",
+     "amount": 35000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07893211328",
+     "time": "2026-10-17T02:30"
+    },
+    {
+     "ref": "ZC-01148068",
+     "type": "p2p_receive",
+     "amount": 220000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07888956994",
+     "time": "2026-10-17T16:14"
+    },
+    {
+     "ref": "ZC-95764236",
+     "type": "topup",
+     "amount": 25000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07830733985",
+     "time": "2026-10-19T04:11"
+    },
+    {
+     "ref": "ZC-22879655",
+     "type": "topup",
+     "amount": 30000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07889016334",
+     "time": "2026-10-20T23:07"
+    },
+    {
+     "ref": "ZC-79442997",
+     "type": "bill_payment",
+     "amount": 130000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07818307481",
+     "time": "2026-10-21T11:18"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W17",
+   "name": "هدى الشمري",
+   "phone": "07889400463",
+   "balance": 571000,
+   "transactions": [
+    {
+     "ref": "ZC-47783294",
+     "type": "bill_payment",
+     "amount": 190000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07875317210",
+     "time": "2026-10-16T13:54"
+    },
+    {
+     "ref": "ZC-78562002",
+     "type": "p2p_send",
+     "amount": 1365000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07821438591",
+     "time": "2026-10-18T23:15"
+    },
+    {
+     "ref": "ZC-45077337",
+     "type": "bill_payment",
+     "amount": 130000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07843971665",
+     "time": "2026-10-19T10:43"
+    },
+    {
+     "ref": "ZC-53033113",
+     "type": "topup",
+     "amount": 25000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07844980433",
+     "time": "2026-10-19T12:07"
+    },
+    {
+     "ref": "ZC-59064561",
+     "type": "p2p_send",
+     "amount": 125000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07897232015",
+     "time": "2026-10-19T19:05"
+    },
+    {
+     "ref": "ZC-05615337",
+     "type": "agent_cash_in",
+     "amount": 315000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07802221657",
+     "time": "2026-10-20T17:35"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W18",
+   "name": "آية العزاوي",
+   "phone": "07877590395",
+   "balance": 1683000,
+   "transactions": [
+    {
+     "ref": "ZC-39894376",
+     "type": "p2p_send",
+     "amount": 760000,
+     "status": "failed",
+     "debited": true,
+     "counterparty": "07879508396",
+     "time": "2026-10-14T21:08"
+    },
+    {
+     "ref": "ZC-14283560",
+     "type": "agent_cash_in",
+     "amount": 135000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07843929146",
+     "time": "2026-10-16T05:13"
+    },
+    {
+     "ref": "ZC-23791118",
+     "type": "topup",
+     "amount": 45000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07811269759",
+     "time": "2026-10-16T14:45"
+    },
+    {
+     "ref": "ZC-51748936",
+     "type": "agent_cash_in",
+     "amount": 230000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07836575816",
+     "time": "2026-10-16T19:13"
+    },
+    {
+     "ref": "ZC-04898775",
+     "type": "p2p_receive",
+     "amount": 35000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07840847765",
+     "time": "2026-10-17T00:48"
+    },
+    {
+     "ref": "ZC-79414642",
+     "type": "topup",
+     "amount": 30000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07811204630",
+     "time": "2026-10-17T17:55"
+    },
+    {
+     "ref": "ZC-86017784",
+     "type": "bill_payment",
+     "amount": 160000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07806539728",
+     "time": "2026-10-18T04:48"
+    },
+    {
+     "ref": "ZC-75879415",
+     "type": "bill_payment",
+     "amount": 225000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07864292230",
+     "time": "2026-10-18T16:29"
+    },
+    {
+     "ref": "ZC-23389308",
+     "type": "p2p_send",
+     "amount": 1155000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07851320304",
+     "time": "2026-10-18T17:29"
+    },
+    {
+     "ref": "ZC-31264819",
+     "type": "p2p_receive",
+     "amount": 685000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07859926503",
+     "time": "2026-10-19T06:44"
+    },
+    {
+     "ref": "ZC-64207773",
+     "type": "p2p_send",
+     "amount": 770000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07870202776",
+     "time": "2026-10-20T16:42"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W19",
+   "name": "سجاد اللامي",
+   "phone": "07852585989",
+   "balance": 4692000,
+   "transactions": [
+    {
+     "ref": "ZC-86984245",
+     "type": "card_withdrawal",
+     "amount": 455000,
+     "status": "failed",
+     "debited": true,
+     "counterparty": "07814192714",
+     "time": "2026-10-14T19:37"
+    },
+    {
+     "ref": "ZC-98337825",
+     "type": "p2p_receive",
+     "amount": 395000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07865272073",
+     "time": "2026-10-15T21:42"
+    },
+    {
+     "ref": "ZC-07711906",
+     "type": "p2p_send",
+     "amount": 1465000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07875607691",
+     "time": "2026-10-17T07:25"
+    },
+    {
+     "ref": "ZC-52627655",
+     "type": "agent_cash_in",
+     "amount": 705000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07859853064",
+     "time": "2026-10-19T07:22"
+    },
+    {
+     "ref": "ZC-83426182",
+     "type": "bill_payment",
+     "amount": 80000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07869665277",
+     "time": "2026-10-20T05:25"
+    },
+    {
+     "ref": "ZC-82199895",
+     "type": "p2p_send",
+     "amount": 180000,
+     "status": "pending",
+     "debited": true,
+     "counterparty": "07896901312",
+     "time": "2026-10-20T11:46"
+    },
+    {
+     "ref": "ZC-55718766",
+     "type": "bill_payment",
+     "amount": 150000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07858822912",
+     "time": "2026-10-20T13:40"
+    },
+    {
+     "ref": "ZC-62750035",
+     "type": "p2p_send",
+     "amount": 105000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07818936483",
+     "time": "2026-10-20T22:06"
+    },
+    {
+     "ref": "ZC-61438629",
+     "type": "p2p_receive",
+     "amount": 205000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07847173247",
+     "time": "2026-10-20T23:20"
+    },
+    {
+     "ref": "ZC-62805123",
+     "type": "topup",
+     "amount": 40000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07811938509",
+     "time": "2026-10-21T18:06"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W20",
+   "name": "زينب الجنابي",
+   "phone": "07829159457",
+   "balance": 3755000,
+   "transactions": [
+    {
+     "ref": "ZC-84826609",
+     "type": "p2p_send",
+     "amount": 605000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07860734791",
+     "time": "2026-10-17T14:45"
+    },
+    {
+     "ref": "ZC-23176759",
+     "type": "topup",
+     "amount": 5000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07818649290",
+     "time": "2026-10-17T22:23"
+    },
+    {
+     "ref": "ZC-04981153",
+     "type": "topup",
+     "amount": 50000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07808095792",
+     "time": "2026-10-17T23:41"
+    },
+    {
+     "ref": "ZC-73620753",
+     "type": "p2p_send",
+     "amount": 1315000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07864231893",
+     "time": "2026-10-19T03:57"
+    },
+    {
+     "ref": "ZC-46028222",
+     "type": "bill_payment",
+     "amount": 20000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07881286749",
+     "time": "2026-10-19T11:23"
+    },
+    {
+     "ref": "ZC-44751519",
+     "type": "p2p_send",
+     "amount": 1420000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07840379312",
+     "time": "2026-10-20T01:08"
+    },
+    {
+     "ref": "ZC-53531791",
+     "type": "p2p_receive",
+     "amount": 10000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07873311928",
+     "time": "2026-10-20T12:02"
+    },
+    {
+     "ref": "ZC-48814605",
+     "type": "bill_payment",
+     "amount": 70000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07832093798",
+     "time": "2026-10-21T12:40"
+    },
+    {
+     "ref": "ZC-95363695",
+     "type": "p2p_send",
+     "amount": 490000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07832679469",
+     "time": "2026-10-22T07:53"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W21",
+   "name": "رسل الدليمي",
+   "phone": "07800278628",
+   "balance": 3524000,
+   "transactions": [
+    {
+     "ref": "ZC-45385387",
+     "type": "p2p_send",
+     "amount": 1405000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07898053665",
+     "time": "2026-10-15T16:18"
+    },
+    {
+     "ref": "ZC-36487710",
+     "type": "p2p_send",
+     "amount": 15000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07808344797",
+     "time": "2026-10-16T05:52"
+    },
+    {
+     "ref": "ZC-97976323",
+     "type": "p2p_send",
+     "amount": 950000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07894965667",
+     "time": "2026-10-16T21:28"
+    },
+    {
+     "ref": "ZC-47933960",
+     "type": "topup",
+     "amount": 30000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07813395334",
+     "time": "2026-10-17T13:34"
+    },
+    {
+     "ref": "ZC-44939718",
+     "type": "agent_cash_in",
+     "amount": 130000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07888021158",
+     "time": "2026-10-19T07:52"
+    },
+    {
+     "ref": "ZC-30289847",
+     "type": "p2p_send",
+     "amount": 1150000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07867058365",
+     "time": "2026-10-19T15:34"
+    },
+    {
+     "ref": "ZC-12277992",
+     "type": "card_withdrawal",
+     "amount": 160000,
+     "status": "failed",
+     "debited": true,
+     "counterparty": "07876317754",
+     "time": "2026-10-20T07:51"
+    },
+    {
+     "ref": "ZC-91715129",
+     "type": "p2p_send",
+     "amount": 1100000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07863417502",
+     "time": "2026-10-20T13:32"
+    },
+    {
+     "ref": "ZC-51643141",
+     "type": "p2p_send",
+     "amount": 280000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07849353422",
+     "time": "2026-10-21T02:26"
+    },
+    {
+     "ref": "ZC-08669131",
+     "type": "p2p_send",
+     "amount": 230000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07866890078",
+     "time": "2026-10-21T02:43"
+    },
+    {
+     "ref": "ZC-64548330",
+     "type": "topup",
+     "amount": 40000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07897982615",
+     "time": "2026-10-21T19:32"
+    },
+    {
+     "ref": "ZC-33432446",
+     "type": "topup",
+     "amount": 20000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07890336774",
+     "time": "2026-10-21T21:42"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W22",
+   "name": "سجاد الحسيني",
+   "phone": "07864716661",
+   "balance": 4540000,
+   "transactions": [
+    {
+     "ref": "ZC-62997635",
+     "type": "p2p_send",
+     "amount": 430000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07898401122",
+     "time": "2026-10-14T08:22"
+    },
+    {
+     "ref": "ZC-85537214",
+     "type": "bill_payment",
+     "amount": 130000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07871051233",
+     "time": "2026-10-15T01:51"
+    },
+    {
+     "ref": "ZC-64756263",
+     "type": "topup",
+     "amount": 25000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07895812859",
+     "time": "2026-10-15T06:43"
+    },
+    {
+     "ref": "ZC-80028246",
+     "type": "p2p_send",
+     "amount": 70000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07845903321",
+     "time": "2026-10-15T22:16"
+    },
+    {
+     "ref": "ZC-56156954",
+     "type": "topup",
+     "amount": 15000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07857991923",
+     "time": "2026-10-16T10:36"
+    },
+    {
+     "ref": "ZC-31273246",
+     "type": "topup",
+     "amount": 50000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07832385998",
+     "time": "2026-10-16T22:58"
+    },
+    {
+     "ref": "ZC-51666348",
+     "type": "agent_cash_in",
+     "amount": 725000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07845726859",
+     "time": "2026-10-18T06:19"
+    },
+    {
+     "ref": "ZC-41127470",
+     "type": "p2p_send",
+     "amount": 1155000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07829357220",
+     "time": "2026-10-21T07:49"
+    },
+    {
+     "ref": "ZC-59863662",
+     "type": "topup",
+     "amount": 20000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07838135536",
+     "time": "2026-10-21T09:08"
+    },
+    {
+     "ref": "ZC-67889195",
+     "type": "intl_transfer",
+     "amount": 1525000,
+     "status": "pending",
+     "debited": true,
+     "counterparty": "07854395050",
+     "time": "2026-10-22T01:31"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W23",
+   "name": "عباس الربيعي",
+   "phone": "07809069573",
+   "balance": 4332000,
+   "transactions": [
+    {
+     "ref": "ZC-75772619",
+     "type": "bill_payment",
+     "amount": 210000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07850958241",
+     "time": "2026-10-17T01:54"
+    },
+    {
+     "ref": "ZC-56569929",
+     "type": "bill_payment",
+     "amount": 20000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07889358274",
+     "time": "2026-10-17T14:04"
+    },
+    {
+     "ref": "ZC-23381794",
+     "type": "p2p_send",
+     "amount": 1105000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07896402472",
+     "time": "2026-10-18T07:56"
+    },
+    {
+     "ref": "ZC-59231437",
+     "type": "agent_cash_out",
+     "amount": 510000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07830261336",
+     "time": "2026-10-19T00:46"
+    },
+    {
+     "ref": "ZC-44625623",
+     "type": "p2p_receive",
+     "amount": 75000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07820363577",
+     "time": "2026-10-19T06:22"
+    },
+    {
+     "ref": "ZC-27817717",
+     "type": "p2p_send",
+     "amount": 1000000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07880618004",
+     "time": "2026-10-19T19:04"
+    },
+    {
+     "ref": "ZC-84436917",
+     "type": "agent_cash_in",
+     "amount": 330000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07863156555",
+     "time": "2026-10-20T14:43"
+    },
+    {
+     "ref": "ZC-42932721",
+     "type": "p2p_receive",
+     "amount": 825000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07885838747",
+     "time": "2026-10-20T18:50"
+    },
+    {
+     "ref": "ZC-07583269",
+     "type": "agent_cash_in",
+     "amount": 200000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07881553748",
+     "time": "2026-10-21T19:34"
+    },
+    {
+     "ref": "ZC-86698944",
+     "type": "p2p_send",
+     "amount": 530000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07869300816",
+     "time": "2026-10-22T01:19"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W24",
+   "name": "زينب الشمري",
+   "phone": "07834140991",
+   "balance": 1428000,
+   "transactions": [
+    {
+     "ref": "ZC-25466501",
+     "type": "p2p_send",
+     "amount": 1265000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07861974257",
+     "time": "2026-10-16T01:19"
+    },
+    {
+     "ref": "ZC-63003091",
+     "type": "p2p_receive",
+     "amount": 660000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07813682892",
+     "time": "2026-10-17T23:31"
+    },
+    {
+     "ref": "ZC-64953767",
+     "type": "bill_payment",
+     "amount": 70000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07882920262",
+     "time": "2026-10-18T01:47"
+    },
+    {
+     "ref": "ZC-00533692",
+     "type": "agent_cash_out",
+     "amount": 155000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07888489012",
+     "time": "2026-10-20T04:28"
+    },
+    {
+     "ref": "ZC-84079767",
+     "type": "p2p_send",
+     "amount": 520000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07853314785",
+     "time": "2026-10-21T15:42"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W25",
+   "name": "كرار الجنابي",
+   "phone": "07848611955",
+   "balance": 869000,
+   "transactions": [
+    {
+     "ref": "ZC-75560057",
+     "type": "agent_cash_in",
+     "amount": 85000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07875244608",
+     "time": "2026-10-14T09:19"
+    },
+    {
+     "ref": "ZC-51582617",
+     "type": "p2p_send",
+     "amount": 130000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07837792726",
+     "time": "2026-10-14T15:09"
+    },
+    {
+     "ref": "ZC-37913212",
+     "type": "bill_payment",
+     "amount": 105000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07844891251",
+     "time": "2026-10-14T18:49"
+    },
+    {
+     "ref": "ZC-31949153",
+     "type": "topup",
+     "amount": 10000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07829834281",
+     "time": "2026-10-15T07:05"
+    },
+    {
+     "ref": "ZC-62262473",
+     "type": "p2p_send",
+     "amount": 865000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07863096907",
+     "time": "2026-10-15T23:23"
+    },
+    {
+     "ref": "ZC-56514773",
+     "type": "p2p_send",
+     "amount": 145000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07809005955",
+     "time": "2026-10-17T10:16"
+    },
+    {
+     "ref": "ZC-38469443",
+     "type": "bill_payment",
+     "amount": 195000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07800618837",
+     "time": "2026-10-17T21:02"
+    },
+    {
+     "ref": "ZC-39302209",
+     "type": "p2p_send",
+     "amount": 540000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07805579410",
+     "time": "2026-10-18T07:27"
+    },
+    {
+     "ref": "ZC-80941420",
+     "type": "p2p_send",
+     "amount": 540000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07805579410",
+     "time": "2026-10-18T07:27"
+    },
+    {
+     "ref": "ZC-63537650",
+     "type": "topup",
+     "amount": 30000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07804852659",
+     "time": "2026-10-21T01:44"
+    },
+    {
+     "ref": "ZC-25644898",
+     "type": "p2p_send",
+     "amount": 1020000,
+     "status": "pending",
+     "debited": true,
+     "counterparty": "07825010505",
+     "time": "2026-10-21T14:10"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W26",
+   "name": "زينب العزاوي",
+   "phone": "07887723026",
+   "balance": 4037000,
+   "transactions": [
+    {
+     "ref": "ZC-87882143",
+     "type": "p2p_send",
+     "amount": 290000,
+     "status": "failed",
+     "debited": true,
+     "counterparty": "07813285919",
+     "time": "2026-10-14T08:46"
+    },
+    {
+     "ref": "ZC-41484091",
+     "type": "p2p_send",
+     "amount": 1000000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07820046457",
+     "time": "2026-10-15T05:21"
+    },
+    {
+     "ref": "ZC-91443182",
+     "type": "topup",
+     "amount": 30000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07830258544",
+     "time": "2026-10-15T16:29"
+    },
+    {
+     "ref": "ZC-48653042",
+     "type": "p2p_receive",
+     "amount": 905000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07856108257",
+     "time": "2026-10-16T15:24"
+    },
+    {
+     "ref": "ZC-07006447",
+     "type": "agent_cash_in",
+     "amount": 285000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07800060331",
+     "time": "2026-10-17T17:17"
+    },
+    {
+     "ref": "ZC-19048594",
+     "type": "p2p_send",
+     "amount": 1140000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07817903527",
+     "time": "2026-10-17T22:20"
+    },
+    {
+     "ref": "ZC-39008948",
+     "type": "bill_payment",
+     "amount": 180000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07821109820",
+     "time": "2026-10-18T06:22"
+    },
+    {
+     "ref": "ZC-67377770",
+     "type": "p2p_send",
+     "amount": 1045000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07839031447",
+     "time": "2026-10-20T13:09"
+    },
+    {
+     "ref": "ZC-64243890",
+     "type": "topup",
+     "amount": 35000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07831058092",
+     "time": "2026-10-20T13:36"
+    },
+    {
+     "ref": "ZC-49144981",
+     "type": "bill_payment",
+     "amount": 160000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07862448144",
+     "time": "2026-10-21T08:16"
+    },
+    {
+     "ref": "ZC-32734827",
+     "type": "p2p_send",
+     "amount": 1385000,
+     "status": "pending",
+     "debited": true,
+     "counterparty": "07844676592",
+     "time": "2026-10-21T13:46"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W27",
+   "name": "آية البياتي",
+   "phone": "07817893443",
+   "balance": 3176000,
+   "transactions": [
+    {
+     "ref": "ZC-95631425",
+     "type": "p2p_receive",
+     "amount": 800000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07802195416",
+     "time": "2026-10-15T22:37"
+    },
+    {
+     "ref": "ZC-70578834",
+     "type": "bill_payment",
+     "amount": 200000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07895127271",
+     "time": "2026-10-16T20:26"
+    },
+    {
+     "ref": "ZC-12473868",
+     "type": "p2p_send",
+     "amount": 760000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07868850370",
+     "time": "2026-10-17T03:26"
+    },
+    {
+     "ref": "ZC-19008219",
+     "type": "topup",
+     "amount": 30000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07849192349",
+     "time": "2026-10-17T23:09"
+    },
+    {
+     "ref": "ZC-73533354",
+     "type": "p2p_receive",
+     "amount": 525000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07829361037",
+     "time": "2026-10-20T17:25"
+    },
+    {
+     "ref": "ZC-16584710",
+     "type": "bill_payment",
+     "amount": 150000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07887300224",
+     "time": "2026-10-21T15:51"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W28",
+   "name": "مريم العبيدي",
+   "phone": "07873334120",
+   "balance": 4459000,
+   "transactions": [
+    {
+     "ref": "ZC-59178689",
+     "type": "bill_payment",
+     "amount": 120000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07819491417",
+     "time": "2026-10-14T22:33"
+    },
+    {
+     "ref": "ZC-07030750",
+     "type": "p2p_send",
+     "amount": 525000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07898481813",
+     "time": "2026-10-15T11:58"
+    },
+    {
+     "ref": "ZC-19640116",
+     "type": "agent_cash_in",
+     "amount": 720000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07891032960",
+     "time": "2026-10-16T23:01"
+    },
+    {
+     "ref": "ZC-26815702",
+     "type": "p2p_send",
+     "amount": 705000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07869315842",
+     "time": "2026-10-18T07:39"
+    },
+    {
+     "ref": "ZC-85940239",
+     "type": "bill_payment",
+     "amount": 180000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07802356334",
+     "time": "2026-10-19T11:15"
+    },
+    {
+     "ref": "ZC-28484163",
+     "type": "agent_cash_in",
+     "amount": 45000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07818458006",
+     "time": "2026-10-20T23:24"
+    },
+    {
+     "ref": "ZC-70476546",
+     "type": "topup",
+     "amount": 25000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07848880008",
+     "time": "2026-10-21T22:26"
+    },
+    {
+     "ref": "ZC-64366517",
+     "type": "agent_cash_in",
+     "amount": 240000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07829771273",
+     "time": "2026-10-22T01:28"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W29",
+   "name": "مريم الدليمي",
+   "phone": "07823278654",
+   "balance": 2077000,
+   "transactions": [
+    {
+     "ref": "ZC-01517710",
+     "type": "agent_cash_in",
+     "amount": 305000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07838714735",
+     "time": "2026-10-14T11:51"
+    },
+    {
+     "ref": "ZC-77693299",
+     "type": "topup",
+     "amount": 45000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07860318437",
+     "time": "2026-10-15T07:13"
+    },
+    {
+     "ref": "ZC-54446586",
+     "type": "p2p_send",
+     "amount": 455000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07869241006",
+     "time": "2026-10-16T12:47"
+    },
+    {
+     "ref": "ZC-82589682",
+     "type": "bill_payment",
+     "amount": 35000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07854421193",
+     "time": "2026-10-17T08:44"
+    },
+    {
+     "ref": "ZC-78768679",
+     "type": "p2p_send",
+     "amount": 485000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07835517042",
+     "time": "2026-10-18T13:19"
+    },
+    {
+     "ref": "ZC-34309355",
+     "type": "p2p_send",
+     "amount": 1370000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07802144673",
+     "time": "2026-10-19T14:36"
+    },
+    {
+     "ref": "ZC-69144559",
+     "type": "p2p_send",
+     "amount": 600000,
+     "status": "pending",
+     "debited": true,
+     "counterparty": "07849209270",
+     "time": "2026-10-19T20:08"
+    },
+    {
+     "ref": "ZC-74233071",
+     "type": "p2p_receive",
+     "amount": 270000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07841499531",
+     "time": "2026-10-20T21:22"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W30",
+   "name": "نور الجنابي",
+   "phone": "07863443400",
+   "balance": 627000,
+   "transactions": [
+    {
+     "ref": "ZC-86638501",
+     "type": "p2p_send",
+     "amount": 1225000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07816532576",
+     "time": "2026-10-14T13:42"
+    },
+    {
+     "ref": "ZC-58706818",
+     "type": "p2p_receive",
+     "amount": 875000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07814043456",
+     "time": "2026-10-16T02:13"
+    },
+    {
+     "ref": "ZC-43955502",
+     "type": "p2p_send",
+     "amount": 580000,
+     "status": "pending",
+     "debited": true,
+     "counterparty": "07880105164",
+     "time": "2026-10-16T07:34"
+    },
+    {
+     "ref": "ZC-78646503",
+     "type": "agent_cash_out",
+     "amount": 605000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07833558277",
+     "time": "2026-10-17T13:40"
+    },
+    {
+     "ref": "ZC-52822020",
+     "type": "p2p_send",
+     "amount": 1420000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07856050915",
+     "time": "2026-10-18T19:43"
+    },
+    {
+     "ref": "ZC-34579996",
+     "type": "agent_cash_in",
+     "amount": 745000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07821779635",
+     "time": "2026-10-19T23:54"
+    },
+    {
+     "ref": "ZC-21137297",
+     "type": "p2p_send",
+     "amount": 815000,
+     "status": "pending",
+     "debited": true,
+     "counterparty": "07892360845",
+     "time": "2026-10-21T13:36"
+    },
+    {
+     "ref": "ZC-64078396",
+     "type": "bill_payment",
+     "amount": 35000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07843838662",
+     "time": "2026-10-21T17:37"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W31",
+   "name": "هدى البياتي",
+   "phone": "07860595003",
+   "balance": 3196000,
+   "transactions": [
+    {
+     "ref": "ZC-73191655",
+     "type": "agent_cash_in",
+     "amount": 750000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07859160614",
+     "time": "2026-10-15T05:12"
+    },
+    {
+     "ref": "ZC-73005923",
+     "type": "bill_payment",
+     "amount": 30000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07841725223",
+     "time": "2026-10-16T01:55"
+    },
+    {
+     "ref": "ZC-27036061",
+     "type": "bill_payment",
+     "amount": 30000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07841725223",
+     "time": "2026-10-16T01:55"
+    },
+    {
+     "ref": "ZC-08924828",
+     "type": "topup",
+     "amount": 40000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07849791929",
+     "time": "2026-10-17T01:15"
+    },
+    {
+     "ref": "ZC-45836026",
+     "type": "bill_payment",
+     "amount": 80000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07894169677",
+     "time": "2026-10-17T18:32"
+    },
+    {
+     "ref": "ZC-88529595",
+     "type": "p2p_send",
+     "amount": 1230000,
+     "status": "pending",
+     "debited": true,
+     "counterparty": "07836748721",
+     "time": "2026-10-18T04:27"
+    },
+    {
+     "ref": "ZC-29467295",
+     "type": "bill_payment",
+     "amount": 210000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07879118882",
+     "time": "2026-10-18T18:42"
+    },
+    {
+     "ref": "ZC-61173923",
+     "type": "p2p_send",
+     "amount": 1085000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07888099826",
+     "time": "2026-10-20T11:04"
+    },
+    {
+     "ref": "ZC-30769984",
+     "type": "intl_transfer",
+     "amount": 1335000,
+     "status": "pending",
+     "debited": true,
+     "counterparty": "07841967119",
+     "time": "2026-10-21T01:24"
+    },
+    {
+     "ref": "ZC-83610042",
+     "type": "p2p_send",
+     "amount": 310000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07838555243",
+     "time": "2026-10-21T17:58"
+    },
+    {
+     "ref": "ZC-02072798",
+     "type": "p2p_send",
+     "amount": 465000,
+     "status": "failed",
+     "debited": true,
+     "counterparty": "07881162999",
+     "time": "2026-10-21T22:59"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W32",
+   "name": "سجاد الشمري",
+   "phone": "07890478208",
+   "balance": 632000,
+   "transactions": [
+    {
+     "ref": "ZC-15092876",
+     "type": "agent_cash_in",
+     "amount": 715000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07827717721",
+     "time": "2026-10-15T04:58"
+    },
+    {
+     "ref": "ZC-04843401",
+     "type": "intl_transfer",
+     "amount": 600000,
+     "status": "pending",
+     "debited": true,
+     "counterparty": "07875215805",
+     "time": "2026-10-15T19:03"
+    },
+    {
+     "ref": "ZC-53179809",
+     "type": "bill_payment",
+     "amount": 55000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07859962821",
+     "time": "2026-10-16T19:25"
+    },
+    {
+     "ref": "ZC-72944951",
+     "type": "p2p_receive",
+     "amount": 750000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07830214839",
+     "time": "2026-10-18T17:00"
+    },
+    {
+     "ref": "ZC-71742692",
+     "type": "agent_cash_out",
+     "amount": 650000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07866099700",
+     "time": "2026-10-19T12:16"
+    },
+    {
+     "ref": "ZC-16031730",
+     "type": "p2p_receive",
+     "amount": 85000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07893719404",
+     "time": "2026-10-21T19:11"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W33",
+   "name": "رسل اللامي",
+   "phone": "07813234132",
+   "balance": 4248000,
+   "transactions": [
+    {
+     "ref": "ZC-53808201",
+     "type": "p2p_send",
+     "amount": 740000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07800052938",
+     "time": "2026-10-14T12:17"
+    },
+    {
+     "ref": "ZC-92256734",
+     "type": "p2p_send",
+     "amount": 1410000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07841180696",
+     "time": "2026-10-15T15:12"
+    },
+    {
+     "ref": "ZC-56639059",
+     "type": "p2p_send",
+     "amount": 630000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07815928985",
+     "time": "2026-10-15T16:20"
+    },
+    {
+     "ref": "ZC-23671558",
+     "type": "p2p_receive",
+     "amount": 85000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07883486523",
+     "time": "2026-10-15T16:46"
+    },
+    {
+     "ref": "ZC-13813183",
+     "type": "topup",
+     "amount": 35000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07829912330",
+     "time": "2026-10-17T11:38"
+    },
+    {
+     "ref": "ZC-46933525",
+     "type": "merchant_payment",
+     "amount": 75000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07827034927",
+     "time": "2026-10-17T20:23"
+    },
+    {
+     "ref": "ZC-26142164",
+     "type": "p2p_receive",
+     "amount": 310000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07844610939",
+     "time": "2026-10-17T20:37"
+    },
+    {
+     "ref": "ZC-92898296",
+     "type": "p2p_send",
+     "amount": 1220000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07890342239",
+     "time": "2026-10-17T20:45"
+    },
+    {
+     "ref": "ZC-01534963",
+     "type": "topup",
+     "amount": 50000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07820189316",
+     "time": "2026-10-18T17:01"
+    },
+    {
+     "ref": "ZC-88847654",
+     "type": "p2p_send",
+     "amount": 1400000,
+     "status": "pending",
+     "debited": true,
+     "counterparty": "07846863951",
+     "time": "2026-10-19T22:39"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W34",
+   "name": "سارة الساعدي",
+   "phone": "07859459292",
+   "balance": 2552000,
+   "transactions": [
+    {
+     "ref": "ZC-11275867",
+     "type": "agent_cash_out",
+     "amount": 280000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07827899177",
+     "time": "2026-10-14T15:41"
+    },
+    {
+     "ref": "ZC-32350190",
+     "type": "bill_payment",
+     "amount": 130000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07840002572",
+     "time": "2026-10-16T21:05"
+    },
+    {
+     "ref": "ZC-75062719",
+     "type": "agent_cash_in",
+     "amount": 650000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07825159157",
+     "time": "2026-10-17T04:22"
+    },
+    {
+     "ref": "ZC-79489099",
+     "type": "agent_cash_in",
+     "amount": 535000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07851469825",
+     "time": "2026-10-18T09:07"
+    },
+    {
+     "ref": "ZC-86541919",
+     "type": "topup",
+     "amount": 15000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07883813990",
+     "time": "2026-10-19T05:58"
+    },
+    {
+     "ref": "ZC-55398835",
+     "type": "p2p_send",
+     "amount": 1000000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07828448921",
+     "time": "2026-10-20T11:56"
+    },
+    {
+     "ref": "ZC-85348161",
+     "type": "topup",
+     "amount": 40000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07841688901",
+     "time": "2026-10-21T13:25"
+    },
+    {
+     "ref": "ZC-64053552",
+     "type": "agent_cash_out",
+     "amount": 720000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07880449894",
+     "time": "2026-10-21T14:46"
+    },
+    {
+     "ref": "ZC-86192492",
+     "type": "p2p_send",
+     "amount": 1315000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07839975942",
+     "time": "2026-10-21T20:15"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W35",
+   "name": "حيدر الربيعي",
+   "phone": "07831747004",
+   "balance": 4687000,
+   "transactions": [
+    {
+     "ref": "ZC-61425090",
+     "type": "p2p_send",
+     "amount": 1445000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07827655865",
+     "time": "2026-10-14T12:47"
+    },
+    {
+     "ref": "ZC-91812635",
+     "type": "p2p_send",
+     "amount": 875000,
+     "status": "pending",
+     "debited": true,
+     "counterparty": "07843468551",
+     "time": "2026-10-14T19:21"
+    },
+    {
+     "ref": "ZC-86566074",
+     "type": "p2p_send",
+     "amount": 1090000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07811569428",
+     "time": "2026-10-15T07:10"
+    },
+    {
+     "ref": "ZC-79747663",
+     "type": "p2p_send",
+     "amount": 1020000,
+     "status": "pending",
+     "debited": true,
+     "counterparty": "07849601207",
+     "time": "2026-10-15T22:39"
+    },
+    {
+     "ref": "ZC-43604072",
+     "type": "p2p_send",
+     "amount": 965000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07863767989",
+     "time": "2026-10-18T14:29"
+    },
+    {
+     "ref": "ZC-74184264",
+     "type": "agent_cash_in",
+     "amount": 475000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07855270808",
+     "time": "2026-10-18T16:51"
+    },
+    {
+     "ref": "ZC-23714264",
+     "type": "p2p_send",
+     "amount": 1245000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07881854569",
+     "time": "2026-10-18T19:07"
+    },
+    {
+     "ref": "ZC-63130277",
+     "type": "agent_cash_in",
+     "amount": 380000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07845011096",
+     "time": "2026-10-19T12:12"
+    },
+    {
+     "ref": "ZC-09166726",
+     "type": "p2p_receive",
+     "amount": 155000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07886274044",
+     "time": "2026-10-19T22:31"
+    },
+    {
+     "ref": "ZC-53212625",
+     "type": "p2p_receive",
+     "amount": 955000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07855009260",
+     "time": "2026-10-19T22:43"
+    },
+    {
+     "ref": "ZC-36149052",
+     "type": "topup",
+     "amount": 45000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07847416776",
+     "time": "2026-10-21T10:57"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W36",
+   "name": "أحمد الدليمي",
+   "phone": "07829309223",
+   "balance": 3795000,
+   "transactions": [
+    {
+     "ref": "ZC-18857842",
+     "type": "p2p_send",
+     "amount": 550000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07810882179",
+     "time": "2026-10-14T13:04"
+    },
+    {
+     "ref": "ZC-59708368",
+     "type": "intl_transfer",
+     "amount": 1110000,
+     "status": "pending",
+     "debited": true,
+     "counterparty": "07867900940",
+     "time": "2026-10-16T02:10"
+    },
+    {
+     "ref": "ZC-61800733",
+     "type": "agent_cash_in",
+     "amount": 35000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07825875571",
+     "time": "2026-10-17T14:37"
+    },
+    {
+     "ref": "ZC-06727346",
+     "type": "p2p_receive",
+     "amount": 535000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07848278335",
+     "time": "2026-10-18T19:11"
+    },
+    {
+     "ref": "ZC-97159317",
+     "type": "bill_payment",
+     "amount": 110000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07826255008",
+     "time": "2026-10-19T02:02"
+    },
+    {
+     "ref": "ZC-92752381",
+     "type": "bill_payment",
+     "amount": 110000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07826255008",
+     "time": "2026-10-19T02:03"
+    },
+    {
+     "ref": "ZC-43566833",
+     "type": "topup",
+     "amount": 25000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07840136076",
+     "time": "2026-10-19T13:05"
+    },
+    {
+     "ref": "ZC-36471915",
+     "type": "bill_payment",
+     "amount": 175000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07818422517",
+     "time": "2026-10-20T05:03"
+    },
+    {
+     "ref": "ZC-70511170",
+     "type": "bill_payment",
+     "amount": 105000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07847538205",
+     "time": "2026-10-20T18:41"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W37",
+   "name": "عباس الموسوي",
+   "phone": "07825130058",
+   "balance": 3477000,
+   "transactions": [
+    {
+     "ref": "ZC-66528317",
+     "type": "p2p_send",
+     "amount": 1120000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07811119224",
+     "time": "2026-10-15T02:39"
+    },
+    {
+     "ref": "ZC-75144431",
+     "type": "agent_cash_in",
+     "amount": 430000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07891226075",
+     "time": "2026-10-15T09:00"
+    },
+    {
+     "ref": "ZC-43219010",
+     "type": "bill_payment",
+     "amount": 130000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07822737139",
+     "time": "2026-10-16T18:10"
+    },
+    {
+     "ref": "ZC-33465620",
+     "type": "p2p_receive",
+     "amount": 860000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07863210601",
+     "time": "2026-10-19T18:06"
+    },
+    {
+     "ref": "ZC-27870574",
+     "type": "topup",
+     "amount": 35000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07852568485",
+     "time": "2026-10-20T07:27"
+    },
+    {
+     "ref": "ZC-76438790",
+     "type": "topup",
+     "amount": 10000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07813815589",
+     "time": "2026-10-20T09:48"
+    },
+    {
+     "ref": "ZC-60181712",
+     "type": "p2p_send",
+     "amount": 900000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07857049622",
+     "time": "2026-10-22T04:28"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W38",
+   "name": "مرتضى الشمري",
+   "phone": "07813203027",
+   "balance": 1546000,
+   "transactions": [
+    {
+     "ref": "ZC-48029085",
+     "type": "p2p_send",
+     "amount": 1250000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07877258010",
+     "time": "2026-10-14T08:23"
+    },
+    {
+     "ref": "ZC-77800092",
+     "type": "p2p_send",
+     "amount": 1285000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07829271423",
+     "time": "2026-10-14T15:24"
+    },
+    {
+     "ref": "ZC-81992156",
+     "type": "p2p_send",
+     "amount": 1010000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07844526495",
+     "time": "2026-10-15T09:04"
+    },
+    {
+     "ref": "ZC-85042978",
+     "type": "p2p_send",
+     "amount": 20000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07800569588",
+     "time": "2026-10-15T12:33"
+    },
+    {
+     "ref": "ZC-42820220",
+     "type": "p2p_send",
+     "amount": 20000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07800569588",
+     "time": "2026-10-15T12:33"
+    },
+    {
+     "ref": "ZC-89855299",
+     "type": "p2p_send",
+     "amount": 430000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07864292269",
+     "time": "2026-10-16T21:36"
+    },
+    {
+     "ref": "ZC-98287201",
+     "type": "p2p_send",
+     "amount": 15000,
+     "status": "pending",
+     "debited": true,
+     "counterparty": "07837721451",
+     "time": "2026-10-18T07:32"
+    },
+    {
+     "ref": "ZC-39637411",
+     "type": "p2p_receive",
+     "amount": 790000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07882034072",
+     "time": "2026-10-18T07:54"
+    },
+    {
+     "ref": "ZC-66007977",
+     "type": "p2p_receive",
+     "amount": 870000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07878667071",
+     "time": "2026-10-18T10:21"
+    },
+    {
+     "ref": "ZC-45486878",
+     "type": "p2p_receive",
+     "amount": 710000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07817902801",
+     "time": "2026-10-18T19:01"
+    },
+    {
+     "ref": "ZC-67643576",
+     "type": "bill_payment",
+     "amount": 185000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07865715773",
+     "time": "2026-10-18T20:33"
+    },
+    {
+     "ref": "ZC-26931024",
+     "type": "p2p_receive",
+     "amount": 875000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07845260958",
+     "time": "2026-10-19T04:15"
+    },
+    {
+     "ref": "ZC-05791092",
+     "type": "bill_payment",
+     "amount": 235000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07815721107",
+     "time": "2026-10-21T20:52"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W39",
+   "name": "مصطفى الكعبي",
+   "phone": "07826471972",
+   "balance": 4050000,
+   "transactions": [
+    {
+     "ref": "ZC-40822220",
+     "type": "bill_payment",
+     "amount": 30000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07828332735",
+     "time": "2026-10-15T03:35"
+    },
+    {
+     "ref": "ZC-15340600",
+     "type": "bill_payment",
+     "amount": 235000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07856113431",
+     "time": "2026-10-15T09:05"
+    },
+    {
+     "ref": "ZC-30286965",
+     "type": "p2p_send",
+     "amount": 1255000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07846261097",
+     "time": "2026-10-15T21:39"
+    },
+    {
+     "ref": "ZC-04109210",
+     "type": "agent_cash_in",
+     "amount": 690000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07825671987",
+     "time": "2026-10-17T12:22"
+    },
+    {
+     "ref": "ZC-65281205",
+     "type": "p2p_receive",
+     "amount": 430000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07834507208",
+     "time": "2026-10-17T21:11"
+    },
+    {
+     "ref": "ZC-98871529",
+     "type": "p2p_send",
+     "amount": 710000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07839983316",
+     "time": "2026-10-19T13:08"
+    },
+    {
+     "ref": "ZC-90900446",
+     "type": "p2p_send",
+     "amount": 720000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07898163452",
+     "time": "2026-10-21T22:12"
+    },
+    {
+     "ref": "ZC-90767458",
+     "type": "p2p_send",
+     "amount": 720000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07898163452",
+     "time": "2026-10-21T22:12"
+    }
+   ]
+  },
+  {
+   "wallet_id": "W40",
+   "name": "حيدر الشمري",
+   "phone": "07825658871",
+   "balance": 4339000,
+   "transactions": [
+    {
+     "ref": "ZC-28220850",
+     "type": "agent_cash_in",
+     "amount": 70000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07822962304",
+     "time": "2026-10-15T11:01"
+    },
+    {
+     "ref": "ZC-02757373",
+     "type": "p2p_receive",
+     "amount": 290000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07852093252",
+     "time": "2026-10-16T17:49"
+    },
+    {
+     "ref": "ZC-95745979",
+     "type": "p2p_send",
+     "amount": 1370000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07892315293",
+     "time": "2026-10-17T15:47"
+    },
+    {
+     "ref": "ZC-21997261",
+     "type": "agent_cash_out",
+     "amount": 260000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07875614685",
+     "time": "2026-10-18T17:48"
+    },
+    {
+     "ref": "ZC-78657028",
+     "type": "bill_payment",
+     "amount": 240000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07842103246",
+     "time": "2026-10-19T21:32"
+    },
+    {
+     "ref": "ZC-50805462",
+     "type": "p2p_send",
+     "amount": 1060000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07832659229",
+     "time": "2026-10-20T12:55"
+    },
+    {
+     "ref": "ZC-18130341",
+     "type": "p2p_send",
+     "amount": 80000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07864513716",
+     "time": "2026-10-21T07:59"
+    },
+    {
+     "ref": "ZC-90458772",
+     "type": "agent_cash_in",
+     "amount": 620000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07896034395",
+     "time": "2026-10-21T08:28"
+    },
+    {
+     "ref": "ZC-01513342",
+     "type": "p2p_receive",
+     "amount": 490000,
+     "status": "success",
+     "debited": false,
+     "counterparty": "07842691361",
+     "time": "2026-10-21T13:44"
+    },
+    {
+     "ref": "ZC-58349762",
+     "type": "topup",
+     "amount": 30000,
+     "status": "success",
+     "debited": true,
+     "counterparty": "07832091638",
+     "time": "2026-10-21T17:43"
+    }
+   ]
+  }
+ ]
+}
