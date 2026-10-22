@@ -33,13 +33,13 @@ tickets in (batch)
   - Median 463 ms per ticket from Baghdad. $0.0023 for all 63.
   - Small and written by the same person who wrote the categories, so it is optimistic. The build stage measures again on a held-out set.
   - `probe.py` uses a Jev client from another project of ours. The build stage replaces it with a client in this repo.
-- `docs/` the design brief.
+- `docs/` the design brief (`ShakirMahmood_SupportPipelineAutomation.pdf`, built from `brief.html`).
 
 ## Build plan
 
 | Week | Goal |
 | --- | --- |
-| 1 | Ticket set: 250 synthetic tickets in dialect, English and Arabizi, 50 written by real Iraqis, 40-wallet mock ledger. 30% held out and never tuned on. |
+| 1 | 300 tickets: 250 synthetic in dialect, English and Arabizi (75 of them held out and never tuned on) plus 50 written by real Iraqis. 40-wallet mock ledger. |
 | 2 | Jev client in this repo, batch intake, category, priority and team routing, confidence gate. First score on the held-out set. |
 | 3 | Rules for amount, phone and reference. Ledger matching. Scam words force a person. |
 | 4 | Reply drafts in dialect. Agent screen to approve, edit or take over. 50 drafts rated send, edit or rewrite. |

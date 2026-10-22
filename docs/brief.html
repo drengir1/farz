@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Farz: Design Brief</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  @page { size: 1920px 1080px; margin: 0; }
+  :root { --ink: #111418; --mute: #6b7280; --faint: #c9ced6; --hair: #e6e8ec; --bg: #fbfaf7; --red: #d92d20; --red-soft: #fdeceb; --card: #ffffff; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--ink); font-family: Inter, sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .slide { width: 1920px; height: 1080px; padding: 64px 96px; position: relative; overflow: hidden; page-break-after: always; background: var(--bg); }
+  .slide:last-child { page-break-after: auto; }
+  .ar { font-family: "IBM Plex Sans Arabic", sans-serif; direction: rtl; unicode-bidi: isolate; }
+
+  .meta { display: flex; justify-content: space-between; font-size: 20px; color: var(--mute); }
+  .meta b { color: var(--ink); font-weight: 600; }
+  .tag { font-size: 18px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--red); margin-top: 40px; }
+  h1 { font-family: "Inter Tight", sans-serif; font-weight: 800; font-size: 72px; line-height: 1.03; letter-spacing: -0.035em; margin-top: 14px; }
+  h1 .soft { color: var(--faint); }
+  .lede { font-size: 26px; line-height: 1.45; color: #3b4149; margin-top: 20px; max-width: 1500px; }
+  h3 { font-size: 17px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute); margin-bottom: 12px; }
+  .foot { position: absolute; left: 96px; right: 96px; bottom: 56px; font-size: 18px; color: var(--mute); }
+
+  /* 1: user and problem */
+  .runs { margin-top: 40px; border-top: 2px solid var(--ink); }
+  .run { display: grid; grid-template-columns: 560px 1fr 470px; gap: 56px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--hair); }
+  .ticket { font-size: 27px; line-height: 1.5; text-align: right; }
+  .probs { display: grid; grid-template-columns: 190px 1fr 58px; row-gap: 10px; column-gap: 16px; align-items: center; font-size: 19px; }
+  .probs .k { color: #3b4149; }
+  .probs .bar { height: 12px; background: var(--hair); border-radius: 6px; overflow: hidden; }
+  .probs .bar i { display: block; height: 100%; background: var(--ink); border-radius: 6px; }
+  .probs .v { font-variant-numeric: tabular-nums; font-weight: 600; text-align: right; }
+  .probs.torn .bar i { background: var(--red); }
+  .out { font-size: 24px; line-height: 1.4; }
+  .out .big { font-family: "Inter Tight", sans-serif; font-size: 34px; font-weight: 700; letter-spacing: -0.02em; display: block; margin-bottom: 4px; }
+  .out.esc .big { color: var(--red); }
+  .facts { position: absolute; left: 96px; right: 96px; bottom: 64px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 64px; }
+  .facts p { font-size: 22px; line-height: 1.48; color: #2a2f36; }
+
+  /* 2: architecture */
+  .flow { display: flex; align-items: stretch; gap: 0; margin-top: 70px; }
+  .box { background: var(--card); border: 2px solid var(--ink); border-radius: 14px; padding: 22px 22px; width: 250px; flex: none; }
+  .box .n { font-size: 16px; color: var(--mute); font-weight: 600; letter-spacing: 0.06em; }
+  .box .t { font-family: "Inter Tight", sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -0.02em; margin-top: 6px; }
+  .box .d { font-size: 19px; line-height: 1.4; color: #3b4149; margin-top: 10px; }
+  .box.jev { background: var(--ink); color: #fff; }
+  .box.jev .n, .box.jev .d { color: #c9ced6; }
+  .arrow { flex: 1; display: flex; align-items: center; }
+  .arrow i { display: block; height: 2px; background: var(--ink); flex: 1; position: relative; }
+  .arrow i::after { content: ""; position: absolute; right: -2px; top: -7px; border-left: 14px solid var(--ink); border-top: 8px solid transparent; border-bottom: 8px solid transparent; }
+  .outs { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; margin-top: 56px; margin-left: auto; width: 1330px; }
+  .o { border-top: 4px solid var(--ink); padding-top: 16px; }
+  .o .t { font-family: "Inter Tight", sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -0.02em; }
+  .o .d { font-size: 20px; line-height: 1.45; color: #3b4149; margin-top: 8px; }
+  .o.p { border-color: var(--red); }
+  .o.p .t { color: var(--red); }
+  .gate { position: absolute; left: 96px; top: 640px; width: 300px; font-size: 22px; line-height: 1.45; color: #2a2f36; }
+  .gate b { font-family: "Inter Tight", sans-serif; font-size: 30px; display: block; margin-bottom: 6px; letter-spacing: -0.02em; }
+
+  /* 3: stack and data */
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 96px; margin-top: 56px; }
+  .row { display: grid; grid-template-columns: 230px 1fr; gap: 24px; padding: 18px 0; border-bottom: 1px solid var(--hair); font-size: 22px; line-height: 1.4; }
+  .row:first-of-type { border-top: 2px solid var(--ink); }
+  .row .k { font-weight: 600; }
+  .row .v { color: #2a2f36; }
+  .split { display: flex; height: 64px; border-radius: 10px; overflow: hidden; margin-top: 6px; }
+  .split div { display: flex; align-items: center; padding-left: 18px; font-size: 20px; font-weight: 600; color: #fff; }
+  .legend { font-size: 20px; line-height: 1.6; color: #2a2f36; margin-top: 18px; }
+  .legend b { font-weight: 700; }
+  .big-n { font-family: "Inter Tight", sans-serif; font-size: 56px; font-weight: 700; letter-spacing: -0.03em; }
+  .trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 34px; }
+  .trio .l { font-size: 18px; color: var(--mute); margin-top: 2px; line-height: 1.35; }
+
+  /* 4: testing */
+  .dots { display: flex; align-items: center; margin-top: 12px; }
+  .dot { width: 20px; height: 20px; border-radius: 50%; background: var(--ink); margin-right: 6.4px; flex: none; }
+  .dot.miss { background: var(--red); }
+  .dot.low { background: transparent; border: 2.5px solid var(--ink); }
+  .cut { width: 3px; height: 70px; background: var(--red); margin: 0 18px 0 12px; flex: none; }
+  .under { display: flex; justify-content: space-between; width: 1560px; margin-top: 16px; font-size: 22px; }
+  .under .b { color: var(--red); }
+  .probe { margin-top: 48px; }
+  .probe .axis { font-size: 17px; color: var(--mute); }
+  .targets { margin-top: 64px; border-top: 2px solid var(--ink); }
+  .t-row { display: grid; grid-template-columns: 560px 220px 220px 1fr; gap: 32px; padding: 16px 0; border-bottom: 1px solid var(--hair); font-size: 22px; align-items: baseline; }
+  .t-row.h { font-size: 16px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute); }
+  .t-row .num { font-family: "Inter Tight", sans-serif; font-weight: 700; font-size: 28px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .t-row .why { color: var(--mute); font-size: 19px; }
+
+  /* 5: risks and plan */
+  .two { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 96px; margin-top: 48px; }
+  .risk { padding: 16px 0; border-bottom: 1px solid var(--hair); font-size: 22px; line-height: 1.4; }
+  .risk:first-of-type { border-top: 2px solid var(--ink); }
+  .risk .fix { color: var(--mute); display: block; font-size: 20px; }
+  .wk { display: grid; grid-template-columns: 110px 1fr; gap: 20px; padding: 14px 0; border-bottom: 1px solid var(--hair); font-size: 21px; line-height: 1.4; }
+  .wk:first-of-type { border-top: 2px solid var(--ink); }
+  .wk .w { font-family: "Inter Tight", sans-serif; font-weight: 700; font-size: 24px; }
+  .wk.mvp .w { color: var(--red); }
+  .repo { position: absolute; left: 96px; right: 96px; bottom: 56px; display: flex; justify-content: space-between; align-items: baseline; border-top: 2px solid var(--ink); padding-top: 20px; }
+  .repo .url { font-family: "Inter Tight", sans-serif; font-size: 34px; font-weight: 700; letter-spacing: -0.02em; }
+  .repo .never { font-size: 21px; }
+  .repo .never b { color: var(--red); }
+</style>
+</head>
+<body>
+
+<!-- 1. user and problem -->
+<section class="slide">
+  <div class="meta"><span><b>Shakir Mahmood, Taha Samer Saif Al-Din</b> · Topic 06, Support Pipeline Automation</span><span>1 / 5</span></div>
+  <div class="tag">User and problem</div>
+  <h1>Jev decides. An LLM writes.<br><span class="soft">A person sends.</span></h1>
+  <p class="lede"><b>Farz</b> sorts the ZainCash support queue in batches and hands anything it is unsure about to a person.</p>
+
+  <div class="runs">
+    <div class="run">
+      <div class="ticket ar">حولت 250 الف لاخوي من الصبح والفلوس انقصت من حسابي بس هو ما وصله شي</div>
+      <div class="probs">
+        <span class="k">failed transfer</span><span class="bar"><i style="width:100%"></i></span><span class="v">1.00</span>
+        <span class="k">wrong recipient</span><span class="bar"><i style="width:0%"></i></span><span class="v">0.00</span>
+        <span class="k">priority: high</span><span class="bar"><i style="width:100%"></i></span><span class="v">1.00</span>
+      </div>
+      <div class="out"><span class="big">Transfers team</span>250,000 IQD pulled from the text, checked against the ledger, reply drafted for the agent.</div>
+    </div>
+    <div class="run">
+      <div class="ticket ar">الصراف بلع البطاقة ومنطاني فلوس بس المبلغ انخصم</div>
+      <div class="probs torn">
+        <span class="k">agent dispute</span><span class="bar"><i style="width:42%"></i></span><span class="v">0.42</span>
+        <span class="k">card issue</span><span class="bar"><i style="width:38%"></i></span><span class="v">0.38</span>
+        <span class="k">failed transfer</span><span class="bar"><i style="width:19%"></i></span><span class="v">0.19</span>
+      </div>
+      <div class="out esc"><span class="big">Sent to a person</span>Jev is split between an agent and a card problem. Farz says so instead of guessing.</div>
+    </div>
+  </div>
+
+  <div class="facts">
+    <div><h3>The user</h3><p>A ZainCash support agent. One queue, three ways of writing: Iraqi dialect, English and Arabic in Latin letters.</p></div>
+    <div><h3>The problem</h3><p>Every ticket is read by hand just to learn what it is and who owns it. Money problems wait in the same line as questions about fees.</p></div>
+    <div><h3>What changes</h3><p>Farz does the reading and sorting. The agent only approves, edits or takes over. No reply leaves without a person.</p></div>
+  </div>
+</section>
+
+<!-- 2. architecture -->
+<section class="slide">
+  <div class="meta"><span><b>Shakir Mahmood, Taha Samer Saif Al-Din</b> · Topic 06, Support Pipeline Automation</span><span>2 / 5</span></div>
+  <div class="tag">How it works</div>
+  <h1>Every ticket takes the same five steps.</h1>
+
+  <div class="flow">
+    <div class="box"><div class="n">1</div><div class="t">Batch in</div><div class="d">Tickets from the app and support channels, grouped every few minutes.</div></div>
+    <div class="arrow"><i></i></div>
+    <div class="box jev"><div class="n">2</div><div class="t">Jev decides</div><div class="d">Category, priority and team, each with a confidence.</div></div>
+    <div class="arrow"><i></i></div>
+    <div class="box"><div class="n">3</div><div class="t">Rules extract</div><div class="d">Amount, phone and reference, only if they appear in the text.</div></div>
+    <div class="arrow"><i></i></div>
+    <div class="box"><div class="n">4</div><div class="t">Ledger checks</div><div class="d">Do those values match a real transaction on the wallet?</div></div>
+    <div class="arrow"><i></i></div>
+    <div class="box"><div class="n">5</div><div class="t">LLM drafts</div><div class="d">A reply in the customer's own dialect. It decides nothing.</div></div>
+  </div>
+
+  <div class="gate"><b>Confidence gate</b>Decides where each ticket goes next.</div>
+  <div class="outs">
+    <div class="o"><div class="t">Sure</div><div class="d">To the right team's queue with the draft ready. The agent approves or edits it.</div></div>
+    <div class="o p"><div class="t">Not sure</div><div class="d">To a person, with Jev's split shown so they see why.</div></div>
+    <div class="o p"><div class="t">Scam words</div><div class="d">Always a person, marked urgent, whatever the confidence.</div></div>
+  </div>
+
+  <div class="foot">Jev never writes text, the LLM never routes, and a person sends every reply.</div>
+</section>
+
+<!-- 3. stack and data -->
+<section class="slide">
+  <div class="meta"><span><b>Shakir Mahmood, Taha Samer Saif Al-Din</b> · Topic 06, Support Pipeline Automation</span><span>3 / 5</span></div>
+  <div class="tag">Models, tools and data</div>
+  <h1>Small, cheap models.<br><span class="soft">Test data we can trust.</span></h1>
+
+  <div class="cols">
+    <div>
+      <div class="row"><span class="k">Decisions</span><span class="v">Jev (TypeSafe AI). Returns a probability for every option, so we know when it is unsure.</span></div>
+      <div class="row"><span class="k">Reply drafts</span><span class="v">GPT-6 Astra, or a free model from the challenge's list. Swappable.</span></div>
+      <div class="row"><span class="k">Extraction</span><span class="v">Plain rules for amounts, phone numbers and references. No model can invent a number.</span></div>
+      <div class="row"><span class="k">Ledger</span><span class="v">SQLite with 40 mock wallets and their transactions.</span></div>
+      <div class="row"><span class="k">Agent screen</span><span class="v">Python backend, one web page: queue, draft, approve, edit, take over.</span></div>
+    </div>
+    <div>
+      <h3>300 tickets</h3>
+      <div class="split">
+        <div style="width:58.3%; background: var(--ink)">175 synthetic, for building</div>
+        <div style="width:25%; background: #4b5563">75 held out</div>
+        <div style="width:16.7%; background: var(--red)">50 human</div>
+      </div>
+      <p class="legend"><b>Synthetic:</b> an LLM writes tickets per category in dialect, English and Arabizi, with typos and mixed scripts. We read every one and throw out the fake-sounding ones.<br>
+      <b>Held out:</b> never looked at while building. Only used for the final score.<br>
+      <b>Human:</b> 50 tickets written by real Iraqis about real wallet problems. Scored on their own, so clean synthetic text cannot flatter us.</p>
+      <div class="trio">
+        <div><div class="big-n">9</div><div class="l">categories</div></div>
+        <div><div class="big-n">4</div><div class="l">priority levels</div></div>
+        <div><div class="big-n">3</div><div class="l">ways of writing</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. testing -->
+<section class="slide">
+  <div class="meta"><span><b>Shakir Mahmood, Taha Samer Saif Al-Din</b> · Topic 06, Support Pipeline Automation</span><span>4 / 5</span></div>
+  <div class="tag">Testing and metrics</div>
+  <h1>When it is sure, it is right.<br><span class="soft">When it is not, a person decides.</span></h1>
+
+  <div class="probe">
+    <div class="axis">First test, 23 Sep 2026: 63 Iraqi-dialect tickets, most confident first, run once with no tuning</div>
+    <div class="dots" id="dots"></div>
+    <div class="under"><span><b>57 above 0.90 confidence. All 57 right.</b></span><span class="b"><b>6 sent to a person,</b> including both mistakes.</span></div>
+  </div>
+
+  <div class="targets">
+    <div class="t-row h"><span>What we measure</span><span>First test</span><span>MVP target</span><span>Why it matters</span></div>
+    <div class="t-row"><span>Category right, held-out set</span><span class="num">96.8%</span><span class="num">90%+</span><span class="why">The first test was small and written by us</span></div>
+    <div class="t-row"><span>Right when routed without a person</span><span class="num">57 / 57</span><span class="num">98%+</span><span class="why">A wrong team costs the customer a day</span></div>
+    <div class="t-row"><span>Scam tickets that reach a person</span><span class="num">n/a</span><span class="num">100%</span><span class="why">Reported on its own, never averaged in</span></div>
+    <div class="t-row"><span>Is "90% sure" right 90% of the time?</span><span class="num">n/a</span><span class="num">within 5 pts</span><span class="why">The gate only works if confidence is honest</span></div>
+    <div class="t-row"><span>Drafts rated send or light edit, of 50</span><span class="num">n/a</span><span class="num">70%+</span><span class="why">Rated by a support agent, not by us</span></div>
+    <div class="t-row"><span>Time and cost per ticket</span><span class="num">463 ms</span><span class="num">under 1 s</span><span class="why">$0.0023 for all 63 in the first test</span></div>
+  </div>
+</section>
+
+<!-- 5. risks and plan -->
+<section class="slide">
+  <div class="meta"><span><b>Shakir Mahmood, Taha Samer Saif Al-Din</b> · Topic 06, Support Pipeline Automation</span><span>5 / 5</span></div>
+  <div class="tag">Risks and plan</div>
+  <h1>Five weeks to an agent<br><span class="soft">clearing a real queue.</span></h1>
+
+  <div class="two">
+    <div>
+      <h3>What could go wrong</h3>
+      <div class="risk">A scam routed as routine<span class="fix">Scam words always go to a person</span></div>
+      <div class="risk">Jev down on Iraqi internet<span class="fix">One retry, then the ticket goes to people</span></div>
+      <div class="risk">A draft with an invented amount<span class="fix">Drafts may only use values found in the ticket</span></div>
+      <div class="risk">Synthetic data too clean<span class="fix">Human tickets scored on their own</span></div>
+      <div class="risk">Customer data in a model call<span class="fix">Phone and card numbers masked before any call</span></div>
+    </div>
+    <div>
+      <h3>Week by week</h3>
+      <div class="wk"><span class="w">Week 1</span><span>300 tickets, 40-wallet ledger, held-out set locked away</span></div>
+      <div class="wk"><span class="w">Week 2</span><span>Batch intake, Jev routing, confidence gate, first held-out score</span></div>
+      <div class="wk"><span class="w">Week 3</span><span>Extraction rules, ledger matching, scam escalation</span></div>
+      <div class="wk"><span class="w">Week 4</span><span>Dialect drafts, agent screen, 50 drafts rated</span></div>
+      <div class="wk mvp"><span class="w">Week 5</span><span>MVP: full held-out run, calibration, fraud recall, demo</span></div>
+    </div>
+  </div>
+
+  <div class="repo">
+    <span class="url">github.com/drengir1/farz</span>
+    <span class="never">If time runs short we cut extra channels first. <b>Never cut</b> the held-out set, the gate, or a person on every reply.</span>
+  </div>
+</section>
+
+<script>
+  const el = document.getElementById('dots');
+  for (let i = 0; i < 57; i++) { const d = document.createElement('span'); d.className = 'dot'; el.appendChild(d); }
+  const c = document.createElement('span'); c.className = 'cut'; el.appendChild(c);
+  for (const k of ['miss', 'low', 'low', 'low', 'low', 'miss']) { const d = document.createElement('span'); d.className = 'dot ' + k; el.appendChild(d); }
+</script>
+</body>
+</html>
