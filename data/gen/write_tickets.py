@@ -151,7 +151,8 @@ def check():
                                   "txn_refs": sc["gold_txn_refs"], "ledger_case": sc["ledger_case"],
                                   "must_person": sc["must_person"], "injection": bool(sc["injection"])}})
         path = ROOT / "data" / f"{split}.jsonl"
-        path.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows), encoding="utf-8")
+        path.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows), encoding="utf-8",
+                        newline="\n")
         print(path.name, len(rows))
 
 

@@ -34,6 +34,9 @@ CATEGORY_COUNTS = {
 
 # (key, priority, transaction to plant or None, what the customer may mention, situation for the writer)
 # A transaction is (type, status, debited). "dup" plants the same debit twice.
+# Priorities follow the written rules in farz/schema.py. On 23 Oct, before any held-out run, four were
+# corrected to those rules: extra_fee and small_unexplained_charge to high (money lost or missing),
+# close_account to low (routine account change), prize_sms to low (a question, nothing paid).
 SITUATIONS = {
     "failed_transfer": [
         ("deducted_not_received", "high", ("p2p_send", "pending", True), "acp",
@@ -72,7 +75,7 @@ SITUATIONS = {
          "Gave cash to an agent (وكيل) to top up the wallet; the agent said done but the balance did not increase."),
         ("short_cash_out", "high", ("agent_cash_out", "success", True), "acr",
          "Cashed out at an agent, the full amount was deducted but the agent handed over less cash."),
-        ("extra_fee", "normal", ("agent_cash_out", "success", True), "a",
+        ("extra_fee", "high", ("agent_cash_out", "success", True), "a",
          "The agent charged an extra fee on top of the official one when cashing out."),
         ("agent_refused", "normal", None, "", "The agent refused to do a cash-out, saying there is no cash."),
         ("agent_unpaid_installment", "high", ("agent_cash_in", "missing", False), "a",
@@ -109,7 +112,7 @@ SITUATIONS = {
          "Got an SMS about a cash withdrawal the customer never made and never visited an agent."),
         ("seller_blocked", "high", ("p2p_send", "success", True), "ap",
          "Paid an online seller (Facebook / Instagram) by wallet transfer; the seller blocked them and sent nothing."),
-        ("prize_sms", "normal", None, "",
+        ("prize_sms", "low", None, "",
          "Got an SMS saying they won a prize and must pay a fee first; asks if it is real. Paid nothing."),
         ("caller_asked_code_refused", "normal", None, "",
          "Someone called asking for their code or the account would be closed; the customer did NOT give it, reporting it."),
@@ -120,7 +123,7 @@ SITUATIONS = {
         ("raise_limit", "low", None, "", "Asks how to raise the account's transfer limit."),
         ("update_id", "low", None, "", "Wants to update the ID because the old national card expired."),
         ("verification_rejected", "normal", None, "", "Account verification was rejected several times with no reason given."),
-        ("close_account", "normal", None, "", "Wants to close the account for good and get the balance back."),
+        ("close_account", "low", None, "", "Wants to close the account for good and get the balance back."),
         ("name_wrong", "low", None, "", "Their name is spelled wrong on the account."),
         ("account_suspended", "high", None, "", "The account is suspended and the app says visit a branch; all their money is inside."),
         ("merchant_account", "low", None, "", "Wants to open a merchant account for their shop."),
@@ -131,7 +134,7 @@ SITUATIONS = {
         ("link_bank", "low", None, "", "Asks how to link the wallet to their bank account (Rafidain, Rasheed)."),
         ("branch_hours", "low", None, "", "Asks until what time a specific branch is open."),
         ("app_slow", "normal", None, "", "The app is very slow and freezes on every operation."),
-        ("small_unexplained_charge", "normal", None, "", "The balance dropped by a small amount (250 to 1,000 dinars) with no reason."),
+        ("small_unexplained_charge", "high", None, "", "The balance dropped by a small amount (250 to 1,000 dinars) with no reason."),
         ("thanks", "low", None, "", "Thanks the support team for good service."),
     ],
 }
@@ -331,8 +334,11 @@ def main():
     for w in wallets:
         w["transactions"].sort(key=lambda t: t["time"])
     out = ROOT / "data"
-    (out / "ledger.json").write_text(json.dumps({"wallets": wallets}, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
-    (out / "gen" / "scenarios.json").write_text(json.dumps(scenarios, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    # Plain newlines on every system, so the files and the held-out hash are the same byte for byte.
+    (out / "ledger.json").write_text(json.dumps({"wallets": wallets}, ensure_ascii=False, indent=1) + "\n",
+                                     encoding="utf-8", newline="\n")
+    (out / "gen" / "scenarios.json").write_text(json.dumps(scenarios, ensure_ascii=False, indent=1) + "\n",
+                                                encoding="utf-8", newline="\n")
     counts = {s: sum(sc["split"] == s for sc in scenarios) for s in ("dev", "heldout")}
     print(f"wallets {len(wallets)} | txns {sum(len(w['transactions']) for w in wallets)} | scenarios {len(scenarios)} {counts}")
     print("must_person", sum(sc["must_person"] for sc in scenarios), "| injections", sum(bool(sc["injection"]) for sc in scenarios),
