@@ -37,13 +37,15 @@ tickets in (batch)
 
 ## Build plan
 
-| Week | Goal |
+The MVP is due 8 Nov 2026. The core has to work end to end on sample tickets by then.
+
+| Dates | Goal |
 | --- | --- |
-| 1 | 300 tickets: 250 synthetic in dialect, English and Arabizi (75 of them held out and never tuned on) plus 50 written by real Iraqis. 40-wallet mock ledger. |
-| 2 | Jev client in this repo, batch intake, category, priority and team routing, confidence gate. First score on the held-out set. |
-| 3 | Rules for amount, phone and reference. Ledger matching. Scam words force a person. |
-| 4 | Reply drafts in dialect. Agent screen to approve, edit or take over. 50 drafts rated send, edit or rewrite. |
-| 5 | Full held-out run, calibration check, fraud recall on its own, demo. |
+| 23 to 29 Oct | 300 tickets: 250 synthetic in dialect, English and Arabizi (75 of them held out and never tuned on) plus 50 made up by Iraqi volunteers. 40-wallet mock ledger. Jev client in this repo, batch intake, category, priority and team routing, confidence gate. First score on the held-out set. |
+| 30 Oct to 5 Nov | Rules for amount, phone and reference. Ledger matching. Scam words force a person. Reply drafts in dialect. A simple agent screen in Iraqi Arabic to approve, edit or take over. |
+| 6 to 8 Nov | Full run on the held-out set, calibration check, fraud recall on its own. One-page update: what works, what does not yet, what comes next. Submit the MVP. |
+
+After the MVP: rate 50 drafts as send, edit or rewrite, test on new inputs, document failure modes, and polish the demo for the progress review.
 
 If time runs short we cut multi-channel intake, then drafts for low-priority tickets, then ledger matching. We never cut the held-out set, the escalation gate, or a person approving every reply.
 
@@ -52,4 +54,4 @@ If time runs short we cut multi-channel intake, then drafts for low-priority tic
 - **Jev** (TypeSafe AI) makes every routing decision.
 - **GPT-6 Astra** drafts replies only. It never decides where a ticket goes.
 - **Claude** and **Codex** help write code and documents. Every change is reviewed by us.
-- Synthetic tickets are generated with an LLM and checked by hand. The 50 human-written tickets are not.
+- Synthetic tickets are generated with an LLM and checked by hand. The 50 human-written tickets are invented by Iraqi volunteers, not taken from real customers. No real personal or customer data is used anywhere.
