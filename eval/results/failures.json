@@ -1,0 +1,173 @@
+{
+ "dev-jev": {
+  "tickets": 175,
+  "category_wrong": 5,
+  "confused": [
+   {
+    "is": "bill_payment",
+    "said": "failed_transfer",
+    "tickets": 2
+   },
+   {
+    "is": "account_kyc",
+    "said": "general_inquiry",
+    "tickets": 2
+   },
+   {
+    "is": "agent_dispute",
+    "said": "bill_payment",
+    "tickets": 1
+   }
+  ],
+  "priority_too_low": 1,
+  "priority_too_high": 19,
+  "too_low": {
+   "urgent as high": 1
+  },
+  "queued_but_wrong": [
+   {
+    "id": "t080",
+    "right": [
+     "login_access",
+     "normal"
+    ],
+    "said": [
+     "login_access",
+     "high"
+    ]
+   }
+  ]
+ },
+ "dev-local": {
+  "tickets": 175,
+  "category_wrong": 44,
+  "confused": [
+   {
+    "is": "wrong_recipient",
+    "said": "failed_transfer",
+    "tickets": 3
+   },
+   {
+    "is": "account_kyc",
+    "said": "general_inquiry",
+    "tickets": 3
+   },
+   {
+    "is": "failed_transfer",
+    "said": "general_inquiry",
+    "tickets": 2
+   },
+   {
+    "is": "failed_transfer",
+    "said": "wrong_recipient",
+    "tickets": 2
+   },
+   {
+    "is": "login_access",
+    "said": "account_kyc",
+    "tickets": 2
+   },
+   {
+    "is": "agent_dispute",
+    "said": "failed_transfer",
+    "tickets": 2
+   }
+  ],
+  "priority_too_low": 19,
+  "priority_too_high": 18,
+  "too_low": {
+   "urgent as high": 7,
+   "high as normal": 5,
+   "normal as low": 4,
+   "high as low": 2,
+   "urgent as low": 1
+  },
+  "queued_but_wrong": [
+   {
+    "id": "t012",
+    "right": [
+     "failed_transfer",
+     "normal"
+    ],
+    "said": [
+     "failed_transfer",
+     "high"
+    ]
+   },
+   {
+    "id": "t033",
+    "right": [
+     "failed_transfer",
+     "high"
+    ],
+    "said": [
+     "wrong_recipient",
+     "high"
+    ]
+   }
+  ]
+ },
+ "probe-jev": {
+  "tickets": 63,
+  "category_wrong": 2,
+  "confused": [
+   {
+    "is": "login_access",
+    "said": "fraud_scam",
+    "tickets": 1
+   },
+   {
+    "is": "bill_payment",
+    "said": "failed_transfer",
+    "tickets": 1
+   }
+  ],
+  "priority_too_low": 3,
+  "priority_too_high": 7,
+  "too_low": {
+   "normal as low": 3
+  },
+  "queued_but_wrong": []
+ },
+ "probe-local": {
+  "tickets": 63,
+  "category_wrong": 5,
+  "confused": [
+   {
+    "is": "failed_transfer",
+    "said": "fraud_scam",
+    "tickets": 1
+   },
+   {
+    "is": "login_access",
+    "said": "fraud_scam",
+    "tickets": 1
+   },
+   {
+    "is": "agent_dispute",
+    "said": "fraud_scam",
+    "tickets": 1
+   },
+   {
+    "is": "card_issue",
+    "said": "account_kyc",
+    "tickets": 1
+   },
+   {
+    "is": "fraud_scam",
+    "said": "account_kyc",
+    "tickets": 1
+   }
+  ],
+  "priority_too_low": 7,
+  "priority_too_high": 9,
+  "too_low": {
+   "high as normal": 2,
+   "normal as low": 2,
+   "urgent as normal": 1,
+   "urgent as low": 1,
+   "urgent as high": 1
+  },
+  "queued_but_wrong": []
+ }
+}

@@ -42,8 +42,8 @@ python -m farz.screen          # then open http://localhost:8008
 - `farz/` the pipeline: ticket reading (`extract.py`), the ledger check (`ledger.py`), the safety gate (`gate.py`), the two deciders (`deciders.py`, `jev.py`), reply drafts and their check (`drafts.py`, `words.py`), `pipeline.py` that joins them, and the agent screen (`screen.py`, `screen.html`).
 - `data/` a 40-wallet mock ledger and 250 synthetic tickets, 175 to work with and 75 held out. All invented. `data/README.md` says how they were made and what their limits are.
 - `eval/` the scorer and the results of every run. `eval/README.md` lists the local models we tried.
-- `tests/` 46 tests for the reading rules, the ledger check, the gate, threshold picking, the confidence correction, the drafts, their check and the rating count.
-- `probe/` the first test, run 23 Sep 2026: 63 Iraqi-dialect tickets written by a person, Jev only, no tuning.
+- `tests/` 47 tests for the reading rules, the ledger check, the gate, threshold picking, the confidence correction, the drafts, their check, the rating count and the mistake count.
+- `probe/` the first test, run 23 Sep 2026: 63 Iraqi-dialect tickets written by a person, first scored with Jev only, later with both deciders, never tuned on.
 - `docs/` the design brief.
 
 ## Results so far
@@ -85,6 +85,15 @@ It did not help the gate, though. On dev, the raw scores let 66 tickets through 
 ### Scams on their own
 
 Every scam ticket must reach a person, whatever the decider calls it. It did: no scam ticket was ever sent to the team queue, on any set, by either decider, because the scam words and the gate catch it even when the category is wrong. Jev also named every scam as a scam (all three sets). The local model named 21 of 24 on dev, 6 of 7 on probe and 10 of 10 on held-out; the four it missed it filed as a bill, a login, a transfer and an account problem, and the gate still sent all four to a person.
+
+### Where it goes wrong
+
+`eval/failures.py` counts the mistakes on dev and probe; held-out is left out so nobody tunes on its mistakes.
+
+- **Mistakes that get past the gate are rare.** On dev, 1 Jev ticket and 2 local tickets went to a team queue with a wrong answer: two had the priority one step too high, one was a transfer filed as a wrong recipient. On the 63 hand-written tickets, none.
+- **Jev errs on the careful side.** Of its 20 wrong priorities on dev, 19 were too high. Its few category slips were bills read as transfers and account checks read as general questions.
+- **Our model's priority misses go both ways.** On dev, 19 too low and 18 too high, including 7 urgent tickets marked high and 1 marked low. Its category mix-ups are between close neighbours: wrong recipient and failed transfer, account checks and general questions, login and account.
+- **On the hand-written tickets our model over-calls scams.** Three non-scam tickets were named scams. That costs a person's time, not safety, since scams go to a person anyway.
 
 What has not been measured yet: a person's rating of the reply drafts, and anything on real traffic. The held-out local numbers above were taken before the confidence correction and are left as they are; scoring it again would need a recorded second run.
 
