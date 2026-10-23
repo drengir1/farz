@@ -66,6 +66,10 @@ def reply_language(text: str) -> str:
     return "english"
 
 
+# A card ticket is about a transaction only when it talks about a charge; a lost or blocked card is not.
+_CHARGE = re.compile(r"\d|خصم|انخصم|دفعت|مبلغ|فلوس|دينار|ألف|الف|charg|deduct|paid|payment|amount|iqd|alf", re.I)
+
+
 def facts(row: dict, ticket: dict, ledger) -> dict:
     """Everything a draft may say. Ledger rows only when the ledger agreed with the customer."""
     checked = row.get("ledger") or {}
@@ -78,7 +82,8 @@ def facts(row: dict, ticket: dict, ledger) -> dict:
     return {"id": row["id"], "language": reply_language(ticket["text"]), "category": row["category"],
             "team": row["team"], "to_person": row["route"] == "person", "txns": txns,
             "twice": len(txns) == 2 and txns[0]["amount"] == txns[1]["amount"],
-            "details_missing": row["category"] in MONEY and checked.get("outcome") in (None, "no_details"),
+            "details_missing": (row["category"] in MONEY and checked.get("outcome") in (None, "no_details")
+                                and (row["category"] != "card_issue" or bool(_CHARGE.search(ticket["text"])))),
             "ledger_disagrees": checked.get("outcome") in ("mismatch", "not_found"),
             "safety": row["category"] in SAFETY or any("scam" in r for r in row.get("reasons", []))}
 

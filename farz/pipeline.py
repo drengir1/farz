@@ -2,6 +2,7 @@
 
   python -m farz.pipeline tickets.jsonl --decider local     # or --decider jev
   python -m farz.pipeline tickets.jsonl --decider jev --drafts astra --out routed.jsonl
+  python -m farz.screen routed.jsonl                         # work the result on the agent screen
 
 Each input line needs "id", "text" and "wallet_phone" (the logged-in customer's number).
 Drafts default to the template writer; --drafts astra rewrites them with GPT-6 Astra, --drafts none skips them.
@@ -70,6 +71,8 @@ def main():
     if args.drafts != "none":
         from .drafts import draft_all
         rows = draft_all(rows, tickets, ledger, args.drafts)
+    # Keep the message and wallet beside each result so the agent screen can show them.
+    rows = [{**r, "text": t["text"], "wallet_phone": t.get("wallet_phone", "")} for r, t in zip(rows, tickets)]
     text = "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows)
     if args.out:
         Path(args.out).write_text(text, encoding="utf-8", newline="\n")

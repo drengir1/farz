@@ -9,8 +9,8 @@
  "drafts_flagged": 0,
  "astra_drafts_rejected": 0,
  "astra_rejection_reasons": {},
- "seconds": 0.1,
- "date": "2026-10-23 13:25",
+ "seconds": 0.0,
+ "date": "2026-10-23 13:29",
  "drafts": [
   {
    "id": "t004",
@@ -876,7 +876,7 @@
    "team": "cards",
    "route": "team_queue",
    "reply_language": "arabic",
-   "draft": "هلا بيك، وصلتنا رسالتك بخصوص البطاقة. إذا تگدر، دزلنا رقم العملية أو المبلغ ووقت العملية حتى نلگاها أسرع. حولنا رسالتك لفريق البطاقات ويرجعلك خبر بأقرب وقت. نعتذر على الإزعاج.",
+   "draft": "هلا بيك، وصلتنا رسالتك بخصوص البطاقة. حولنا رسالتك لفريق البطاقات ويرجعلك خبر بأقرب وقت. نعتذر على الإزعاج.",
    "draft_writer": "template",
    "draft_problems": [],
    "astra_rejected": null
@@ -898,7 +898,7 @@
    "team": "cards",
    "route": "person",
    "reply_language": "arabic",
-   "draft": "هلا بيك، وصلتنا رسالتك بخصوص البطاقة. إذا تگدر، دزلنا رقم العملية أو المبلغ ووقت العملية حتى نلگاها أسرع. رسالتك وصلت لموظف مختص يراجعها بنفسه ويرجعلك. نعتذر على الإزعاج.",
+   "draft": "هلا بيك، وصلتنا رسالتك بخصوص البطاقة. رسالتك وصلت لموظف مختص يراجعها بنفسه ويرجعلك. نعتذر على الإزعاج.",
    "draft_writer": "template",
    "draft_problems": [],
    "astra_rejected": null
@@ -931,7 +931,7 @@
    "team": "cards",
    "route": "person",
    "reply_language": "english",
-   "draft": "Hi, we got your message about your card. If you can, send us the transaction number, or the amount and time, so we can find it faster. A member of our team will look at it personally and get back to you. Sorry for the trouble.",
+   "draft": "Hi, we got your message about your card. A member of our team will look at it personally and get back to you. Sorry for the trouble.",
    "draft_writer": "template",
    "draft_problems": [],
    "astra_rejected": null
@@ -953,7 +953,7 @@
    "team": "cards",
    "route": "person",
    "reply_language": "arabic",
-   "draft": "هلا بيك، وصلتنا رسالتك بخصوص البطاقة. إذا تگدر، دزلنا رقم العملية أو المبلغ ووقت العملية حتى نلگاها أسرع. رسالتك وصلت لموظف مختص يراجعها بنفسه ويرجعلك. نعتذر على الإزعاج.",
+   "draft": "هلا بيك، وصلتنا رسالتك بخصوص البطاقة. رسالتك وصلت لموظف مختص يراجعها بنفسه ويرجعلك. نعتذر على الإزعاج.",
    "draft_writer": "template",
    "draft_problems": [],
    "astra_rejected": null
@@ -975,7 +975,7 @@
    "team": "cards",
    "route": "person",
    "reply_language": "arabic",
-   "draft": "هلا بيك، وصلتنا رسالتك بخصوص البطاقة. إذا تگدر، دزلنا رقم العملية أو المبلغ ووقت العملية حتى نلگاها أسرع. رسالتك وصلت لموظف مختص يراجعها بنفسه ويرجعلك. نعتذر على الإزعاج.",
+   "draft": "هلا بيك، وصلتنا رسالتك بخصوص البطاقة. رسالتك وصلت لموظف مختص يراجعها بنفسه ويرجعلك. نعتذر على الإزعاج.",
    "draft_writer": "template",
    "draft_problems": [],
    "astra_rejected": null
@@ -997,7 +997,7 @@
    "team": "cards",
    "route": "person",
    "reply_language": "arabic",
-   "draft": "هلا بيك، وصلتنا رسالتك بخصوص البطاقة. إذا تگدر، دزلنا رقم العملية أو المبلغ ووقت العملية حتى نلگاها أسرع. رسالتك وصلت لموظف مختص يراجعها بنفسه ويرجعلك. نعتذر على الإزعاج.",
+   "draft": "هلا بيك، وصلتنا رسالتك بخصوص البطاقة. رسالتك وصلت لموظف مختص يراجعها بنفسه ويرجعلك. نعتذر على الإزعاج.",
    "draft_writer": "template",
    "draft_problems": [],
    "astra_rejected": null
@@ -1019,7 +1019,7 @@
    "team": "cards",
    "route": "person",
    "reply_language": "arabic",
-   "draft": "هلا بيك، وصلتنا رسالتك بخصوص البطاقة. إذا تگدر، دزلنا رقم العملية أو المبلغ ووقت العملية حتى نلگاها أسرع. رسالتك وصلت لموظف مختص يراجعها بنفسه ويرجعلك. نعتذر على الإزعاج.",
+   "draft": "هلا بيك، وصلتنا رسالتك بخصوص البطاقة. رسالتك وصلت لموظف مختص يراجعها بنفسه ويرجعلك. نعتذر على الإزعاج.",
    "draft_writer": "template",
    "draft_problems": [],
    "astra_rejected": null
@@ -1041,7 +1041,7 @@
    "team": "cards",
    "route": "team_queue",
    "reply_language": "arabic",
-   "draft": "هلا بيك، وصلتنا رسالتك بخصوص البطاقة. إذا تگدر، دزلنا رقم العملية أو المبلغ ووقت العملية حتى نلگاها أسرع. حولنا رسالتك لفريق البطاقات ويرجعلك خبر بأقرب وقت. نعتذر على الإزعاج.",
+   "draft": "هلا بيك، وصلتنا رسالتك بخصوص البطاقة. حولنا رسالتك لفريق البطاقات ويرجعلك خبر بأقرب وقت. نعتذر على الإزعاج.",
    "draft_writer": "template",
    "draft_problems": [],
    "astra_rejected": null
@@ -1052,7 +1052,7 @@
    "team": "cards",
    "route": "team_queue",
    "reply_language": "arabic",
-   "draft": "هلا بيك، وصلتنا رسالتك بخصوص البطاقة. إذا تگدر، دزلنا رقم العملية أو المبلغ ووقت العملية حتى نلگاها أسرع. حولنا رسالتك لفريق البطاقات ويرجعلك خبر بأقرب وقت. نعتذر على الإزعاج.",
+   "draft": "هلا بيك، وصلتنا رسالتك بخصوص البطاقة. حولنا رسالتك لفريق البطاقات ويرجعلك خبر بأقرب وقت. نعتذر على الإزعاج.",
    "draft_writer": "template",
    "draft_problems": [],
    "astra_rejected": null

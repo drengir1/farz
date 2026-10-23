@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>فرز · شاشة الموظف</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f4f3ef; --panel: #ffffff; --ink: #1b1b1a; --ink-2: #4a4945; --ink-3: #7a7872;
+  --line: #e3e1da; --soft: #f8f7f4; --accent: #0e5e4c; --accent-soft: #e4f0ec;
+  --urgent: #a8201a; --urgent-soft: #fbe9e7; --high: #9a4b06; --high-soft: #fbefe2;
+  --normal: #3d4b5c; --normal-soft: #e9edf2; --low: #6b6a66; --low-soft: #efeeea;
+  --warn: #8a5a00; --warn-soft: #fdf3dc;
+  --font: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+  --mono: "IBM Plex Mono", Consolas, monospace;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body { background: var(--bg); color: var(--ink); font: 15px/1.6 var(--font); }
+button, textarea { font: inherit; color: inherit; }
+.ltr { direction: ltr; unicode-bidi: isolate; font-family: var(--mono); font-size: 13px; }
+
+header { display: flex; align-items: center; gap: 24px; padding: 12px 20px; background: var(--panel);
+  border-bottom: 1px solid var(--line); }
+header h1 { margin: 0; font-size: 18px; font-weight: 600; }
+header h1 span { color: var(--ink-3); font-weight: 400; }
+.counts { display: flex; gap: 18px; color: var(--ink-2); font-size: 14px; }
+.counts b { color: var(--ink); font-weight: 600; }
+.note { margin-inline-start: auto; color: var(--ink-3); font-size: 13px; }
+
+main { display: grid; grid-template-columns: 340px minmax(0, 1fr); height: calc(100% - 55px); }
+.detail { display: grid; grid-template-columns: minmax(0, 1fr) 330px; min-height: 0; }
+.list { border-inline-end: 1px solid var(--line); overflow-y: auto; background: var(--panel); }
+.tabs { position: sticky; top: 0; display: flex; gap: 4px; padding: 10px 12px; background: var(--panel);
+  border-bottom: 1px solid var(--line); z-index: 1; }
+.tabs button { border: 0; background: none; padding: 6px 10px; border-radius: 6px; cursor: pointer; color: var(--ink-2); font-size: 14px; }
+.tabs button.on { background: var(--ink); color: #fff; }
+.item { display: block; width: 100%; text-align: start; border: 0; border-bottom: 1px solid var(--line);
+  background: none; padding: 12px 16px; cursor: pointer; }
+.item:hover { background: var(--soft); }
+.item.on { background: var(--accent-soft); box-shadow: inset -3px 0 0 var(--accent); }
+.item .top { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink-3); }
+.item .top .who { margin-inline-start: auto; }
+.item .preview { margin-top: 4px; color: var(--ink); font-size: 14px; display: -webkit-box; -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; overflow: hidden; }
+.item.done .preview { color: var(--ink-3); }
+
+.pill { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 500; white-space: nowrap; }
+.p-urgent { background: var(--urgent-soft); color: var(--urgent); }
+.p-high { background: var(--high-soft); color: var(--high); }
+.p-normal { background: var(--normal-soft); color: var(--normal); }
+.p-low { background: var(--low-soft); color: var(--low); }
+.p-person { background: var(--warn-soft); color: var(--warn); }
+.p-team { background: var(--accent-soft); color: var(--accent); }
+.p-done { background: var(--ink); color: #fff; }
+
+.work { overflow-y: auto; padding: 24px 32px 40px; }
+.work h2 { margin: 0 0 4px; font-size: 17px; font-weight: 600; }
+.sub { color: var(--ink-3); font-size: 13px; margin-bottom: 18px; }
+.bubble { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px;
+  white-space: pre-wrap; max-width: 720px; }
+.label { margin: 22px 0 8px; font-size: 13px; color: var(--ink-2); font-weight: 500; display: flex; gap: 8px; align-items: center; }
+textarea { width: 100%; max-width: 720px; min-height: 150px; resize: vertical; border: 1px solid var(--line);
+  border-radius: 12px; padding: 14px 16px; background: var(--panel); line-height: 1.7; }
+textarea:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+.flag { max-width: 720px; margin-top: 8px; padding: 8px 12px; border-radius: 8px; background: var(--warn-soft); color: var(--warn); font-size: 13px; }
+.actions { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+.btn { border: 1px solid var(--line); background: var(--panel); padding: 9px 18px; border-radius: 8px; cursor: pointer; font-weight: 500; }
+.btn:hover { border-color: var(--ink-3); }
+.btn.main { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn.main:hover { background: #0b4d3e; }
+.btn:disabled { opacity: .45; cursor: default; }
+.btn kbd { font-family: var(--mono); font-size: 11px; opacity: .7; margin-inline-start: 6px; }
+.result { margin-top: 14px; max-width: 720px; padding: 10px 14px; border-radius: 8px; background: var(--soft); border: 1px solid var(--line); font-size: 14px; }
+
+.side { border-inline-start: 1px solid var(--line); background: var(--panel); overflow-y: auto; padding: 20px; }
+.side h3 { margin: 0 0 10px; font-size: 14px; font-weight: 600; }
+.side section { padding-bottom: 18px; margin-bottom: 18px; border-bottom: 1px solid var(--line); }
+.side section:last-child { border-bottom: 0; }
+dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; margin: 0; font-size: 14px; }
+dt { color: var(--ink-3); }
+dd { margin: 0; }
+.bar { height: 4px; background: var(--line); border-radius: 2px; margin-top: 3px; width: 120px; }
+.bar i { display: block; height: 100%; background: var(--ink-2); border-radius: 2px; }
+.reasons { margin: 0; padding: 0; list-style: none; font-size: 14px; }
+.reasons li { padding: 6px 10px; background: var(--warn-soft); color: var(--warn); border-radius: 6px; margin-bottom: 6px; }
+.txn { font-size: 13px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; margin-bottom: 6px; }
+.txn .ltr { font-size: 12px; }
+.empty { color: var(--ink-3); font-size: 14px; }
+
+@media (max-width: 1100px) {
+  main { grid-template-columns: 300px minmax(0, 1fr); }
+  .detail { display: block; overflow-y: auto; }
+  .work, .side { overflow: visible; }
+  .side { border-inline-start: 0; border-top: 1px solid var(--line); }
+}
+@media (max-width: 720px) {
+  main, .detail { display: block; height: auto; }
+  .list { max-height: 40vh; }
+  .work { padding: 18px 16px; }
+  .note { display: none; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>فرز <span>· شاشة الموظف</span></h1>
+  <div class="counts" id="counts"></div>
+  <div class="note">نسخة تجريبية، ما يندز أي رد. كل البيانات مخترعة.</div>
+</header>
+<main>
+  <nav class="list" id="list"></nav>
+  <div class="detail" id="detail">
+    <section class="work" id="work"><p class="empty">اختار رسالة من القائمة.</p></section>
+    <aside class="side" id="side"></aside>
+  </div>
+</main>
+<script>
+const CAT = { failed_transfer: "تحويل فاشل أو معلق", wrong_recipient: "تحويل لرقم غلط", login_access: "الدخول للحساب",
+  agent_dispute: "مشكلة ويا وكيل", card_issue: "البطاقة", bill_payment: "دفع فاتورة أو شحن", fraud_scam: "احتيال",
+  account_kyc: "توثيق الحساب", general_inquiry: "استفسار عام" };
+const PRI = { urgent: "عاجل", high: "عالي", normal: "عادي", low: "واطي" };
+const TEAM = { transfers: "التحويلات", account_access: "الحسابات", agent_network: "الوكلاء", cards: "البطاقات",
+  payments: "المدفوعات", fraud: "الحماية من الاحتيال", kyc: "توثيق الحسابات", general: "خدمة الزبائن" };
+const LEDGER = { match: "يطابق سجل المحفظة", mismatch: "المبلغ ما يطابق السجل", not_found: "ما لگينا العملية بالسجل",
+  no_details: "ماكو مبلغ أو رقم أو رقم عملية بالرسالة" };
+const TYPE = { p2p_send: "تحويل", p2p_receive: "استلام", intl_transfer: "حوالة خارجية", bill_payment: "فاتورة",
+  topup: "شحن رصيد", agent_cash_in: "إيداع عند وكيل", agent_cash_out: "سحب عند وكيل", card_payment: "دفع بالبطاقة" };
+const STATUS = { success: "ناجحة", failed: "فاشلة", pending: "قيد المعالجة", reversed: "مرجّعة" };
+const CHOICE = { approve: "اعتمدت المسودة", edit: "عدّلت وأعتمدت", take_over: "استلمتها بنفسك" };
+
+let tickets = [], actions = {}, tab = "person", current = null;
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const pct = (x) => Math.round((x || 0) * 100) + "%";
+const money = (n) => n == null ? "" : Number(n).toLocaleString("en-US") + " دينار";
+
+function reason(r) {
+  let m;
+  if ((m = r.match(/^not sure of category \((\S+) ([\d.]+)\)/))) return `مو متأكد من نوع المشكلة (${CAT[m[1]] || "؟"}، ${pct(+m[2])})`;
+  if ((m = r.match(/^not sure of priority \((\S+) ([\d.]+)\)/))) return `مو متأكد من الأهمية (${PRI[m[1]] || "؟"}، ${pct(+m[2])})`;
+  if (r === "fraud or scam") return "احتيال، لازم موظف يشوفها";
+  if (r === "urgent") return "عاجلة";
+  if (r === "scam signs in the text") return "بالرسالة علامات احتيال";
+  if (r === "text tries to instruct the system") return "الرسالة تحاول تعطي أوامر للنظام";
+  if (r.startsWith("ledger: ")) return `السجل ما يطابق كلام الزبون: <span class="ltr">${esc(r.slice(8))}</span>`;
+  return esc(r);
+}
+
+function counts() {
+  const person = tickets.filter((t) => t.route === "person").length;
+  const done = Object.keys(actions).length;
+  $("counts").innerHTML = `<span>تحتاج موظف <b>${person}</b></span><span>جاهزة بمسودة <b>${tickets.length - person}</b></span>` +
+    `<span>خلصت <b>${done}</b> من ${tickets.length}</span>`;
+}
+
+function list() {
+  const shown = tickets.filter((t) => tab === "all" || (tab === "done" ? actions[t.id] : !actions[t.id] && t.route === tab));
+  const tabs = [["person", "تحتاج موظف"], ["team_queue", "جاهزة بمسودة"], ["done", "خلصت"], ["all", "الكل"]];
+  $("list").innerHTML = `<div class="tabs">${tabs.map(([k, v]) => `<button class="${tab === k ? "on" : ""}" data-tab="${k}">${v}</button>`).join("")}</div>` +
+    (shown.length ? shown.map((t) => `<button class="item ${t.id === current ? "on" : ""} ${actions[t.id] ? "done" : ""}" data-id="${t.id}">
+      <div class="top"><span class="pill p-${t.priority}">${PRI[t.priority] || ""}</span><span>${CAT[t.category] || "غير معروف"}</span>
+      <span class="who">${actions[t.id] ? '<span class="pill p-done">خلصت</span>' : esc(t.id)}</span></div>
+      <div class="preview" dir="auto">${esc(t.text)}</div></button>`).join("") : `<p class="empty" style="padding:16px">ماكو رسائل هنا.</p>`);
+}
+
+function open(id) {
+  current = id;
+  $("detail").scrollTop = $("work").scrollTop = $("side").scrollTop = 0;
+  const t = tickets.find((x) => x.id === id), a = actions[id];
+  const lang = t.reply_language === "english" ? "en" : "ar";
+  $("work").innerHTML = `
+    <h2>${CAT[t.category] || "غير معروف"}</h2>
+    <div class="sub"><span class="ltr">${esc(t.id)}</span> · محفظة الزبون <span class="ltr">${esc(t.wallet_phone)}</span></div>
+    <div class="bubble" dir="auto">${esc(t.text)}</div>
+    <div class="label">مسودة الرد <span class="pill ${t.draft_writer === "astra" ? "p-team" : "p-low"}">${t.draft_writer === "astra" ? "كتبها Astra" : "قالب ثابت"}</span></div>
+    <textarea id="draft" dir="${lang === "en" ? "ltr" : "rtl"}" lang="${lang}">${esc(a && a.sent_text != null ? a.sent_text : t.draft)}</textarea>
+    ${(t.draft_problems || []).length ? `<div class="flag">انتبه، الفحص لگى بالمسودة: <span class="ltr">${esc(t.draft_problems.join("; "))}</span></div>` : ""}
+    <div class="actions">
+      <button class="btn main" data-choice="approve">اعتمد المسودة <kbd>Ctrl+Enter</kbd></button>
+      <button class="btn" data-choice="edit">احفظ تعديلي واعتمده</button>
+      <button class="btn" data-choice="take_over">أستلمها بنفسي</button>
+    </div>
+    ${a ? `<div class="result">${CHOICE[a.choice]} · ${esc(a.time)}</div>` : ""}`;
+  const ld = t.ledger || {};
+  $("side").innerHTML = `
+    <section><h3>شنو لگى فرز</h3><dl>
+      <dt>المشكلة</dt><dd>${CAT[t.category] || "؟"}<div class="bar"><i style="width:${pct(t.category_confidence)}"></i></div></dd>
+      <dt>الأهمية</dt><dd><span class="pill p-${t.priority}">${PRI[t.priority] || "؟"}</span><div class="bar"><i style="width:${pct(t.priority_confidence)}"></i></div></dd>
+      <dt>الفريق</dt><dd>${TEAM[t.team] || "؟"}</dd>
+      <dt>وين راحت</dt><dd>${t.route === "person" ? '<span class="pill p-person">لموظف أولاً</span>' : '<span class="pill p-team">لقائمة الفريق</span>'}</dd>
+    </dl></section>
+    ${t.reasons && t.reasons.length ? `<section><h3>ليش وصلتك</h3><ul class="reasons">${t.reasons.map((r) => `<li>${reason(r)}</li>`).join("")}</ul></section>` : ""}
+    <section><h3>التفاصيل من الرسالة</h3><dl>
+      <dt>المبلغ</dt><dd>${t.entities.amount != null ? money(t.entities.amount) : '<span class="empty">ماكو</span>'}</dd>
+      <dt>رقم الهاتف</dt><dd>${t.entities.phone ? `<span class="ltr">${esc(t.entities.phone)}</span>` : '<span class="empty">ماكو</span>'}</dd>
+      <dt>رقم العملية</dt><dd>${t.entities.reference ? `<span class="ltr">${esc(t.entities.reference)}</span>` : '<span class="empty">ماكو</span>'}</dd>
+    </dl></section>
+    <section><h3>سجل المحفظة</h3>
+      <p style="margin:0 0 8px;font-size:14px">${t.ledger ? LEDGER[ld.outcome] || esc(ld.outcome) : '<span class="empty">ما انفحص، المشكلة مو عن عملية</span>'}</p>
+      ${(t.ledger_rows || []).map((x) => `<div class="txn"><div><span class="ltr">${esc(x.ref)}</span> · ${TYPE[x.type] || esc(x.type)}</div>
+        <div>${money(x.amount)} · ${STATUS[x.status] || esc(x.status)}${x.debited ? " · منخصم" : ""}</div>
+        <div class="ltr" style="color:var(--ink-3)">${esc(x.time.replace("T", " "))}</div></div>`).join("")}
+    </section>`;
+  list();
+}
+
+async function act(choice) {
+  if (!current) return;
+  const text = $("draft").value;
+  const res = await fetch("/api/action", { method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ id: current, choice, text }) });
+  if (!res.ok) return alert("ما انحفظ، جرب مرة ثانية");
+  actions[current] = await res.json();
+  counts();
+  const next = tickets.find((t) => !actions[t.id] && (tab === "all" || t.route === tab));
+  next ? open(next.id) : open(current);
+}
+
+document.addEventListener("click", (e) => {
+  const b = e.target.closest("button");
+  if (!b) return;
+  if (b.dataset.tab) { tab = b.dataset.tab; list(); }
+  else if (b.dataset.id) open(b.dataset.id);
+  else if (b.dataset.choice) act(b.dataset.choice);
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && (e.ctrlKey || e.metaKey) && current) { e.preventDefault(); act("approve"); }
+});
+
+fetch("/api/queue").then((r) => r.json()).then((d) => {
+  tickets = d.tickets; actions = d.actions || {};
+  counts(); list();
+  const first = tickets.find((t) => !actions[t.id] && t.route === tab);
+  if (first) open(first.id);
+});
+</script>
+</body>
+</html>

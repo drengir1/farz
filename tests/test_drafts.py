@@ -76,3 +76,10 @@ def test_template_drafts_pass_their_own_check_on_every_route():
             tickets.append(_ticket("ما اگدر أدفع الفاتورة من التطبيق"))
     for r in draft_all(rows, tickets, L):
         assert r["draft_writer"] == "template" and r["draft_problems"] == []
+
+
+def test_lost_card_is_not_asked_for_a_transaction_number():
+    lost = facts(_row("card_issue", "cards", route="person"), _ticket("ضاعت بطاقتي وأريد أوقفها"), L)
+    charged = facts(_row("card_issue", "cards"), _ticket("انخصم مني مبلغ بالبطاقة وما اشتريت شي"), L)
+    assert not lost["details_missing"] and "رقم العملية" not in template(lost)
+    assert charged["details_missing"]
