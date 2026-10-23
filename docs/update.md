@@ -1,6 +1,6 @@
 # Farz: one-page update
 
-Shakir Mahmood, ZainCash Agentic AI Hackathon. 23 Oct 2026, for the MVP review on 8 Nov.
+Shakir Mahmood, ZainCash Agentic AI Hackathon. 23 Oct 2026, for the MVP review on 8 Nov. Code: github.com/drengir1/farz
 
 Farz reads a ZainCash support ticket written in Iraqi Arabic, Arabizi or English, decides what it is about and how urgent it is, checks any amount, phone number and reference against the wallet's transactions, and drafts a reply. A support agent approves the draft, edits it, or takes the ticket over. Nothing is ever sent by Farz on its own, and every ticket that is unsure, a possible scam, or has a ledger problem goes to a person. All data in this project is made up; no real customer data was used.
 
