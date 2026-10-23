@@ -6,6 +6,11 @@ python eval/run.py --decider local --set dev        # out-of-fold, picks the gat
 python eval/run.py --decider jev   --set dev        # needs TYPESAFE_API_KEY or JEV_ENV_FILE
 python eval/run.py --decider local --set probe
 python eval/run.py --decider local --set heldout    # once; a second run needs --again and is recorded
+python eval/run.py --decider local --set dev --calibrated   # with the confidence correction, own result file
+python eval/calibration.py                          # confidence gap and scam recall for every saved run
+python eval/drafts.py --writer astra                # reply drafts for dev, with the draft check
+python -m farz.screen --actions runs/rating-dev.jsonl   # a person works the queue...
+python eval/rate.py runs/rating-dev.jsonl           # ...and this counts send as is, edit, rewrite
 ```
 
 `models/` is not in git. `train_local.py` rebuilds it in about five minutes on a laptop; the first run downloads the two encoders (about 2 GB).

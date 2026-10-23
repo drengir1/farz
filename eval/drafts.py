@@ -5,7 +5,7 @@
 
 Reuses the routed rows from eval/results/<set>-jev.json, so Jev is not asked again. Writes
 eval/results/drafts-<set>-<writer>.json. A machine check is not a quality score: the drafts still
-need a person to rate them send, edit or rewrite (eval/rate.py, next).
+need a person to rate them send, edit or rewrite (eval/rate.py).
 Never run on the held-out set: its drafts are rated once, with everything else, at the end.
 """
 

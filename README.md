@@ -42,7 +42,7 @@ python -m farz.screen          # then open http://localhost:8008
 - `farz/` the pipeline: ticket reading (`extract.py`), the ledger check (`ledger.py`), the safety gate (`gate.py`), the two deciders (`deciders.py`, `jev.py`), reply drafts and their check (`drafts.py`, `words.py`), `pipeline.py` that joins them, and the agent screen (`screen.py`, `screen.html`).
 - `data/` a 40-wallet mock ledger and 250 synthetic tickets, 175 to work with and 75 held out. All invented. `data/README.md` says how they were made and what their limits are.
 - `eval/` the scorer and the results of every run. `eval/README.md` lists the local models we tried.
-- `tests/` 45 tests for the reading rules, the ledger check, the gate, threshold picking, the drafts and their check.
+- `tests/` 46 tests for the reading rules, the ledger check, the gate, threshold picking, the confidence correction, the drafts, their check and the rating count.
 - `probe/` the first test, run 23 Sep 2026: 63 Iraqi-dialect tickets written by a person, Jev only, no tuning.
 - `docs/` the design brief.
 
