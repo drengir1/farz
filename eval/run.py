@@ -3,6 +3,7 @@
     python eval/run.py --decider local --set dev        # local is scored out-of-fold on dev
     python eval/run.py --decider jev   --set probe      # needs TYPESAFE_API_KEY or JEV_ENV_FILE
     python eval/run.py --decider jev   --set heldout    # once per decider, see below
+    python eval/run.py --decider local --set dev --calibrated   # with the confidence correction
 
 Sets:
   dev      175 tickets. Jev sees them cold. Our model is scored with 5-fold cross-validation,
@@ -27,7 +28,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from farz.deciders import LocalDecider  # noqa: E402
+from farz.deciders import LocalDecider, decision, fit_temperature, sharpen  # noqa: E402
 from farz.gate import THRESHOLD  # noqa: E402
 from farz.ledger import Ledger  # noqa: E402
 from farz.pipeline import LEDGER, LOCAL_MODEL, make_decider, route  # noqa: E402
@@ -67,15 +68,28 @@ def _as_decision(row: dict) -> dict:
             for q in ("category", "priority")}
 
 
-def out_of_fold(tickets: list[dict], folds: int = 5, seed: int = 20261023) -> list[dict]:
+def out_of_fold(tickets: list[dict], calibrated: bool = False, folds: int = 5, seed: int = 20261023) -> list[dict]:
     from sklearn.model_selection import StratifiedKFold
     texts = [t["text"] for t in tickets]
     y = {q: [t["gold"][q] for t in tickets] for q in ("category", "priority")}
-    decisions = [None] * len(tickets)
-    for train, test in StratifiedKFold(folds, shuffle=True, random_state=seed).split(texts, y["category"]):
+    decisions, fold_of = [None] * len(tickets), [0] * len(tickets)
+    splits = list(StratifiedKFold(folds, shuffle=True, random_state=seed).split(texts, y["category"]))
+    for k, (train, test) in enumerate(splits):
         model = LocalDecider().fit([texts[i] for i in train], {q: [v[i] for i in train] for q, v in y.items()})
         for i, d in zip(test, model.decide([texts[i] for i in test])):
-            decisions[i] = d
+            decisions[i], fold_of[i] = d, k
+    if not calibrated:
+        return decisions
+    # The saved model's temperature is fitted on all of these predictions. To score it fairly, each
+    # fold's tickets are corrected with a temperature fitted on the other four folds only.
+    raw = {q: [d[q]["probabilities"] for d in decisions] for q in y}
+    for k in range(folds):
+        others = [i for i in range(len(tickets)) if fold_of[i] != k]
+        for q in y:
+            t = fit_temperature([raw[q][i] for i in others], [y[q][i] for i in others])
+            for i in range(len(tickets)):
+                if fold_of[i] == k:
+                    decisions[i] = {**decisions[i], q: decision(sharpen(raw[q][i], t))}
     return decisions
 
 
@@ -106,6 +120,46 @@ def dev_threshold(decider: str) -> float:
     return THRESHOLD
 
 
+BINS = (0.0, 0.5, 0.7, 0.8, 0.9, 1.01)
+
+
+def calibration(routed: list[dict], gold: list[dict], question: str) -> dict:
+    """Does a stated confidence of 0.9 mean right nine times in ten?
+
+    The gate trusts these numbers, so a decider that says 0.95 and is right 70% of the time is
+    dangerous even with good accuracy. Gap is the ticket-weighted distance between confidence and
+    accuracy across the bins (lower is better); Brier is the squared error of all the probabilities.
+    """
+    rows = [(r[f"{question}_confidence"], r[question] == g[question], r["probabilities"][question], g[question])
+            for r, g in zip(routed, gold)]
+    bins, gap = [], 0.0
+    for lo, hi in zip(BINS, BINS[1:]):
+        inside = [(c, ok) for c, ok, _, _ in rows if lo <= c < hi]
+        if not inside:
+            continue
+        conf = statistics.mean(c for c, _ in inside)
+        acc = sum(ok for _, ok in inside) / len(inside)
+        gap += len(inside) / len(rows) * abs(acc - conf)
+        bins.append({"from": lo, "to": min(hi, 1.0), "tickets": len(inside),
+                     "said": round(conf, 3), "right": round(acc, 3)})
+    brier = statistics.mean(sum((p.get(k, 0.0) - (k == want)) ** 2 for k in set(p) | {want})
+                            for _, _, p, want in rows)
+    return {"gap": round(gap, 4), "brier": round(brier, 4), "bins": bins}
+
+
+def fraud_scores(routed: list[dict], gold: list[dict]) -> dict:
+    """Scam tickets on their own: a missed scam costs far more than a wrong team."""
+    said = [r["category"] == "fraud_scam" for r in routed]
+    real = [g["category"] == "fraud_scam" for g in gold]
+    caught = sum(s and f for s, f in zip(said, real))
+    return {"fraud_tickets": sum(real),
+            "fraud_named_as_fraud": share(caught, sum(real)),
+            "fraud_label_right_when_given": share(caught, sum(said)),
+            "fraud_missed_ids": [r["id"] for r, s, f in zip(routed, said, real) if f and not s],
+            "fraud_missed_and_auto_routed_ids": [r["id"] for r, s, f in zip(routed, said, real)
+                                                 if f and not s and r["route"] == "team_queue"]}
+
+
 def score(tickets: list[dict], routed: list[dict], per_ticket_ms: list[float], usd: float) -> dict:
     gold = [t["gold"] for t in tickets]
     n = len(tickets)
@@ -123,6 +177,8 @@ def score(tickets: list[dict], routed: list[dict], per_ticket_ms: list[float], u
     }
     fraud = [r for r, g in zip(routed, gold) if g["category"] == "fraud_scam"]
     m["fraud_to_person"] = share(sum(r["route"] == "person" for r in fraud), len(fraud))
+    m.update(fraud_scores(routed, gold))
+    m["calibration"] = {q: calibration(routed, gold, q) for q in ("category", "priority")}
     if "must_person" in gold[0]:
         must = [(r, g) for r, g in zip(routed, gold) if g["must_person"]]
         m["must_person_tickets"] = len(must)
@@ -165,11 +221,15 @@ def main():
     ap.add_argument("--set", required=True, choices=["dev", "probe", "heldout"])
     ap.add_argument("--threshold", type=float,
                     help="default: the value picked on dev for this decider, else the gate's 0.90")
+    ap.add_argument("--calibrated", action="store_true", help="local only: apply the confidence correction")
     ap.add_argument("--again", action="store_true", help="allow a second held-out run (it is recorded)")
     args = ap.parse_args()
     sys.stdout.reconfigure(encoding="utf-8")
+    if args.calibrated and args.decider != "local":
+        raise SystemExit("--calibrated is for the local decider")
+    name = "local-calibrated" if args.calibrated else args.decider
 
-    out = RESULTS / f"{args.set}-{args.decider}.json"
+    out = RESULTS / f"{args.set}-{name}.json"
     runs = 1
     if args.set == "heldout" and out.exists():
         if not args.again:
@@ -178,12 +238,13 @@ def main():
 
     tickets = load_set(args.set)
     if args.threshold is None:
-        args.threshold = THRESHOLD if args.set == "dev" else dev_threshold(args.decider)
+        args.threshold = THRESHOLD if args.set == "dev" else dev_threshold(name)
     if args.decider == "local" and args.set == "dev":
-        decider = Fixed(out_of_fold(tickets))
+        decider = Fixed(out_of_fold(tickets, args.calibrated))
         note = "5-fold out-of-fold on dev (timing excludes the model, see probe for that)"
     elif args.decider == "local":
         decider = LocalDecider.load(LOCAL_MODEL)
+        decider.calibrated = args.calibrated
         note = "trained on all 175 dev tickets"
     else:
         decider = make_decider("jev")
@@ -208,7 +269,7 @@ def main():
         usd = 0.0
 
     metrics = score(tickets, routed, per_ticket, usd)
-    record = {"set": args.set, "decider": args.decider, "how": note, "threshold": args.threshold,
+    record = {"set": args.set, "decider": name, "how": note, "threshold": args.threshold,
               "date": time.strftime("%Y-%m-%d %H:%M"), "metrics": metrics, "routed": routed}
     if args.set == "dev":
         record["picked_threshold"] = picked
@@ -217,8 +278,8 @@ def main():
         record["heldout_sha256"] = HELDOUT_SHA256
     RESULTS.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(record, ensure_ascii=False, indent=1), encoding="utf-8")
-    shown = {k: v for k, v in metrics.items() if k != "confidence_curve" and not k.endswith("_ids")}
-    print(json.dumps({"set": args.set, "decider": args.decider, "how": note, **shown}, indent=1))
+    shown = {k: v for k, v in metrics.items() if k not in ("confidence_curve", "calibration") and not k.endswith("_ids")}
+    print(json.dumps({"set": args.set, "decider": name, "how": note, **shown}, indent=1))
     print("confidence curve:", " ".join(f"{c['threshold']}: {c['coverage']} at {c['both_right']}"
                                         for c in metrics["confidence_curve"]))
 

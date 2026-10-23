@@ -1,0 +1,2705 @@
+{
+ "set": "probe",
+ "decider": "local-calibrated",
+ "how": "trained on all 175 dev tickets",
+ "threshold": 0.85,
+ "date": "2026-10-23 13:39",
+ "metrics": {
+  "tickets": 63,
+  "category_accuracy": 0.9206,
+  "priority_accuracy": 0.746,
+  "both_right": 0.7143,
+  "sent_to_team_queue": 0.1429,
+  "team_queue_both_right": 1.0,
+  "team_queue_wrong_ids": [],
+  "fraud_to_person": 1.0,
+  "fraud_tickets": 7,
+  "fraud_named_as_fraud": 0.8571,
+  "fraud_label_right_when_given": 0.6667,
+  "fraud_missed_ids": [
+   "fr03"
+  ],
+  "fraud_missed_and_auto_routed_ids": [],
+  "calibration": {
+   "category": {
+    "gap": 0.1358,
+    "brier": 0.1453,
+    "bins": [
+     {
+      "from": 0.0,
+      "to": 0.5,
+      "tickets": 8,
+      "said": 0.414,
+      "right": 0.5
+     },
+     {
+      "from": 0.5,
+      "to": 0.7,
+      "tickets": 14,
+      "said": 0.625,
+      "right": 0.929
+     },
+     {
+      "from": 0.7,
+      "to": 0.8,
+      "tickets": 6,
+      "said": 0.748,
+      "right": 1.0
+     },
+     {
+      "from": 0.8,
+      "to": 0.9,
+      "tickets": 7,
+      "said": 0.838,
+      "right": 1.0
+     },
+     {
+      "from": 0.9,
+      "to": 1.0,
+      "tickets": 28,
+      "said": 0.965,
+      "right": 1.0
+     }
+    ]
+   },
+   "priority": {
+    "gap": 0.1299,
+    "brier": 0.3263,
+    "bins": [
+     {
+      "from": 0.0,
+      "to": 0.5,
+      "tickets": 5,
+      "said": 0.449,
+      "right": 0.2
+     },
+     {
+      "from": 0.5,
+      "to": 0.7,
+      "tickets": 10,
+      "said": 0.579,
+      "right": 0.3
+     },
+     {
+      "from": 0.7,
+      "to": 0.8,
+      "tickets": 10,
+      "said": 0.75,
+      "right": 0.6
+     },
+     {
+      "from": 0.8,
+      "to": 0.9,
+      "tickets": 18,
+      "said": 0.855,
+      "right": 1.0
+     },
+     {
+      "from": 0.9,
+      "to": 1.0,
+      "tickets": 20,
+      "said": 0.948,
+      "right": 0.95
+     }
+    ]
+   }
+  },
+  "confidence_curve": [
+   {
+    "threshold": 0.5,
+    "coverage": 0.7937,
+    "both_right": 0.8
+   },
+   {
+    "threshold": 0.6,
+    "coverage": 0.6349,
+    "both_right": 0.85
+   },
+   {
+    "threshold": 0.7,
+    "coverage": 0.5079,
+    "both_right": 0.9062
+   },
+   {
+    "threshold": 0.8,
+    "coverage": 0.381,
+    "both_right": 0.9583
+   },
+   {
+    "threshold": 0.9,
+    "coverage": 0.2222,
+    "both_right": 0.9286
+   },
+   {
+    "threshold": 0.95,
+    "coverage": 0.0635,
+    "both_right": 0.75
+   },
+   {
+    "threshold": 0.99,
+    "coverage": 0.0,
+    "both_right": null
+   }
+  ],
+  "ms_per_ticket_median": 568.9,
+  "ms_per_ticket_p95": 568.9,
+  "usd_total": 0.0
+ },
+ "routed": [
+  {
+   "id": "ft01",
+   "category": "fraud_scam",
+   "category_confidence": 0.4197,
+   "priority": "high",
+   "priority_confidence": 0.9057,
+   "team": "fraud",
+   "entities": {
+    "amount": 250000,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of category (fraud_scam 0.42)",
+    "fraud or scam",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.2160766643025588,
+     "wrong_recipient": 0.05715773588864744,
+     "login_access": 0.014837777628788962,
+     "agent_dispute": 0.06682732442024915,
+     "card_issue": 0.033723322693558926,
+     "bill_payment": 0.06274553511817385,
+     "fraud_scam": 0.4197236307196473,
+     "account_kyc": 0.044513833866860676,
+     "general_inquiry": 0.08439417536151496
+    },
+    "priority": {
+     "urgent": 0.07159173269889228,
+     "high": 0.9056631906897079,
+     "normal": 0.017561491784910024,
+     "low": 0.00518358482648989
+    }
+   }
+  },
+  {
+   "id": "ft02",
+   "category": "failed_transfer",
+   "category_confidence": 0.9396,
+   "priority": "high",
+   "priority_confidence": 0.9781,
+   "team": "transfers",
+   "entities": {
+    "amount": 100000,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.93955400513955,
+     "wrong_recipient": 0.023052596075500784,
+     "login_access": 0.0001706808473772082,
+     "agent_dispute": 0.002725706489272557,
+     "card_issue": 0.028865219018687896,
+     "bill_payment": 0.0005733753015980146,
+     "fraud_scam": 0.0007374633886480508,
+     "account_kyc": 0.0015293001474844887,
+     "general_inquiry": 0.002791653591880924
+    },
+    "priority": {
+     "urgent": 0.004621397873174002,
+     "high": 0.9780973576690388,
+     "normal": 0.013790733723292647,
+     "low": 0.0034905107344945594
+    }
+   }
+  },
+  {
+   "id": "ft03",
+   "category": "failed_transfer",
+   "category_confidence": 0.4085,
+   "priority": "high",
+   "priority_confidence": 0.8637,
+   "team": "transfers",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of category (failed_transfer 0.41)",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.40849651684158983,
+     "wrong_recipient": 0.035044663055840995,
+     "login_access": 0.0029405093261375185,
+     "agent_dispute": 0.1039502016964563,
+     "card_issue": 0.014996410474982949,
+     "bill_payment": 0.17027967943913663,
+     "fraud_scam": 0.0028158311243877856,
+     "account_kyc": 0.018867866723971432,
+     "general_inquiry": 0.24260832131749663
+    },
+    "priority": {
+     "urgent": 0.003973141678977831,
+     "high": 0.86374418485357,
+     "normal": 0.05275676013093818,
+     "low": 0.07952591333651406
+    }
+   }
+  },
+  {
+   "id": "ft04",
+   "category": "failed_transfer",
+   "category_confidence": 0.498,
+   "priority": "high",
+   "priority_confidence": 0.8602,
+   "team": "transfers",
+   "entities": {
+    "amount": 50000,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of category (failed_transfer 0.50)",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.4979957325324525,
+     "wrong_recipient": 0.032494059058643,
+     "login_access": 0.0012123222316825157,
+     "agent_dispute": 0.08471874501727902,
+     "card_issue": 0.03126869189946032,
+     "bill_payment": 0.02395678027727063,
+     "fraud_scam": 0.30841057974732033,
+     "account_kyc": 0.0009408339493898529,
+     "general_inquiry": 0.01900225528650182
+    },
+    "priority": {
+     "urgent": 0.10708009179780131,
+     "high": 0.8601723456517996,
+     "normal": 0.010253986246212753,
+     "low": 0.0224935763041863
+    }
+   }
+  },
+  {
+   "id": "ft05",
+   "category": "failed_transfer",
+   "category_confidence": 0.7296,
+   "priority": "normal",
+   "priority_confidence": 0.8895,
+   "team": "transfers",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of category (failed_transfer 0.73)",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.7295694510468949,
+     "wrong_recipient": 0.004135078370544147,
+     "login_access": 0.08686341646011066,
+     "agent_dispute": 0.0018206846921736903,
+     "card_issue": 0.010028949702268595,
+     "bill_payment": 0.002231378887207852,
+     "fraud_scam": 0.002144378774501123,
+     "account_kyc": 0.08640250779674756,
+     "general_inquiry": 0.07680415426955146
+    },
+    "priority": {
+     "urgent": 0.0009628163436218262,
+     "high": 0.09283232837523346,
+     "normal": 0.889453115189144,
+     "low": 0.016751740092000582
+    }
+   }
+  },
+  {
+   "id": "ft06",
+   "category": "failed_transfer",
+   "category_confidence": 0.3722,
+   "priority": "high",
+   "priority_confidence": 0.9839,
+   "team": "transfers",
+   "entities": {
+    "amount": 3500000,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of category (failed_transfer 0.37)",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.3721904993754944,
+     "wrong_recipient": 0.011531265266771853,
+     "login_access": 0.00030498950998278764,
+     "agent_dispute": 0.24378924379815542,
+     "card_issue": 0.01677913159429253,
+     "bill_payment": 0.3273596210991503,
+     "fraud_scam": 0.0018029204939043002,
+     "account_kyc": 0.008783593127391241,
+     "general_inquiry": 0.017458735734857175
+    },
+    "priority": {
+     "urgent": 0.003497852310286309,
+     "high": 0.9838696726112455,
+     "normal": 0.00447946840757212,
+     "low": 0.008153006670896069
+    }
+   }
+  },
+  {
+   "id": "ft07",
+   "category": "failed_transfer",
+   "category_confidence": 0.749,
+   "priority": "normal",
+   "priority_confidence": 0.4095,
+   "team": "transfers",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of category (failed_transfer 0.75)",
+    "not sure of priority (normal 0.41)",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.7490243819197728,
+     "wrong_recipient": 0.011925617353042851,
+     "login_access": 0.00705760708612262,
+     "agent_dispute": 0.0016387943595472761,
+     "card_issue": 0.012673313073148642,
+     "bill_payment": 0.0029137253228526823,
+     "fraud_scam": 0.01705665963781351,
+     "account_kyc": 0.01705197047859943,
+     "general_inquiry": 0.18065793076910008
+    },
+    "priority": {
+     "urgent": 0.060919912294144056,
+     "high": 0.3533978921898726,
+     "normal": 0.40948982428891156,
+     "low": 0.17619237122707182
+    }
+   }
+  },
+  {
+   "id": "wr01",
+   "category": "wrong_recipient",
+   "category_confidence": 0.9757,
+   "priority": "high",
+   "priority_confidence": 0.9706,
+   "team": "transfers",
+   "entities": {
+    "amount": 75000,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.010596621188608959,
+     "wrong_recipient": 0.9757439723222768,
+     "login_access": 0.0006738143324023481,
+     "agent_dispute": 0.0007055368504809563,
+     "card_issue": 0.0006730813294359181,
+     "bill_payment": 0.0007581651915544857,
+     "fraud_scam": 0.0035849548646995962,
+     "account_kyc": 0.00111081198125861,
+     "general_inquiry": 0.006153041939282255
+    },
+    "priority": {
+     "urgent": 0.0074165850932215276,
+     "high": 0.9706036800960987,
+     "normal": 0.010935707404882155,
+     "low": 0.011044027405797635
+    }
+   }
+  },
+  {
+   "id": "wr02",
+   "category": "wrong_recipient",
+   "category_confidence": 0.9765,
+   "priority": "high",
+   "priority_confidence": 0.8811,
+   "team": "transfers",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.0009765061144178477,
+     "wrong_recipient": 0.9764908236388915,
+     "login_access": 0.0002878308402410021,
+     "agent_dispute": 0.0019702574141420965,
+     "card_issue": 0.004782984258847262,
+     "bill_payment": 0.001535480010323985,
+     "fraud_scam": 0.0020237191458611714,
+     "account_kyc": 0.00022363427985635058,
+     "general_inquiry": 0.011708764297418803
+    },
+    "priority": {
+     "urgent": 0.05467569548282066,
+     "high": 0.8810504986279682,
+     "normal": 0.0477041456727874,
+     "low": 0.01656966021642376
+    }
+   }
+  },
+  {
+   "id": "wr03",
+   "category": "wrong_recipient",
+   "category_confidence": 0.6103,
+   "priority": "high",
+   "priority_confidence": 0.8394,
+   "team": "transfers",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of category (wrong_recipient 0.61)",
+    "not sure of priority (high 0.84)",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.02173034300000884,
+     "wrong_recipient": 0.6102807773106081,
+     "login_access": 0.012328831345798878,
+     "agent_dispute": 0.05303977233651735,
+     "card_issue": 0.010914582639178407,
+     "bill_payment": 0.03637953454433325,
+     "fraud_scam": 0.15826869860088727,
+     "account_kyc": 0.03525662071627441,
+     "general_inquiry": 0.061800839506393535
+    },
+    "priority": {
+     "urgent": 0.04754306021069761,
+     "high": 0.8394224009430962,
+     "normal": 0.025035892701114733,
+     "low": 0.08799864614509142
+    }
+   }
+  },
+  {
+   "id": "wr04",
+   "category": "wrong_recipient",
+   "category_confidence": 0.8465,
+   "priority": "high",
+   "priority_confidence": 0.9679,
+   "team": "transfers",
+   "entities": {
+    "amount": 500000,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of category (wrong_recipient 0.85)",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.002336390870399134,
+     "wrong_recipient": 0.8464507099088839,
+     "login_access": 0.0011137092273407945,
+     "agent_dispute": 0.10777931618709322,
+     "card_issue": 0.012364347903691179,
+     "bill_payment": 0.003767211471154504,
+     "fraud_scam": 0.009901390809328923,
+     "account_kyc": 0.00045308974713081403,
+     "general_inquiry": 0.01583383387497746
+    },
+    "priority": {
+     "urgent": 0.006085816955007065,
+     "high": 0.9678824013953357,
+     "normal": 0.019173105749283704,
+     "low": 0.0068586759003736435
+    }
+   }
+  },
+  {
+   "id": "wr05",
+   "category": "wrong_recipient",
+   "category_confidence": 0.8169,
+   "priority": "high",
+   "priority_confidence": 0.9498,
+   "team": "transfers",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of category (wrong_recipient 0.82)",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.009030619030953396,
+     "wrong_recipient": 0.8168726005336012,
+     "login_access": 0.0035695071122549406,
+     "agent_dispute": 0.08625875377303888,
+     "card_issue": 0.009093290303099343,
+     "bill_payment": 0.018775283806022617,
+     "fraud_scam": 0.009082607569251238,
+     "account_kyc": 0.0034258613806623524,
+     "general_inquiry": 0.04389147649111598
+    },
+    "priority": {
+     "urgent": 0.0030890340349255885,
+     "high": 0.9498063974602251,
+     "normal": 0.01375695385517467,
+     "low": 0.033347614649674666
+    }
+   }
+  },
+  {
+   "id": "wr06",
+   "category": "wrong_recipient",
+   "category_confidence": 0.5046,
+   "priority": "high",
+   "priority_confidence": 0.9373,
+   "team": "transfers",
+   "entities": {
+    "amount": 20000,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of category (wrong_recipient 0.50)",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.4510362095916869,
+     "wrong_recipient": 0.5045973002176501,
+     "login_access": 0.0015677726946204146,
+     "agent_dispute": 0.006225344692897007,
+     "card_issue": 0.0009264060382433899,
+     "bill_payment": 0.0008839183489924857,
+     "fraud_scam": 0.028756186025699296,
+     "account_kyc": 0.00056659228744169,
+     "general_inquiry": 0.005440270102768662
+    },
+    "priority": {
+     "urgent": 0.020508640057875085,
+     "high": 0.9372888622365249,
+     "normal": 0.03499984207536216,
+     "low": 0.007202655630237869
+    }
+   }
+  },
+  {
+   "id": "wr07",
+   "category": "wrong_recipient",
+   "category_confidence": 0.6768,
+   "priority": "high",
+   "priority_confidence": 0.8085,
+   "team": "transfers",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of category (wrong_recipient 0.68)",
+    "not sure of priority (high 0.81)",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.0020458127127666688,
+     "wrong_recipient": 0.6767733232200069,
+     "login_access": 0.009895354755074786,
+     "agent_dispute": 0.105760191962395,
+     "card_issue": 0.11510864712239012,
+     "bill_payment": 0.014119071817943746,
+     "fraud_scam": 0.06095653248512707,
+     "account_kyc": 0.0005225011779459362,
+     "general_inquiry": 0.014818564746349717
+    },
+    "priority": {
+     "urgent": 0.029692094322700147,
+     "high": 0.8085276484382279,
+     "normal": 0.1448551427024284,
+     "low": 0.016925114536643544
+    }
+   }
+  },
+  {
+   "id": "la01",
+   "category": "login_access",
+   "category_confidence": 0.9118,
+   "priority": "normal",
+   "priority_confidence": 0.9705,
+   "team": "account_access",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": null,
+   "route": "team_queue",
+   "reasons": [],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.0012901308469076814,
+     "wrong_recipient": 0.00020796076624344232,
+     "login_access": 0.9118427185163069,
+     "agent_dispute": 0.0015970240441048928,
+     "card_issue": 0.0071491688949363,
+     "bill_payment": 0.0005467880852246949,
+     "fraud_scam": 0.008908387721984209,
+     "account_kyc": 0.06300675414386625,
+     "general_inquiry": 0.005451066980425498
+    },
+    "priority": {
+     "urgent": 0.00230932629810313,
+     "high": 0.018290102956036832,
+     "normal": 0.9705402872506524,
+     "low": 0.008860283495207646
+    }
+   }
+  },
+  {
+   "id": "la02",
+   "category": "login_access",
+   "category_confidence": 0.9751,
+   "priority": "normal",
+   "priority_confidence": 0.9417,
+   "team": "account_access",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": null,
+   "route": "team_queue",
+   "reasons": [],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.0003154649797342526,
+     "wrong_recipient": 0.00042698574572437695,
+     "login_access": 0.9751482200799338,
+     "agent_dispute": 0.0003483653408047804,
+     "card_issue": 0.0029318742031005656,
+     "bill_payment": 0.0007363041997408914,
+     "fraud_scam": 0.002150246741308442,
+     "account_kyc": 0.014964905727944011,
+     "general_inquiry": 0.002977632981708824
+    },
+    "priority": {
+     "urgent": 0.018294607682166543,
+     "high": 0.013352643081665387,
+     "normal": 0.9417148119842526,
+     "low": 0.02663793725191549
+    }
+   }
+  },
+  {
+   "id": "la03",
+   "category": "login_access",
+   "category_confidence": 0.9703,
+   "priority": "normal",
+   "priority_confidence": 0.9039,
+   "team": "account_access",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": null,
+   "route": "team_queue",
+   "reasons": [],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 2.926894728777808e-05,
+     "wrong_recipient": 4.363639197943891e-05,
+     "login_access": 0.9702927869859665,
+     "agent_dispute": 0.00021122095932327964,
+     "card_issue": 0.0001143900431877392,
+     "bill_payment": 0.00027150026761496907,
+     "fraud_scam": 0.00032823330817965946,
+     "account_kyc": 0.025251401512806294,
+     "general_inquiry": 0.003457561583654238
+    },
+    "priority": {
+     "urgent": 0.0015847821002768507,
+     "high": 0.004739313111955122,
+     "normal": 0.9039037456032861,
+     "low": 0.08977215918448192
+    }
+   }
+  },
+  {
+   "id": "la04",
+   "category": "login_access",
+   "category_confidence": 0.9896,
+   "priority": "normal",
+   "priority_confidence": 0.9065,
+   "team": "account_access",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": null,
+   "route": "team_queue",
+   "reasons": [],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.0011887059921495005,
+     "wrong_recipient": 6.72240076740762e-05,
+     "login_access": 0.9896063902093746,
+     "agent_dispute": 0.00016695364482036034,
+     "card_issue": 0.001537287607151915,
+     "bill_payment": 0.0010911966211683921,
+     "fraud_scam": 0.0014122835223115287,
+     "account_kyc": 0.0005779492194285121,
+     "general_inquiry": 0.004352009175921175
+    },
+    "priority": {
+     "urgent": 0.0013446881240649845,
+     "high": 0.08770465244850784,
+     "normal": 0.9064830213293836,
+     "low": 0.004467638098043547
+    }
+   }
+  },
+  {
+   "id": "la05",
+   "category": "fraud_scam",
+   "category_confidence": 0.3246,
+   "priority": "low",
+   "priority_confidence": 0.6268,
+   "team": "fraud",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of category (fraud_scam 0.32)",
+    "not sure of priority (low 0.63)",
+    "fraud or scam",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.10171738224874112,
+     "wrong_recipient": 0.015898596795954827,
+     "login_access": 0.02020704343139432,
+     "agent_dispute": 0.013399479228334843,
+     "card_issue": 0.022674957386756782,
+     "bill_payment": 0.13197704696013277,
+     "fraud_scam": 0.32458077231503035,
+     "account_kyc": 0.04630194456315891,
+     "general_inquiry": 0.32324277707049603
+    },
+    "priority": {
+     "urgent": 0.019361023086949952,
+     "high": 0.22337776834272238,
+     "normal": 0.1304817323142023,
+     "low": 0.6267794762561254
+    }
+   }
+  },
+  {
+   "id": "la06",
+   "category": "login_access",
+   "category_confidence": 0.5161,
+   "priority": "high",
+   "priority_confidence": 0.6162,
+   "team": "account_access",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": null,
+   "route": "person",
+   "reasons": [
+    "not sure of category (login_access 0.52)",
+    "not sure of priority (high 0.62)",
+    "scam signs in the text"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.003350706399479806,
+     "wrong_recipient": 0.021572180600161684,
+     "login_access": 0.5161049003701698,
+     "agent_dispute": 0.1081676874359471,
+     "card_issue": 0.02974474977547683,
+     "bill_payment": 0.006613749952163032,
+     "fraud_scam": 0.1816698139335636,
+     "account_kyc": 0.12756717188549319,
+     "general_inquiry": 0.005209039647545028
+    },
+    "priority": {
+     "urgent": 0.059803732068739374,
+     "high": 0.6161914383654995,
+     "normal": 0.24829175404682066,
+     "low": 0.07571307551894053
+    }
+   }
+  },
+  {
+   "id": "la07",
+   "category": "login_access",
+   "category_confidence": 0.9973,
+   "priority": "normal",
+   "priority_confidence": 0.9891,
+   "team": "account_access",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": null,
+   "route": "team_queue",
+   "reasons": [],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.00021146690290470367,
+     "wrong_recipient": 2.3455697822622737e-05,
+     "login_access": 0.9973304956226385,
+     "agent_dispute": 0.00010163944836531915,
+     "card_issue": 4.5198174555434245e-05,
+     "bill_payment": 0.0003776448874724878,
+     "fraud_scam": 3.044022717712875e-05,
+     "account_kyc": 0.000592400296900257,
+     "general_inquiry": 0.0012872587421633934
+    },
+    "priority": {
+     "urgent": 0.0011516279159184163,
+     "high": 0.00442992462814204,
+     "normal": 0.9890564272795009,
+     "low": 0.005362020176438626
+    }
+   }
+  },
+  {
+   "id": "ag01",
+   "category": "agent_dispute",
+   "category_confidence": 0.9909,
+   "priority": "high",
+   "priority_confidence": 0.9537,
+   "team": "agent_network",
+   "entities": {
+    "amount": 200000,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.00032528316455518854,
+     "wrong_recipient": 0.0012458525573386904,
+     "login_access": 5.312272820125825e-05,
+     "agent_dispute": 0.9909219719706042,
+     "card_issue": 0.000586599071602008,
+     "bill_payment": 0.001225476109149521,
+     "fraud_scam": 0.000499114532467358,
+     "account_kyc": 0.00019201146350438414,
+     "general_inquiry": 0.0049505684025774105
+    },
+    "priority": {
+     "urgent": 0.005851270538224624,
+     "high": 0.9537299342850384,
+     "normal": 0.020582763917421157,
+     "low": 0.019836031259315896
+    }
+   }
+  },
+  {
+   "id": "ag02",
+   "category": "agent_dispute",
+   "category_confidence": 0.9902,
+   "priority": "high",
+   "priority_confidence": 0.9468,
+   "team": "agent_network",
+   "entities": {
+    "amount": 100000,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.0010785199829032315,
+     "wrong_recipient": 0.0005027187587378768,
+     "login_access": 0.00017737553078999186,
+     "agent_dispute": 0.9902343617981202,
+     "card_issue": 0.0036002543904271596,
+     "bill_payment": 0.001978555472181277,
+     "fraud_scam": 0.0015501739876710905,
+     "account_kyc": 0.0004139232134808833,
+     "general_inquiry": 0.00046411686568824633
+    },
+    "priority": {
+     "urgent": 0.01687091950195425,
+     "high": 0.9468222643051171,
+     "normal": 0.03492352731821296,
+     "low": 0.0013832888747157693
+    }
+   }
+  },
+  {
+   "id": "ag03",
+   "category": "agent_dispute",
+   "category_confidence": 0.9465,
+   "priority": "normal",
+   "priority_confidence": 0.8436,
+   "team": "agent_network",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of priority (normal 0.84)",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.0002787114093427036,
+     "wrong_recipient": 0.0004803849624107659,
+     "login_access": 0.00025253421848971737,
+     "agent_dispute": 0.946485682716696,
+     "card_issue": 0.032300402439444285,
+     "bill_payment": 0.0003623604392432978,
+     "fraud_scam": 0.0012820238107704928,
+     "account_kyc": 0.011826195131882091,
+     "general_inquiry": 0.006731704871720655
+    },
+    "priority": {
+     "urgent": 0.0029876137999464165,
+     "high": 0.15098832134862392,
+     "normal": 0.8435806465180715,
+     "low": 0.002443418333358128
+    }
+   }
+  },
+  {
+   "id": "ag04",
+   "category": "agent_dispute",
+   "category_confidence": 0.9087,
+   "priority": "high",
+   "priority_confidence": 0.9854,
+   "team": "agent_network",
+   "entities": {
+    "amount": 25000,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.03268190842782067,
+     "wrong_recipient": 0.004438806547602492,
+     "login_access": 0.00010667962472455763,
+     "agent_dispute": 0.9086719606123924,
+     "card_issue": 0.029270692755784415,
+     "bill_payment": 0.013838216852064182,
+     "fraud_scam": 0.003175033503633106,
+     "account_kyc": 0.002259116781657188,
+     "general_inquiry": 0.005557584894320886
+    },
+    "priority": {
+     "urgent": 0.008755577853105708,
+     "high": 0.9854325695880669,
+     "normal": 0.0031649121417052124,
+     "low": 0.002646940417122233
+    }
+   }
+  },
+  {
+   "id": "ag05",
+   "category": "agent_dispute",
+   "category_confidence": 0.6675,
+   "priority": "high",
+   "priority_confidence": 0.4337,
+   "team": "agent_network",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of category (agent_dispute 0.67)",
+    "not sure of priority (high 0.43)",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.010261074355415085,
+     "wrong_recipient": 0.008285115777998156,
+     "login_access": 0.007580571664930481,
+     "agent_dispute": 0.6674787297298993,
+     "card_issue": 0.041052451656787434,
+     "bill_payment": 0.004037246050235129,
+     "fraud_scam": 0.008893878492162674,
+     "account_kyc": 0.09876839646693636,
+     "general_inquiry": 0.15364253580563544
+    },
+    "priority": {
+     "urgent": 0.004855209259737078,
+     "high": 0.43365268243802607,
+     "normal": 0.16590101885027053,
+     "low": 0.3955910894519663
+    }
+   }
+  },
+  {
+   "id": "ag06",
+   "category": "fraud_scam",
+   "category_confidence": 0.4503,
+   "priority": "urgent",
+   "priority_confidence": 0.5636,
+   "team": "fraud",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of category (fraud_scam 0.45)",
+    "not sure of priority (urgent 0.56)",
+    "fraud or scam",
+    "urgent",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.0031188726672810164,
+     "wrong_recipient": 0.002733010231800935,
+     "login_access": 0.008811563219965823,
+     "agent_dispute": 0.41896533399298297,
+     "card_issue": 0.009408740128742028,
+     "bill_payment": 0.0013422752231576106,
+     "fraud_scam": 0.4502723294650875,
+     "account_kyc": 0.0047038152491916535,
+     "general_inquiry": 0.10064405982179059
+    },
+    "priority": {
+     "urgent": 0.5636402009230246,
+     "high": 0.3223016456469279,
+     "normal": 0.025991384394552303,
+     "low": 0.0880667690354952
+    }
+   }
+  },
+  {
+   "id": "ag07",
+   "category": "agent_dispute",
+   "category_confidence": 0.9938,
+   "priority": "high",
+   "priority_confidence": 0.845,
+   "team": "agent_network",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of priority (high 0.85)",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 3.467991054696539e-05,
+     "wrong_recipient": 0.0012080771387253525,
+     "login_access": 0.0002131507138176689,
+     "agent_dispute": 0.9937997124861664,
+     "card_issue": 0.001112599582619891,
+     "bill_payment": 0.00105115367928372,
+     "fraud_scam": 0.00028005505624739853,
+     "account_kyc": 0.00044023379344051533,
+     "general_inquiry": 0.001860337639152216
+    },
+    "priority": {
+     "urgent": 0.0046552694110201095,
+     "high": 0.8450353586219618,
+     "normal": 0.08852067147402659,
+     "low": 0.06178870049299159
+    }
+   }
+  },
+  {
+   "id": "cd01",
+   "category": "card_issue",
+   "category_confidence": 0.9525,
+   "priority": "normal",
+   "priority_confidence": 0.7424,
+   "team": "cards",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of priority (normal 0.74)",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 9.094932456180183e-05,
+     "wrong_recipient": 6.817199633036707e-05,
+     "login_access": 9.137346154278424e-05,
+     "agent_dispute": 0.0001359018237259512,
+     "card_issue": 0.9524931923251416,
+     "bill_payment": 0.0012875718522637023,
+     "fraud_scam": 0.00016117507020709177,
+     "account_kyc": 0.04181574533988811,
+     "general_inquiry": 0.0038559188063385886
+    },
+    "priority": {
+     "urgent": 0.008083109287958525,
+     "high": 0.024699936852634,
+     "normal": 0.7423636010866119,
+     "low": 0.2248533527727955
+    }
+   }
+  },
+  {
+   "id": "cd02",
+   "category": "card_issue",
+   "category_confidence": 0.599,
+   "priority": "normal",
+   "priority_confidence": 0.8166,
+   "team": "cards",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of category (card_issue 0.60)",
+    "not sure of priority (normal 0.82)",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.042621176448391224,
+     "wrong_recipient": 0.001590489989875664,
+     "login_access": 0.005768835581281593,
+     "agent_dispute": 0.04133925502696923,
+     "card_issue": 0.5990397874583441,
+     "bill_payment": 0.24957346828376742,
+     "fraud_scam": 0.03563218190346207,
+     "account_kyc": 0.007280978273575402,
+     "general_inquiry": 0.017153827034333328
+    },
+    "priority": {
+     "urgent": 0.004714500985052262,
+     "high": 0.14452916532061255,
+     "normal": 0.8166453886579798,
+     "low": 0.03411094503635532
+    }
+   }
+  },
+  {
+   "id": "cd03",
+   "category": "card_issue",
+   "category_confidence": 0.9839,
+   "priority": "high",
+   "priority_confidence": 0.8703,
+   "team": "cards",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.0020805737384330418,
+     "wrong_recipient": 0.00011309478311234485,
+     "login_access": 0.00015554267434211944,
+     "agent_dispute": 0.0029509511388362613,
+     "card_issue": 0.9839142156009427,
+     "bill_payment": 0.001958464471471733,
+     "fraud_scam": 0.00013280447846962236,
+     "account_kyc": 0.002354349928238793,
+     "general_inquiry": 0.006340003186153464
+    },
+    "priority": {
+     "urgent": 0.023025185582474166,
+     "high": 0.8703449580697455,
+     "normal": 0.054329305930873005,
+     "low": 0.05230055041690735
+    }
+   }
+  },
+  {
+   "id": "cd04",
+   "category": "account_kyc",
+   "category_confidence": 0.5848,
+   "priority": "low",
+   "priority_confidence": 0.8505,
+   "team": "kyc",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": null,
+   "route": "person",
+   "reasons": [
+    "not sure of category (account_kyc 0.58)"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.0009417144949644198,
+     "wrong_recipient": 0.00019326965368602153,
+     "login_access": 0.0001640024328021474,
+     "agent_dispute": 0.00036495257932331766,
+     "card_issue": 0.4115207840897202,
+     "bill_payment": 0.0009992846727841054,
+     "fraud_scam": 0.0003862463935920064,
+     "account_kyc": 0.5847511701158311,
+     "general_inquiry": 0.0006785755672967169
+    },
+    "priority": {
+     "urgent": 0.03297980717369106,
+     "high": 0.04512072531200227,
+     "normal": 0.07144882783414341,
+     "low": 0.8504506396801632
+    }
+   }
+  },
+  {
+   "id": "cd05",
+   "category": "card_issue",
+   "category_confidence": 0.935,
+   "priority": "urgent",
+   "priority_confidence": 0.767,
+   "team": "cards",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of priority (urgent 0.77)",
+    "urgent",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.0005581847239241404,
+     "wrong_recipient": 0.0011265100072397102,
+     "login_access": 0.0006855745036682246,
+     "agent_dispute": 0.0012279609658546954,
+     "card_issue": 0.9350163191103074,
+     "bill_payment": 0.0016473939612566318,
+     "fraud_scam": 0.002915662265533296,
+     "account_kyc": 0.051855848423381576,
+     "general_inquiry": 0.004966546038834391
+    },
+    "priority": {
+     "urgent": 0.7669659068037296,
+     "high": 0.04856706473944541,
+     "normal": 0.09935107028009517,
+     "low": 0.08511595817672978
+    }
+   }
+  },
+  {
+   "id": "cd06",
+   "category": "card_issue",
+   "category_confidence": 0.8763,
+   "priority": "low",
+   "priority_confidence": 0.6904,
+   "team": "cards",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of priority (low 0.69)",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.0006607979164547496,
+     "wrong_recipient": 0.0002541310564416992,
+     "login_access": 0.0066973196921191625,
+     "agent_dispute": 0.0008543712352692515,
+     "card_issue": 0.8762624509358896,
+     "bill_payment": 0.01283870333385376,
+     "fraud_scam": 0.005796653871764719,
+     "account_kyc": 0.023862779381729697,
+     "general_inquiry": 0.07277279257647733
+    },
+    "priority": {
+     "urgent": 0.0064715664354625555,
+     "high": 0.031008201334909297,
+     "normal": 0.27211252781754813,
+     "low": 0.69040770441208
+    }
+   }
+  },
+  {
+   "id": "cd07",
+   "category": "card_issue",
+   "category_confidence": 0.9614,
+   "priority": "high",
+   "priority_confidence": 0.8548,
+   "team": "cards",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.015839683263158395,
+     "wrong_recipient": 0.003380681293984218,
+     "login_access": 3.111775327071667e-05,
+     "agent_dispute": 0.013986263596704209,
+     "card_issue": 0.9614434391073647,
+     "bill_payment": 0.0015165165938670392,
+     "fraud_scam": 0.0003999891285274243,
+     "account_kyc": 0.0017614331692929752,
+     "general_inquiry": 0.0016408760938302854
+    },
+    "priority": {
+     "urgent": 0.06860001503620974,
+     "high": 0.8548158545477242,
+     "normal": 0.021317633108432252,
+     "low": 0.05526649730763389
+    }
+   }
+  },
+  {
+   "id": "bp01",
+   "category": "bill_payment",
+   "category_confidence": 0.9956,
+   "priority": "high",
+   "priority_confidence": 0.8975,
+   "team": "payments",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.0002137349878690991,
+     "wrong_recipient": 4.289860408006083e-05,
+     "login_access": 0.0013841689295345358,
+     "agent_dispute": 0.000979413891807735,
+     "card_issue": 0.000284298574396704,
+     "bill_payment": 0.9956037324703497,
+     "fraud_scam": 0.00017616844265493705,
+     "account_kyc": 0.00035727144535768437,
+     "general_inquiry": 0.0009583126539495922
+    },
+    "priority": {
+     "urgent": 0.004014941325074801,
+     "high": 0.8975062556841253,
+     "normal": 0.02239935628357247,
+     "low": 0.07607944670722734
+    }
+   }
+  },
+  {
+   "id": "bp02",
+   "category": "bill_payment",
+   "category_confidence": 0.4533,
+   "priority": "high",
+   "priority_confidence": 0.8635,
+   "team": "payments",
+   "entities": {
+    "amount": 10000,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of category (bill_payment 0.45)",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.3344806505296949,
+     "wrong_recipient": 0.003991106197920517,
+     "login_access": 0.0011517519560079407,
+     "agent_dispute": 0.016644991430426997,
+     "card_issue": 0.016085605734711825,
+     "bill_payment": 0.4532748104193302,
+     "fraud_scam": 0.008783540118220072,
+     "account_kyc": 0.00463419328070801,
+     "general_inquiry": 0.16095335033297953
+    },
+    "priority": {
+     "urgent": 0.06453007486353701,
+     "high": 0.8634827762108048,
+     "normal": 0.043089983352498674,
+     "low": 0.028897165573159456
+    }
+   }
+  },
+  {
+   "id": "bp03",
+   "category": "bill_payment",
+   "category_confidence": 0.9167,
+   "priority": "high",
+   "priority_confidence": 0.7587,
+   "team": "payments",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of priority (high 0.76)",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.0005627672486722536,
+     "wrong_recipient": 0.0003226334559107229,
+     "login_access": 0.0012385440881311077,
+     "agent_dispute": 0.00044446293754370284,
+     "card_issue": 0.002741146096728469,
+     "bill_payment": 0.9167087680435395,
+     "fraud_scam": 0.0009766434171844059,
+     "account_kyc": 0.0005075519281639283,
+     "general_inquiry": 0.07649748278412583
+    },
+    "priority": {
+     "urgent": 0.004582946535338009,
+     "high": 0.7586793755414071,
+     "normal": 0.1900299966859472,
+     "low": 0.046707681237307654
+    }
+   }
+  },
+  {
+   "id": "bp04",
+   "category": "bill_payment",
+   "category_confidence": 0.9866,
+   "priority": "low",
+   "priority_confidence": 0.7201,
+   "team": "payments",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of priority (low 0.72)",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.0009441970037127485,
+     "wrong_recipient": 0.00015828108722946527,
+     "login_access": 0.0007422393002919302,
+     "agent_dispute": 0.0008063103745247674,
+     "card_issue": 0.0007743255369804889,
+     "bill_payment": 0.9866012167580759,
+     "fraud_scam": 3.9556695329628055e-05,
+     "account_kyc": 0.0014529698411179378,
+     "general_inquiry": 0.008480903402737156
+    },
+    "priority": {
+     "urgent": 0.0014875932470387503,
+     "high": 0.23900597325727746,
+     "normal": 0.039371384025621396,
+     "low": 0.7201350494700623
+    }
+   }
+  },
+  {
+   "id": "bp05",
+   "category": "bill_payment",
+   "category_confidence": 0.8046,
+   "priority": "high",
+   "priority_confidence": 0.7966,
+   "team": "payments",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of category (bill_payment 0.80)",
+    "not sure of priority (high 0.80)",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.005952951149992876,
+     "wrong_recipient": 0.0010594545339305441,
+     "login_access": 0.006829159508810635,
+     "agent_dispute": 0.06980822059011169,
+     "card_issue": 0.03915184580011139,
+     "bill_payment": 0.8046154833275795,
+     "fraud_scam": 0.03649489748941981,
+     "account_kyc": 0.012466166509848766,
+     "general_inquiry": 0.023621821090194894
+    },
+    "priority": {
+     "urgent": 0.0039511666760055535,
+     "high": 0.796637114299948,
+     "normal": 0.05419314011868135,
+     "low": 0.14521857890536508
+    }
+   }
+  },
+  {
+   "id": "bp06",
+   "category": "bill_payment",
+   "category_confidence": 0.7721,
+   "priority": "high",
+   "priority_confidence": 0.5355,
+   "team": "payments",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of category (bill_payment 0.77)",
+    "not sure of priority (high 0.54)",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.02360809241327985,
+     "wrong_recipient": 0.0026007487929300016,
+     "login_access": 0.03981525746424626,
+     "agent_dispute": 0.025741195111846943,
+     "card_issue": 0.01014545131247034,
+     "bill_payment": 0.7721355709265415,
+     "fraud_scam": 0.016947785357920048,
+     "account_kyc": 0.06098440517133513,
+     "general_inquiry": 0.04802149344943002
+    },
+    "priority": {
+     "urgent": 0.015874708026120517,
+     "high": 0.535480104757646,
+     "normal": 0.3678021990757261,
+     "low": 0.08084298814050746
+    }
+   }
+  },
+  {
+   "id": "bp07",
+   "category": "bill_payment",
+   "category_confidence": 0.9919,
+   "priority": "high",
+   "priority_confidence": 0.9634,
+   "team": "payments",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.0038259780006120406,
+     "wrong_recipient": 3.238776610766295e-05,
+     "login_access": 9.760314795305666e-05,
+     "agent_dispute": 0.0005378729361224273,
+     "card_issue": 0.001993067894656099,
+     "bill_payment": 0.9918546896033272,
+     "fraud_scam": 3.930923882099018e-05,
+     "account_kyc": 0.00010820788522304873,
+     "general_inquiry": 0.0015108835271774917
+    },
+    "priority": {
+     "urgent": 0.0017385227469466585,
+     "high": 0.9633788897586238,
+     "normal": 0.009958128104400202,
+     "low": 0.02492445939002934
+    }
+   }
+  },
+  {
+   "id": "fr01",
+   "category": "fraud_scam",
+   "category_confidence": 0.9296,
+   "priority": "normal",
+   "priority_confidence": 0.4273,
+   "team": "fraud",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of priority (normal 0.43)",
+    "fraud or scam",
+    "scam signs in the text",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.0013364027594229397,
+     "wrong_recipient": 0.026200537222878295,
+     "login_access": 0.0023091834036165684,
+     "agent_dispute": 0.014890925473472727,
+     "card_issue": 0.0107772933860654,
+     "bill_payment": 0.007392632921697323,
+     "fraud_scam": 0.9296419689080268,
+     "account_kyc": 0.0007283221460402435,
+     "general_inquiry": 0.006722733778779776
+    },
+    "priority": {
+     "urgent": 0.25304772424440564,
+     "high": 0.31167762595739756,
+     "normal": 0.4272846135936511,
+     "low": 0.007990036204545678
+    }
+   }
+  },
+  {
+   "id": "fr02",
+   "category": "fraud_scam",
+   "category_confidence": 0.885,
+   "priority": "high",
+   "priority_confidence": 0.5946,
+   "team": "fraud",
+   "entities": {
+    "amount": 1000000,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of priority (high 0.59)",
+    "fraud or scam",
+    "scam signs in the text",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.006751777462375254,
+     "wrong_recipient": 0.0015924254777739903,
+     "login_access": 0.00036174170861583523,
+     "agent_dispute": 0.07650802084068971,
+     "card_issue": 0.00020998210069632085,
+     "bill_payment": 0.02662726970013136,
+     "fraud_scam": 0.8849834544812673,
+     "account_kyc": 0.0005994817786267545,
+     "general_inquiry": 0.002365846449823507
+    },
+    "priority": {
+     "urgent": 0.09665443241516421,
+     "high": 0.5946238222816127,
+     "normal": 0.009003557204683248,
+     "low": 0.29971818809853995
+    }
+   }
+  },
+  {
+   "id": "fr03",
+   "category": "account_kyc",
+   "category_confidence": 0.3816,
+   "priority": "low",
+   "priority_confidence": 0.5783,
+   "team": "kyc",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": null,
+   "route": "person",
+   "reasons": [
+    "not sure of category (account_kyc 0.38)",
+    "not sure of priority (low 0.58)",
+    "scam signs in the text"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.01582858099895893,
+     "wrong_recipient": 0.0005183619624948047,
+     "login_access": 0.0936124202882234,
+     "agent_dispute": 0.005500332829429497,
+     "card_issue": 0.0009506727476759493,
+     "bill_payment": 0.000998662349059695,
+     "fraud_scam": 0.35500553246351363,
+     "account_kyc": 0.3816282586962694,
+     "general_inquiry": 0.14595717766437477
+    },
+    "priority": {
+     "urgent": 0.2044117089364636,
+     "high": 0.14944944642722308,
+     "normal": 0.06784443341151225,
+     "low": 0.5782944112248011
+    }
+   }
+  },
+  {
+   "id": "fr04",
+   "category": "fraud_scam",
+   "category_confidence": 0.801,
+   "priority": "high",
+   "priority_confidence": 0.7213,
+   "team": "fraud",
+   "entities": {
+    "amount": 150000,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of category (fraud_scam 0.80)",
+    "not sure of priority (high 0.72)",
+    "fraud or scam",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.004686326058116663,
+     "wrong_recipient": 0.0011059017744115304,
+     "login_access": 0.0004336518267144906,
+     "agent_dispute": 0.16225633819445429,
+     "card_issue": 0.015615009618787427,
+     "bill_payment": 0.010174784048390492,
+     "fraud_scam": 0.8009620514314496,
+     "account_kyc": 0.0010416332076663456,
+     "general_inquiry": 0.003724303840009167
+    },
+    "priority": {
+     "urgent": 0.25806058336637255,
+     "high": 0.7213366148090048,
+     "normal": 0.013972219169993269,
+     "low": 0.0066305826546293484
+    }
+   }
+  },
+  {
+   "id": "fr05",
+   "category": "fraud_scam",
+   "category_confidence": 0.973,
+   "priority": "high",
+   "priority_confidence": 0.7227,
+   "team": "fraud",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of priority (high 0.72)",
+    "fraud or scam",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.00014940737310557443,
+     "wrong_recipient": 0.003606011290103791,
+     "login_access": 0.0016631744975889057,
+     "agent_dispute": 0.013338299606599647,
+     "card_issue": 0.00221373403391605,
+     "bill_payment": 0.0036161619840478615,
+     "fraud_scam": 0.9729796388190287,
+     "account_kyc": 0.0003978024116055603,
+     "general_inquiry": 0.0020357699840039467
+    },
+    "priority": {
+     "urgent": 0.0699055423487245,
+     "high": 0.7226875883612018,
+     "normal": 0.19087364579388763,
+     "low": 0.016533223496185922
+    }
+   }
+  },
+  {
+   "id": "fr06",
+   "category": "fraud_scam",
+   "category_confidence": 0.9663,
+   "priority": "high",
+   "priority_confidence": 0.514,
+   "team": "fraud",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of priority (high 0.51)",
+    "fraud or scam",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.0019180280817498955,
+     "wrong_recipient": 0.008844135186233863,
+     "login_access": 0.004954813889865026,
+     "agent_dispute": 0.0020329588945726153,
+     "card_issue": 0.0008082384535762847,
+     "bill_payment": 0.0013278183469599585,
+     "fraud_scam": 0.9662639270756678,
+     "account_kyc": 0.0005797204430967395,
+     "general_inquiry": 0.013270359628277767
+    },
+    "priority": {
+     "urgent": 0.3132612350349711,
+     "high": 0.5139731719533023,
+     "normal": 0.11228589480013881,
+     "low": 0.06047969821158774
+    }
+   }
+  },
+  {
+   "id": "fr07",
+   "category": "fraud_scam",
+   "category_confidence": 0.6275,
+   "priority": "normal",
+   "priority_confidence": 0.7432,
+   "team": "fraud",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of category (fraud_scam 0.63)",
+    "not sure of priority (normal 0.74)",
+    "fraud or scam",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.0003092595716204206,
+     "wrong_recipient": 0.00045850099164518153,
+     "login_access": 0.3419660025007296,
+     "agent_dispute": 0.0002472387071974007,
+     "card_issue": 0.011141226244755019,
+     "bill_payment": 0.0011858315763918744,
+     "fraud_scam": 0.6275479460235655,
+     "account_kyc": 0.014801448271313005,
+     "general_inquiry": 0.0023425461127820455
+    },
+    "priority": {
+     "urgent": 0.013393628801753404,
+     "high": 0.23037404160131555,
+     "normal": 0.7432252540503687,
+     "low": 0.01300707554656228
+    }
+   }
+  },
+  {
+   "id": "kc01",
+   "category": "account_kyc",
+   "category_confidence": 0.6853,
+   "priority": "high",
+   "priority_confidence": 0.4788,
+   "team": "kyc",
+   "entities": {
+    "amount": 1000000,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of category (account_kyc 0.69)",
+    "not sure of priority (high 0.48)",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.02268218726078588,
+     "wrong_recipient": 0.008493461282445675,
+     "login_access": 0.008107875161677706,
+     "agent_dispute": 0.16239722775336493,
+     "card_issue": 0.01008017772990689,
+     "bill_payment": 0.015666992496290118,
+     "fraud_scam": 0.006670684040322918,
+     "account_kyc": 0.6853251531318028,
+     "general_inquiry": 0.08057624114340313
+    },
+    "priority": {
+     "urgent": 0.008335497876394673,
+     "high": 0.4787974208333066,
+     "normal": 0.10498839408580843,
+     "low": 0.4078786872044903
+    }
+   }
+  },
+  {
+   "id": "kc02",
+   "category": "account_kyc",
+   "category_confidence": 0.9883,
+   "priority": "low",
+   "priority_confidence": 0.9418,
+   "team": "kyc",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": null,
+   "route": "team_queue",
+   "reasons": [],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.00010981193900326538,
+     "wrong_recipient": 0.0012526058139475155,
+     "login_access": 0.0007594348567008085,
+     "agent_dispute": 0.00035378459628190184,
+     "card_issue": 0.006471793680687094,
+     "bill_payment": 0.00018402421728486366,
+     "fraud_scam": 0.0005572801605631741,
+     "account_kyc": 0.9883281714387826,
+     "general_inquiry": 0.0019830932967487454
+    },
+    "priority": {
+     "urgent": 0.00498944409191784,
+     "high": 0.007661296403917421,
+     "normal": 0.0455562047873622,
+     "low": 0.9417930547168025
+    }
+   }
+  },
+  {
+   "id": "kc03",
+   "category": "account_kyc",
+   "category_confidence": 0.6847,
+   "priority": "normal",
+   "priority_confidence": 0.8223,
+   "team": "kyc",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": null,
+   "route": "person",
+   "reasons": [
+    "not sure of category (account_kyc 0.68)",
+    "not sure of priority (normal 0.82)"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.020352250501591063,
+     "wrong_recipient": 0.0010880488235852947,
+     "login_access": 0.07256244356618866,
+     "agent_dispute": 0.01830915136309939,
+     "card_issue": 0.06443140147360352,
+     "bill_payment": 0.0148638941954062,
+     "fraud_scam": 0.11436121952704559,
+     "account_kyc": 0.6846582348026296,
+     "general_inquiry": 0.009373355746850708
+    },
+    "priority": {
+     "urgent": 0.008552367330528289,
+     "high": 0.15480666806711557,
+     "normal": 0.8223153579108112,
+     "low": 0.014325606691544895
+    }
+   }
+  },
+  {
+   "id": "kc04",
+   "category": "account_kyc",
+   "category_confidence": 0.7114,
+   "priority": "high",
+   "priority_confidence": 0.5666,
+   "team": "kyc",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": null,
+   "route": "person",
+   "reasons": [
+    "not sure of category (account_kyc 0.71)",
+    "not sure of priority (high 0.57)"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.004333407924418668,
+     "wrong_recipient": 0.011942280552743318,
+     "login_access": 0.08122566893241179,
+     "agent_dispute": 0.005359192742008018,
+     "card_issue": 0.041006360340997604,
+     "bill_payment": 0.009672583590990262,
+     "fraud_scam": 0.10506467797671214,
+     "account_kyc": 0.7113798965547231,
+     "general_inquiry": 0.030015931384995136
+    },
+    "priority": {
+     "urgent": 0.10541334423711855,
+     "high": 0.5665741031780581,
+     "normal": 0.14733769541627428,
+     "low": 0.18067485716854903
+    }
+   }
+  },
+  {
+   "id": "kc05",
+   "category": "account_kyc",
+   "category_confidence": 0.7796,
+   "priority": "low",
+   "priority_confidence": 0.5049,
+   "team": "kyc",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": null,
+   "route": "person",
+   "reasons": [
+    "not sure of category (account_kyc 0.78)",
+    "not sure of priority (low 0.50)"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.0005629452390035229,
+     "wrong_recipient": 0.15150816608424117,
+     "login_access": 0.039070643791159085,
+     "agent_dispute": 0.0014839136203940902,
+     "card_issue": 0.0018899156944635685,
+     "bill_payment": 0.0009927048304817212,
+     "fraud_scam": 0.016094547263637963,
+     "account_kyc": 0.7795970370775438,
+     "general_inquiry": 0.008800126399075204
+    },
+    "priority": {
+     "urgent": 0.0068263398148538925,
+     "high": 0.04437750086097752,
+     "normal": 0.44394145920392897,
+     "low": 0.5048547001202396
+    }
+   }
+  },
+  {
+   "id": "kc06",
+   "category": "account_kyc",
+   "category_confidence": 0.7451,
+   "priority": "high",
+   "priority_confidence": 0.4949,
+   "team": "kyc",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": null,
+   "route": "person",
+   "reasons": [
+    "not sure of category (account_kyc 0.75)",
+    "not sure of priority (high 0.49)"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.0022230886304964743,
+     "wrong_recipient": 0.001466210003586032,
+     "login_access": 0.05818102403973901,
+     "agent_dispute": 0.016929975383327907,
+     "card_issue": 0.0067839129727540965,
+     "bill_payment": 0.0026833371548118136,
+     "fraud_scam": 0.08161131001234688,
+     "account_kyc": 0.7450884843976435,
+     "general_inquiry": 0.0850326574052943
+    },
+    "priority": {
+     "urgent": 0.04461059592248994,
+     "high": 0.49491309386781746,
+     "normal": 0.3730008047183815,
+     "low": 0.08747550549131106
+    }
+   }
+  },
+  {
+   "id": "kc07",
+   "category": "account_kyc",
+   "category_confidence": 0.9431,
+   "priority": "low",
+   "priority_confidence": 0.8983,
+   "team": "kyc",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": null,
+   "route": "team_queue",
+   "reasons": [],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.00010391005668149412,
+     "wrong_recipient": 0.0005720747737739312,
+     "login_access": 0.027243984638090656,
+     "agent_dispute": 0.0008739493512004366,
+     "card_issue": 0.015224975897845237,
+     "bill_payment": 0.00029786391572544105,
+     "fraud_scam": 0.0034284171756506342,
+     "account_kyc": 0.9431090152637329,
+     "general_inquiry": 0.009145808927299253
+    },
+    "priority": {
+     "urgent": 0.004713661628508961,
+     "high": 0.013604836772190905,
+     "normal": 0.0834195200208497,
+     "low": 0.8982619815784505
+    }
+   }
+  },
+  {
+   "id": "gi01",
+   "category": "general_inquiry",
+   "category_confidence": 0.9595,
+   "priority": "low",
+   "priority_confidence": 0.9176,
+   "team": "general",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": null,
+   "route": "team_queue",
+   "reasons": [],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.033325745696161715,
+     "wrong_recipient": 0.002207439588876505,
+     "login_access": 0.0002600728420267342,
+     "agent_dispute": 0.0012160874556808882,
+     "card_issue": 4.3400967519413644e-05,
+     "bill_payment": 0.000537148993317389,
+     "fraud_scam": 0.00017056424177152264,
+     "account_kyc": 0.0027203817868486175,
+     "general_inquiry": 0.9595191584277972
+    },
+    "priority": {
+     "urgent": 0.0033475727827507254,
+     "high": 0.0745667746171983,
+     "normal": 0.004480815473319237,
+     "low": 0.9176048371267318
+    }
+   }
+  },
+  {
+   "id": "gi02",
+   "category": "general_inquiry",
+   "category_confidence": 0.9781,
+   "priority": "low",
+   "priority_confidence": 0.9039,
+   "team": "general",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": null,
+   "route": "team_queue",
+   "reasons": [],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.004817415035879014,
+     "wrong_recipient": 0.0003813070422454133,
+     "login_access": 0.0005826609887369856,
+     "agent_dispute": 0.003952857049326697,
+     "card_issue": 0.006147930834401111,
+     "bill_payment": 0.002570086061159871,
+     "fraud_scam": 0.002365158185609623,
+     "account_kyc": 0.001035152096930203,
+     "general_inquiry": 0.9781474327057111
+    },
+    "priority": {
+     "urgent": 0.00994581944883365,
+     "high": 0.06810046312891238,
+     "normal": 0.018028574868168765,
+     "low": 0.9039251425540853
+    }
+   }
+  },
+  {
+   "id": "gi03",
+   "category": "general_inquiry",
+   "category_confidence": 0.6725,
+   "priority": "low",
+   "priority_confidence": 0.9471,
+   "team": "general",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": null,
+   "route": "person",
+   "reasons": [
+    "not sure of category (general_inquiry 0.67)"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.0004982905207631064,
+     "wrong_recipient": 0.0014788684341256538,
+     "login_access": 0.05421418068525547,
+     "agent_dispute": 0.015442590480499023,
+     "card_issue": 0.00980879206528778,
+     "bill_payment": 0.004157021849491585,
+     "fraud_scam": 0.02148494325853103,
+     "account_kyc": 0.22042390395149347,
+     "general_inquiry": 0.6724914087545529
+    },
+    "priority": {
+     "urgent": 0.006327544285536314,
+     "high": 0.023753680005345248,
+     "normal": 0.02281417827954349,
+     "low": 0.9471045974295749
+    }
+   }
+  },
+  {
+   "id": "gi04",
+   "category": "general_inquiry",
+   "category_confidence": 0.838,
+   "priority": "low",
+   "priority_confidence": 0.846,
+   "team": "general",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": null,
+   "route": "person",
+   "reasons": [
+    "not sure of category (general_inquiry 0.84)",
+    "not sure of priority (low 0.85)"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.03237960012675804,
+     "wrong_recipient": 0.004262602189115021,
+     "login_access": 0.017485336824507647,
+     "agent_dispute": 0.0060486858758897625,
+     "card_issue": 0.014200489498943166,
+     "bill_payment": 0.03510575545614995,
+     "fraud_scam": 0.011319206827932523,
+     "account_kyc": 0.041212038848849775,
+     "general_inquiry": 0.8379862843518542
+    },
+    "priority": {
+     "urgent": 0.006966478425736906,
+     "high": 0.08750323043179276,
+     "normal": 0.059539481657405816,
+     "low": 0.8459908094850646
+    }
+   }
+  },
+  {
+   "id": "gi05",
+   "category": "general_inquiry",
+   "category_confidence": 0.5823,
+   "priority": "normal",
+   "priority_confidence": 0.79,
+   "team": "general",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": null,
+   "route": "person",
+   "reasons": [
+    "not sure of category (general_inquiry 0.58)",
+    "not sure of priority (normal 0.79)"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.2640954243101886,
+     "wrong_recipient": 0.0006924757195143307,
+     "login_access": 0.11988692740752434,
+     "agent_dispute": 0.004382668158890854,
+     "card_issue": 0.006522644885475686,
+     "bill_payment": 0.005040262370833784,
+     "fraud_scam": 0.00012726921100920097,
+     "account_kyc": 0.016911142062138427,
+     "general_inquiry": 0.5823411858744247
+    },
+    "priority": {
+     "urgent": 0.005332335472192621,
+     "high": 0.16630075253813587,
+     "normal": 0.7900229716873303,
+     "low": 0.03834394030234129
+    }
+   }
+  },
+  {
+   "id": "gi06",
+   "category": "general_inquiry",
+   "category_confidence": 0.6877,
+   "priority": "high",
+   "priority_confidence": 0.733,
+   "team": "general",
+   "entities": {
+    "amount": 1000,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": {
+    "outcome": "not_found",
+    "txns": [],
+    "why": "no wallet for this customer"
+   },
+   "route": "person",
+   "reasons": [
+    "not sure of category (general_inquiry 0.69)",
+    "not sure of priority (high 0.73)",
+    "ledger: no wallet for this customer"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.04499335550407041,
+     "wrong_recipient": 0.04593329593662182,
+     "login_access": 0.001019000284608408,
+     "agent_dispute": 0.019771788835911835,
+     "card_issue": 0.05186708490027821,
+     "bill_payment": 0.12073449039977197,
+     "fraud_scam": 0.01396411517286348,
+     "account_kyc": 0.014052954940454677,
+     "general_inquiry": 0.6876639140254193
+    },
+    "priority": {
+     "urgent": 0.17621781487261323,
+     "high": 0.7329535655685225,
+     "normal": 0.08564282693665316,
+     "low": 0.005185792622211135
+    }
+   }
+  },
+  {
+   "id": "gi07",
+   "category": "general_inquiry",
+   "category_confidence": 0.6531,
+   "priority": "low",
+   "priority_confidence": 0.832,
+   "team": "general",
+   "entities": {
+    "amount": null,
+    "phone": null,
+    "reference": null
+   },
+   "ledger": null,
+   "route": "person",
+   "reasons": [
+    "not sure of category (general_inquiry 0.65)",
+    "not sure of priority (low 0.83)"
+   ],
+   "probabilities": {
+    "category": {
+     "failed_transfer": 0.00831442971537141,
+     "wrong_recipient": 0.005121960313320154,
+     "login_access": 0.05496507867611954,
+     "agent_dispute": 0.17294731688798484,
+     "card_issue": 0.007799316012389858,
+     "bill_payment": 0.03934717285978114,
+     "fraud_scam": 0.023756487005053662,
+     "account_kyc": 0.034661956550555637,
+     "general_inquiry": 0.6530862819794239
+    },
+    "priority": {
+     "urgent": 0.004998735162530279,
+     "high": 0.10107095957680533,
+     "normal": 0.06193882104944862,
+     "low": 0.8319914842112158
+    }
+   }
+  }
+ ]
+}

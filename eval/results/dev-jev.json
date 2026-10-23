@@ -66,7 +66,96 @@
   ],
   "ms_per_ticket_median": 255.1,
   "ms_per_ticket_p95": 622.3,
-  "usd_total": 0.006715
+  "usd_total": 0.006715,
+  "fraud_tickets": 24,
+  "fraud_named_as_fraud": 1.0,
+  "fraud_label_right_when_given": 1.0,
+  "fraud_missed_ids": [],
+  "fraud_missed_and_auto_routed_ids": [],
+  "calibration": {
+   "category": {
+    "gap": 0.0346,
+    "brier": 0.0499,
+    "bins": [
+     {
+      "from": 0.0,
+      "to": 0.5,
+      "tickets": 6,
+      "said": 0.42,
+      "right": 0.667
+     },
+     {
+      "from": 0.5,
+      "to": 0.7,
+      "tickets": 7,
+      "said": 0.611,
+      "right": 0.714
+     },
+     {
+      "from": 0.7,
+      "to": 0.8,
+      "tickets": 3,
+      "said": 0.76,
+      "right": 1.0
+     },
+     {
+      "from": 0.8,
+      "to": 0.9,
+      "tickets": 12,
+      "said": 0.843,
+      "right": 0.917
+     },
+     {
+      "from": 0.9,
+      "to": 1.0,
+      "tickets": 147,
+      "said": 0.985,
+      "right": 1.0
+     }
+    ]
+   },
+   "priority": {
+    "gap": 0.0141,
+    "brier": 0.1622,
+    "bins": [
+     {
+      "from": 0.0,
+      "to": 0.5,
+      "tickets": 13,
+      "said": 0.395,
+      "right": 0.385
+     },
+     {
+      "from": 0.5,
+      "to": 0.7,
+      "tickets": 9,
+      "said": 0.651,
+      "right": 0.667
+     },
+     {
+      "from": 0.7,
+      "to": 0.8,
+      "tickets": 9,
+      "said": 0.752,
+      "right": 0.667
+     },
+     {
+      "from": 0.8,
+      "to": 0.9,
+      "tickets": 30,
+      "said": 0.851,
+      "right": 0.867
+     },
+     {
+      "from": 0.9,
+      "to": 1.0,
+      "tickets": 114,
+      "said": 0.974,
+      "right": 0.982
+     }
+    ]
+   }
+  }
  },
  "routed": [
   {

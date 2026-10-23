@@ -22,6 +22,30 @@ QUESTIONS = {
 }
 
 
+def sharpen(probs: dict[str, float], temperature: float) -> dict[str, float]:
+    """Raise every probability to 1/temperature and renormalise. Below 1 it makes the model surer."""
+    if temperature == 1.0:
+        return probs
+    raised = {o: max(p, 1e-12) ** (1.0 / temperature) for o, p in probs.items()}
+    total = sum(raised.values())
+    return {o: v / total for o, v in raised.items()}
+
+
+def fit_temperature(probs: list[dict[str, float]], gold: list[str]) -> float:
+    """The one temperature that makes the probabilities best match how often the model is right.
+
+    Fitted on predictions for tickets the model was not trained on (out-of-fold), never on its own
+    training tickets, where it is overconfident. Changes no choice, only how sure each one claims to be.
+    """
+    import math
+    best, best_loss = 1.0, float("inf")
+    for t in [round(0.10 + 0.01 * i, 2) for i in range(191)]:
+        loss = -sum(math.log(max(sharpen(p, t).get(g, 0.0), 1e-12)) for p, g in zip(probs, gold))
+        if loss < best_loss:
+            best, best_loss = t, loss
+    return best
+
+
 def decision(probs: dict[str, float]) -> dict:
     choice = max(probs, key=probs.get)
     return {"choice": choice, "confidence": probs[choice], "probabilities": probs}
@@ -68,9 +92,14 @@ class LocalDecider:
         Arabizi and English, typos and Iraqi spellings.
     The encoders are downloaded once (about 2 GB) and then run on the laptop's CPU with no network.
     Chosen by 5-fold cross-validation on dev only; eval/README.md lists what else was tried.
+    Averaging two models leaves the result too modest (it said 36% where it was right 57% of the
+    time), so each question carries a temperature fitted out-of-fold on dev that corrects it. The
+    correction is off by default: on dev the raw scores put more tickets in the queue at the same 95%
+    accuracy, so the gate keeps them. Set calibrated = True for honest confidence numbers.
     """
 
     name = "local"
+    calibrated = False
     ENCODERS = (("intfloat/multilingual-e5-base", "query: "),
                 ("sentence-transformers/paraphrase-multilingual-mpnet-base-v2", ""))
     _encoders: dict = {}
@@ -130,7 +159,8 @@ class LocalDecider:
         for q, m in self.models.items():
             a = [dict(zip(m["patterns"].classes_, map(float, r))) for r in m["patterns"].predict_proba(clean)]
             b = [dict(zip(m["meaning"].classes_, map(float, r))) for r in m["meaning"].predict_proba(vectors)]
-            per_q[q] = [{o: (x.get(o, 0.0) + y.get(o, 0.0)) / 2 for o in options[q]} for x, y in zip(a, b)]
+            t = m.get("temperature", 1.0) if self.calibrated else 1.0
+            per_q[q] = [sharpen({o: (x.get(o, 0.0) + y.get(o, 0.0)) / 2 for o in options[q]}, t) for x, y in zip(a, b)]
         return [{q: decision(per_q[q][i]) for q in per_q} for i in range(len(texts))]
 
     def save(self, path: Path):
