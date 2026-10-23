@@ -67,7 +67,8 @@ def reply_language(text: str) -> str:
 
 
 # A card ticket is about a transaction only when it talks about a charge; a lost or blocked card is not.
-_CHARGE = re.compile(r"\d|خصم|انخصم|دفعت|مبلغ|فلوس|دينار|ألف|الف|charg|deduct|paid|payment|amount|iqd|alf", re.I)
+# Two digits or more: Arabizi writes letters as single digits (3laykum, ma6ani).
+_CHARGE = re.compile(r"\d{2,}|خصم|انخصم|دفعت|مبلغ|فلوس|دينار|ألف|الف|charg|deduct|paid|payment|amount|iqd|alf", re.I)
 
 
 def facts(row: dict, ticket: dict, ledger) -> dict:

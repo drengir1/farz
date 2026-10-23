@@ -83,3 +83,5 @@ def test_lost_card_is_not_asked_for_a_transaction_number():
     charged = facts(_row("card_issue", "cards"), _ticket("انخصم مني مبلغ بالبطاقة وما اشتريت شي"), L)
     assert not lost["details_missing"] and "رقم العملية" not in template(lost)
     assert charged["details_missing"]
+    arabizi = facts(_row("card_issue", "cards"), _ticket("slam 3laykum el bitaqa intahat el salahiya"), L)
+    assert not arabizi["details_missing"]

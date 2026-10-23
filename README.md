@@ -19,19 +19,30 @@ tickets in (batch)
         Jev (TypeSafe AI), or our own local model running next to it for comparison
    -> rules: amount, phone, reference pulled from the ticket text
    -> mock ledger: do those values match a transaction on the customer's wallet?
-   -> LLM: reply drafted in the customer's dialect (not built yet)
    -> confidence gate
         sure and clean                 -> team queue, agent approves the draft
         not sure                       -> a person, with the decider's split shown
         scam, injection, ledger problem -> always a person
+   -> reply draft in Iraqi Arabic (also for Arabizi), or English if the customer wrote English
+        GPT-6 Astra writes it from the facts above; a check throws out any draft that
+        promises money back or a time, asks for a code or PIN, quotes a number we did not
+        give it, or uses a word from our banned list. A fixed template takes its place.
+   -> agent screen in Iraqi Arabic: approve, edit and approve, or take over
+        nothing is sent by Farz; every choice is logged
+```
+
+Try it with the saved dev results, no network needed:
+
+```
+python -m farz.screen          # then open http://localhost:8008
 ```
 
 ## What is here now
 
-- `farz/` the pipeline: ticket reading (`extract.py`), the ledger check (`ledger.py`), the safety gate (`gate.py`), the two deciders (`deciders.py`, `jev.py`) and `pipeline.py` that joins them.
+- `farz/` the pipeline: ticket reading (`extract.py`), the ledger check (`ledger.py`), the safety gate (`gate.py`), the two deciders (`deciders.py`, `jev.py`), reply drafts and their check (`drafts.py`, `words.py`), `pipeline.py` that joins them, and the agent screen (`screen.py`, `screen.html`).
 - `data/` a 40-wallet mock ledger and 250 synthetic tickets, 175 to work with and 75 held out. All invented. `data/README.md` says how they were made and what their limits are.
 - `eval/` the scorer and the results of every run. `eval/README.md` lists the local models we tried.
-- `tests/` 35 tests for the reading rules, the ledger check, the gate and threshold picking.
+- `tests/` 45 tests for the reading rules, the ledger check, the gate, threshold picking, the drafts and their check.
 - `probe/` the first test, run 23 Sep 2026: 63 Iraqi-dialect tickets written by a person, Jev only, no tuning.
 - `docs/` the design brief.
 
@@ -57,7 +68,25 @@ On the 63 probe tickets, written by a person rather than a model, Jev got catego
 
 What this means for now: Jev stays the decider for the MVP. The local model is a working fallback that needs no network and no payment, and every ticket it is unsure about goes to a person, so it is safe if slower to save work. More training tickets, especially human-written ones, are what it needs.
 
-What has not been measured yet: the 50 volunteer-written tickets, the reply drafts, and anything on real traffic.
+### Does the confidence mean what it says?
+
+When a decider says it is 90% sure, it should be right about 90% of the time; the gate trusts that number. The gap below is how far, on average, the stated confidence sits from how often it was actually right (0 is perfect). `python eval/calibration.py` recomputes it from the saved runs.
+
+| Category gap | Dev | Probe | Held-out |
+| --- | --- | --- | --- |
+| Jev | 0.035 | 0.037 | 0.027 |
+| Local, raw | 0.267 | 0.371 | 0.354 |
+| Local, corrected | 0.026 | 0.136 | not run |
+
+Jev's confidence can be taken at its word. The local model was far too modest: it said 36% where it was right 57% of the time, which is why its dev-picked threshold was only 0.50 and it sent fewer tickets to the queue. It now learns one correction for each question from its own cross-validation (dev only). This changes no answer, only how sure each answer claims to be, and it closes most of the gap.
+
+It did not help the gate, though. On dev, the raw scores let 66 tickets through at 95% right; with the correction the best was 41 at the same 95%, because the two questions are corrected by different amounts and that reorders which tickets clear the bar. So routing keeps the raw scores, picked on dev, and the correction is an option (`--calibrated`) for when the number itself is shown or used. On probe, routing was the same either way.
+
+### Scams on their own
+
+Every scam ticket must reach a person, whatever the decider calls it. It did: no scam ticket was ever sent to the team queue, on any set, by either decider, because the scam words and the gate catch it even when the category is wrong. Jev also named every scam as a scam (all three sets). The local model named 21 of 24 on dev, 6 of 7 on probe and 10 of 10 on held-out; the four it missed it filed as a bill, a login, a transfer and an account problem, and the gate still sent all four to a person.
+
+What has not been measured yet: the 50 volunteer-written tickets, a person's rating of the reply drafts, and anything on real traffic. The held-out local numbers above were taken before the confidence correction and are left as they are; scoring it again would need a recorded second run.
 
 ## Build plan
 
@@ -66,8 +95,8 @@ The MVP is due 8 Nov 2026. The core has to work end to end on sample tickets by 
 | Dates | Goal |
 | --- | --- |
 | 23 to 29 Oct | Done except the volunteer tickets: 300 tickets: 250 synthetic in dialect, English and Arabizi (75 of them held out and never tuned on) plus 50 made up by Iraqi volunteers. 40-wallet mock ledger. Jev client in this repo, batch intake, category, priority and team routing, confidence gate. First score on the held-out set. |
-| 30 Oct to 5 Nov | Done early: rules for amount, phone and reference, ledger matching, scam words force a person. Left: reply drafts in dialect. A simple agent screen in Iraqi Arabic to approve, edit or take over. |
-| 6 to 8 Nov | Full run on the held-out set, calibration check, fraud recall on its own. One-page update: what works, what does not yet, what comes next. Submit the MVP. |
+| 30 Oct to 5 Nov | Done early: rules for amount, phone and reference, ledger matching, scam words force a person, reply drafts with their check, the agent screen in Iraqi Arabic, the calibration check and scam recall on their own. |
+| 6 to 8 Nov | Rate the drafts as send, edit or rewrite. One-page update: what works, what does not yet, what comes next. Submit the MVP. |
 
 After the MVP: rate 50 drafts as send, edit or rewrite, test on new inputs, document failure modes, and polish the demo for the progress review.
 
@@ -77,6 +106,6 @@ If time runs short we cut multi-channel intake, then drafts for low-priority tic
 
 - **Jev** (TypeSafe AI) makes every routing decision in the MVP.
 - **Our local model** is built from two open multilingual sentence encoders, `intfloat/multilingual-e5-base` (MIT) and `sentence-transformers/paraphrase-multilingual-mpnet-base-v2` (Apache 2.0), plus scikit-learn. It is trained only on our dev tickets and runs offline. It is scored next to Jev, it does not route anything live.
-- **GPT-6 Astra** drafts replies only. It never decides where a ticket goes.
+- **GPT-6 Astra** drafts replies only, from the facts the pipeline hands it, with every tool switched off. It never decides where a ticket goes, and a draft that fails our check is replaced by a fixed template.
 - **Claude** and **Codex** help write code and documents. Every change is reviewed by us.
 - Synthetic tickets were written by two LLMs from outlines we wrote (GPT-6 Astra 156, Claude 94) and checked by a script for required details and our Iraqi word list. The 50 human-written tickets are invented by Iraqi volunteers, not taken from real customers. No real personal or customer data is used anywhere.
