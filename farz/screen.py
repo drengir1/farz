@@ -24,6 +24,7 @@ from .ledger import Ledger
 from .pipeline import LEDGER, ROOT
 
 PAGE = Path(__file__).with_name("screen.html")
+MARK = Path(__file__).with_name("mark.svg")  # the Nurunim mark
 ACTIONS = ROOT / "runs" / "actions.jsonl"
 CHOICES = {"approve", "edit", "take_over"}
 
@@ -100,6 +101,8 @@ def make_handler(queue: list[dict], store: Store):
         def do_GET(self):
             if self.path in ("/", "/index.html"):
                 self._send(200, PAGE.read_bytes(), "text/html; charset=utf-8")
+            elif self.path == "/mark.svg":
+                self._send(200, MARK.read_bytes(), "image/svg+xml")
             elif self.path == "/api/queue":
                 self._json(200, {"tickets": queue, "actions": store.done})
             else:
