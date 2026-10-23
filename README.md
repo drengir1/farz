@@ -95,7 +95,7 @@ Every scam ticket must reach a person, whatever the decider calls it. It did: no
 - **Our model's priority misses go both ways.** On dev, 19 too low and 18 too high, including 7 urgent tickets marked high and 1 marked low. Its category mix-ups are between close neighbours: wrong recipient and failed transfer, account checks and general questions, login and account.
 - **On the hand-written tickets our model over-calls scams.** Three non-scam tickets were named scams. That costs a person's time, not safety, since scams go to a person anyway.
 
-What has not been measured yet: a person's rating of the reply drafts, and anything on real traffic. The held-out local numbers above were taken before the confidence correction and are left as they are; scoring it again would need a recorded second run.
+Drafts rated by a person: a first sample of 4 in the agent screen, 3 sent as is, 0 edited, 1 rewritten (saved in `eval/results/rating-dev.jsonl`; `python eval/rate.py eval/results/rating-dev.jsonl`). Too few for a share. Not measured yet: anything on real traffic. The held-out local numbers above were taken before the confidence correction and are left as they are; scoring it again would need a recorded second run.
 
 ## Build plan
 
@@ -105,7 +105,7 @@ The MVP is due 8 Nov 2026. The core has to work end to end on sample tickets by 
 | --- | --- |
 | 23 to 29 Oct | Done: 250 synthetic tickets in dialect, English and Arabizi (75 of them held out and never tuned on), plus the 63 written by hand as the human test set (see below). 40-wallet mock ledger. Jev client in this repo, batch intake, category, priority and team routing, confidence gate. First score on the held-out set. |
 | 30 Oct to 5 Nov | Done early: rules for amount, phone and reference, ledger matching, scam words force a person, reply drafts with their check, the agent screen in Iraqi Arabic, the calibration check and scam recall on their own. |
-| 6 to 8 Nov | Rate the drafts as send, edit or rewrite. One-page update: what works, what does not yet, what comes next. Submit the MVP. |
+| 6 to 8 Nov | Done early: the agent screen as a dashboard, a first sample of drafts rated, the one-page update ([docs/update.md](docs/update.md)). Submit the MVP. |
 
 After the MVP: rate more drafts as send, edit or rewrite, test on new inputs, document failure modes, and polish the demo for the progress review.
 

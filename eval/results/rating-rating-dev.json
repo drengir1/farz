@@ -1,0 +1,52 @@
+{
+ "from": "rating-dev.jsonl",
+ "all": {
+  "tickets": 4,
+  "send": 3,
+  "edit": 0,
+  "rewrite": 1,
+  "send_share": 0.75
+ },
+ "kept_in_edits_median": null,
+ "by_writer": {
+  "astra": {
+   "tickets": 4,
+   "send": 3,
+   "edit": 0,
+   "rewrite": 1,
+   "send_share": 0.75
+  }
+ },
+ "by_route": {
+  "person": {
+   "tickets": 2,
+   "send": 1,
+   "edit": 0,
+   "rewrite": 1,
+   "send_share": 0.5
+  },
+  "team_queue": {
+   "tickets": 2,
+   "send": 2,
+   "edit": 0,
+   "rewrite": 0,
+   "send_share": 1.0
+  }
+ },
+ "by_category": {
+  "failed_transfer": {
+   "tickets": 2,
+   "send": 2,
+   "edit": 0,
+   "rewrite": 0,
+   "send_share": 1.0
+  },
+  "login_access": {
+   "tickets": 2,
+   "send": 1,
+   "edit": 0,
+   "rewrite": 1,
+   "send_share": 0.5
+  }
+ }
+}
