@@ -1,10 +1,10 @@
-"""Run a batch of tickets through Farz: decide, extract, check the ledger, gate.
+"""Run a batch of tickets through Farz: decide, extract, check the ledger, gate, draft a reply.
 
   python -m farz.pipeline tickets.jsonl --decider local     # or --decider jev
-  python -m farz.pipeline tickets.jsonl --decider jev --out routed.jsonl
+  python -m farz.pipeline tickets.jsonl --decider jev --drafts astra --out routed.jsonl
 
 Each input line needs "id", "text" and "wallet_phone" (the logged-in customer's number).
-Reply drafts are the next step of the build and are not written here yet.
+Drafts default to the template writer; --drafts astra rewrites them with GPT-6 Astra, --drafts none skips them.
 """
 
 from __future__ import annotations
@@ -59,15 +59,20 @@ def main():
     ap.add_argument("tickets")
     ap.add_argument("--decider", default="local", choices=["local", "jev"])
     ap.add_argument("--threshold", type=float, default=THRESHOLD)
+    ap.add_argument("--drafts", default="template", choices=["template", "astra", "none"])
     ap.add_argument("--out")
     args = ap.parse_args()
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
     tickets = [json.loads(line) for line in Path(args.tickets).read_text(encoding="utf-8").splitlines() if line.strip()]
-    rows = route(tickets, make_decider(args.decider), Ledger.load(LEDGER), args.threshold)
+    ledger = Ledger.load(LEDGER)
+    rows = route(tickets, make_decider(args.decider), ledger, args.threshold)
+    if args.drafts != "none":
+        from .drafts import draft_all
+        rows = draft_all(rows, tickets, ledger, args.drafts)
     text = "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows)
     if args.out:
-        Path(args.out).write_text(text, encoding="utf-8")
+        Path(args.out).write_text(text, encoding="utf-8", newline="\n")
     else:
         sys.stdout.write(text)
 

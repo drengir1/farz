@@ -33,6 +33,10 @@ class Ledger:
     def load(cls, path: Path) -> "Ledger":
         return cls(json.loads(Path(path).read_text(encoding="utf-8"))["wallets"])
 
+    def txn(self, wallet_phone: str, ref: str) -> dict | None:
+        wallet = self.by_phone.get(wallet_phone)
+        return next((t for t in wallet["transactions"] if t["ref"] == ref), None) if wallet else None
+
     def check(self, wallet_phone: str, amount: int | None, phone: str | None, reference: str | None) -> dict:
         wallet = self.by_phone.get(wallet_phone)
         if wallet is None:
