@@ -86,7 +86,7 @@ It did not help the gate, though. On dev, the raw scores let 66 tickets through 
 
 Every scam ticket must reach a person, whatever the decider calls it. It did: no scam ticket was ever sent to the team queue, on any set, by either decider, because the scam words and the gate catch it even when the category is wrong. Jev also named every scam as a scam (all three sets). The local model named 21 of 24 on dev, 6 of 7 on probe and 10 of 10 on held-out; the four it missed it filed as a bill, a login, a transfer and an account problem, and the gate still sent all four to a person.
 
-What has not been measured yet: the 50 volunteer-written tickets, a person's rating of the reply drafts, and anything on real traffic. The held-out local numbers above were taken before the confidence correction and are left as they are; scoring it again would need a recorded second run.
+What has not been measured yet: a person's rating of the reply drafts, and anything on real traffic. The held-out local numbers above were taken before the confidence correction and are left as they are; scoring it again would need a recorded second run.
 
 ## Build plan
 
@@ -94,13 +94,17 @@ The MVP is due 8 Nov 2026. The core has to work end to end on sample tickets by 
 
 | Dates | Goal |
 | --- | --- |
-| 23 to 29 Oct | Done except the volunteer tickets: 300 tickets: 250 synthetic in dialect, English and Arabizi (75 of them held out and never tuned on) plus 50 made up by Iraqi volunteers. 40-wallet mock ledger. Jev client in this repo, batch intake, category, priority and team routing, confidence gate. First score on the held-out set. |
+| 23 to 29 Oct | Done: 250 synthetic tickets in dialect, English and Arabizi (75 of them held out and never tuned on), plus the 63 written by hand as the human test set (see below). 40-wallet mock ledger. Jev client in this repo, batch intake, category, priority and team routing, confidence gate. First score on the held-out set. |
 | 30 Oct to 5 Nov | Done early: rules for amount, phone and reference, ledger matching, scam words force a person, reply drafts with their check, the agent screen in Iraqi Arabic, the calibration check and scam recall on their own. |
 | 6 to 8 Nov | Rate the drafts as send, edit or rewrite. One-page update: what works, what does not yet, what comes next. Submit the MVP. |
 
-After the MVP: rate 50 drafts as send, edit or rewrite, test on new inputs, document failure modes, and polish the demo for the progress review.
+After the MVP: rate more drafts as send, edit or rewrite, test on new inputs, document failure modes, and polish the demo for the progress review.
 
 If time runs short we cut multi-channel intake, then drafts for low-priority tickets, then ledger matching. We never cut the held-out set, the escalation gate, or a person approving every reply.
+
+### The human test set
+
+The design brief promised 50 tickets written by Iraqi volunteers. We dropped that and use the 63 probe tickets Shakir wrote by hand on 23 Sep instead: more tickets, written by a person, and in hand already. Nothing was trained or tuned on them, and they are scored on their own. They are not as blind as a stranger's tickets would be, since the same person later helped design the categories, and they carry category and priority only, no ledger details.
 
 ## AI tools used
 
@@ -108,4 +112,4 @@ If time runs short we cut multi-channel intake, then drafts for low-priority tic
 - **Our local model** is built from two open multilingual sentence encoders, `intfloat/multilingual-e5-base` (MIT) and `sentence-transformers/paraphrase-multilingual-mpnet-base-v2` (Apache 2.0), plus scikit-learn. It is trained only on our dev tickets and runs offline. It is scored next to Jev, it does not route anything live.
 - **GPT-6 Astra** drafts replies only, from the facts the pipeline hands it, with every tool switched off. It never decides where a ticket goes, and a draft that fails our check is replaced by a fixed template.
 - **Claude** and **Codex** help write code and documents. Every change is reviewed by us.
-- Synthetic tickets were written by two LLMs from outlines we wrote (GPT-6 Astra 156, Claude 94) and checked by a script for required details and our Iraqi word list. The 50 human-written tickets are invented by Iraqi volunteers, not taken from real customers. No real personal or customer data is used anywhere.
+- Synthetic tickets were written by two LLMs from outlines we wrote (GPT-6 Astra 156, Claude 94) and checked by a script for required details and our Iraqi word list. The 63 human-written probe tickets were written by Shakir by hand on 23 Sep, before any of the pipeline existed, and are not taken from real customers. No real personal or customer data is used anywhere.
